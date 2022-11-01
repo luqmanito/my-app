@@ -1,0 +1,65 @@
+.left-border {
+  background-color: #ffcb65;
+  margin: auto;
+}
+
+.beef-spaghetti {
+  margin-top: 10%;
+}
+
+.beef {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 101.34%;
+  text-align: center;
+  color: #000000;
+  margin-top: 4%;
+}
+
+.choco {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 101.34%;
+  text-align: center;
+  color: #000000;
+}
+
+.code {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 101.34%;
+  text-align: center;
+  color: #000000;
+}
+
+.codex {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 101.34%;
+  text-align: center;
+  color: #000000;
+}
+
+.valid {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 101.34%;
+  text-align: center;
+  color: #000000;
+}
+
+.button-product {
+  margin-top: 10%;
+  background-color: #6a4029 !important;
+  border-color: #6a4029 !important;
+}

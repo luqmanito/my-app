@@ -1,0 +1,104 @@
+.footer-home {
+    background-color: #f8f8f8;
+    display: flex;
+    max-width: 1440px;
+    margin: auto;
+    height: 400px;
+    margin-top: -5%;
+    border-top: #4f5665;
+    z-index: 0;
+  }
+  
+  #desc {
+    margin-top: 30px;
+    margin-left: 45px;
+  }
+  
+  .about-coffe {
+    flex-direction: column;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    color: #4f5665;
+    padding-left: 100px;
+    padding-top: 50px;
+    text-align: left;
+    margin-top: 20%;
+  }
+  
+  .socmed {
+    margin-left: -5px;
+  }
+  
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 575px;
+    margin-top: 7%;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+  
+    color: #4f5665;
+  }
+  .engagement {
+    display: flex;
+    margin-left: 80px;
+    margin-top: 7%;
+    flex-direction: column;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+  
+    color: #4f5665;
+  }
+  img {
+    vertical-align: middle;
+  }
+  .coffeeshp {
+    font-weight: bolder;
+    font-size: 17px;
+    /* margin-top: -10%; */
+  }
+  
+  .coffee-desc {
+    font-size: 13px;
+  }
+  
+  .socmed-icon {
+      width:35px 
+  }
+  
+  .coffee-logo{
+      width:27px;
+      height:27px
+  }
+  
+  .coffee-logos{
+      width:30px;
+      height:30px
+  }
+  
+  
+  .socmed-url {
+    color: #afb5c0;
+    font-size: small;
+    margin-top: 0px;
+  }
+  
+  .products {
+    font-weight: bold;
+  }
+  
+  .engage {
+    font-weight: bold;
+  }
+  
+  .download-content,
+  .engage-content {
+    margin-top: 7%;
+  }

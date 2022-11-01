@@ -1,0 +1,119 @@
+.main-forgot {
+  max-width: 1440px;
+  background-image: url(https://scontent.fcgk22-1.fna.fbcdn.net/v/t39.30808-6/313167893_10221269754964194_4916761522704169923_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e3f864&_nc_ohc=jSdbbfD5h3YAX8MkCbX&_nc_ht=scontent.fcgk22-1.fna&oh=00_AfBL41SS-5DU3xLqFYj-A9SGtyJebRTKArfuQ7Ob7YYzhw&oe=636089E4);
+  height:900px;
+  padding: 20px;
+  justify-content: center;
+}
+.forgot {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 96px;
+  text-align: center;
+  margin-top: 10%;
+  color: #ffffff;
+}
+
+.worry {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.clickhere {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  margin-top: 5%;
+  color: #ffffff;
+  /* background-color: #ffba33; */
+}
+
+.timer {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  color: #ffffff;
+  /* margin-top: %; */
+}
+.email-input {
+  justify-content: center;
+  margin-top: 10%;
+  /* background-color: aqua; */
+  max-width: 1440px;
+}
+
+.content {
+  width: 750px;
+  padding: 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.send {
+  margin-left: 10px;
+  width: 150px;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  background-color: #ffba33;
+  border-color: #ffba33;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 45px;
+  text-align: center;
+  color: #6a4029;
+  box-shadow: 0px 6px 20px rgba(255, 186, 51, 0.4);
+  border-radius: 20px;
+}
+
+.resend {
+  padding: 10px;
+  width: 300px;
+  height: 50px;
+  /* margin-top: 2%; */
+  justify-content: center;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  background-color: #6a4029;
+  border-color: #6a4029;
+  color: #ffffff;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 25px;
+  box-shadow: 0px 0px 19px -1px rgba(158, 101, 54, 0.75);
+  -webkit-box-shadow: 0px 0px 19px -1px rgba(158, 101, 54, 0.75);
+  -moz-box-shadow: 0px 0px 19px -1px rgba(158, 101, 54, 0.75);
+}
+
+.bottom-content {
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  /* background-color: #000000;
+  height: 200px; */
+}

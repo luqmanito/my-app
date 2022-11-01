@@ -1,0 +1,109 @@
+.header-prod {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    height: 100px;
+    max-width: 1440px;
+    margin: auto;
+  }
+  
+  .left-header {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    color: #0b132a;
+  }
+  .coffeeshop {
+    margin: 10px;
+  }
+  
+  .link {
+    flex: 1;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #4f5665;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .center-header {
+    flex: 1;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #4f5665;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2%;
+  }
+  
+  .right-header {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-profile-img {
+    display: flex;
+    margin: 7%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #ffffff;
+    box-shadow: 0 0 8px 3px #b8b8b8;
+    position: relative;
+  }
+  
+  .search-icon {
+    display: flex;
+    margin: 7%;
+    width: 30px;
+    height: 30px;
+    /* border-radius: 50%;
+      border-style: solid;
+      border-color: #ffffff;
+      box-shadow: 0 0 8px 3px #b8b8b8; */
+    position: relative;
+  }
+  
+  .msg-icon {
+    width: 30px;
+    height: 30px;
+  
+    position: relative;
+  }
+  
+  .home {
+    flex: 1;
+  }
+  
+  .product {
+    flex: 1;
+  }
+  
+  .cart {
+    flex: 1;
+  }
+  
+  .history {
+    flex: 1;
+  }
