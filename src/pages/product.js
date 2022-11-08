@@ -1,104 +1,216 @@
-import React, { Component, Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useMemo } from "react";
 import styles from "../style/product.module.css";
 import { useDocumentTitle } from "../helpers/page-title";
 import ProductCard from "../components/cards/product";
 import PromoCard from "../components/cards/promo";
-import Header from "../components/header/header";
+import NavBar from "../components/header/NavBar";
+import withNavigate from "../helpers/withNavigate";
+import { getProduct, getProducts } from "../helpers/tools";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Footer from "../components/footer/footer";
-import Axios from "axios";
-
-import coffee from "../assets/img/coffee-logo.png";
-import search from "../assets/img/search-icon.png";
-import msg from "../assets/img/msg-icon.png";
-import beard from "../assets/img/beard-man-icon.jpg";
-import beef from "../assets/img/beef-spaghetti - Edited.png";
-import veggie from "../assets/img/veggie-tomato-product.png";
-import hazel from "../assets/img/hazzelnut-product.png";
-import summer from "../assets/img/summer-fried-rice-prodcut.png";
-import creamy from "../assets/img/creamy-ice-latte-product.png";
-import drum from "../assets/img/drum-stick-prod.png";
-import salty from "../assets/img/salty-rice-prod.png";
-import fb from "../assets/img/fb-icon.png";
-import twitter from "../assets/img/twitter-icon.png";
-import ig from "../assets/img/ig-icon.png";
-import axios from "axios";
-
-// function Card({name, price}) {
-//   return (
-//     div
-//   )
-// }
 
 
-
-
-const Product = () => {
-  // const [dataProducts, setDataProducts] = useState([])
-  // useEffect(()=> {
-  //   Axios.get('http://localhost:8070/api/show/products/all')
-  //   .then(res => {
-  //     console.log('data API', res.data);
-  //     const responseAPI = res.data
-
-  //     setDataProducts(responseAPI)
-  //   })
-  //   .catch(err => {
-  //     console.log('error', err);
-  //   })
-  // })
-
-  const [product, setProduct] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8070/api/show/products/all?limit=12")
-      .then((res) => {
-        // console.log(res);
-        setProduct(res.data.result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+const Products = ({ navigate}) => {
+  const [param, setParam] = useState({
+    filter: "",
+    sort: "",
+    order: "desc",
+    page: 1,
   });
+
+  
+
+  const [query, setSearchProduct] = useState("");
+
+  const getAllProduct = async () => {
+    try {
+      const result = await getProducts(param, counter);
+      // setAllProduct(result.data.result);
+      console.log("angka", counter);
+      console.log(`inidia`, param.filter);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+      dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleNonCofee = async () => {
+    try {
+      const body = { ...param, filter: "non-coffee", sort: "", order: "asc" };
+      setParam(body);
+      const result = await getProduct(body);
+      // setAllProduct(result.data.result);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleFavorite = async () => {
+    try {
+      const body = {
+        ...param,
+        sort: "most-popular",
+        order: "desc",
+        filter: "",
+      };
+      setParam(body);
+      const result = await getProduct(body);
+      // setAllProduct(result.data.result);
+      // navigate(`/products/${param.filter}`);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleFood = async () => {
+    try {
+      const body = { ...param, filter: "food", sort: "", order: "asc" };
+      setParam(body);
+      const result = await getProduct(body);
+      // setAllProduct(result.data.result);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleCoffee = async () => {
+    try {
+      const body = { ...param, filter: "coffee", sort: "", order: "asc" };
+      setParam(body);
+      const result = await getProduct(body);
+      // navigate(`/products/${param.category}`)
+      // setAllProduct(result.data.result);
+      // navigate(`/products/${param.filter}`);
+      <Link to={`/products/${param.filter}`}/> 
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const mostExpensive = async () => {
+    try {
+      const body = {
+        ...param,
+        filter: "",
+        sort: "most-expensive",
+        order: "desc",
+      };
+      setParam(body);
+      const result = await getProduct(body);
+      // navigate(`/products/${param.category}`)
+      // setAllProduct(result.data.result);
+      // navigate(`/products/${param.filter}`);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const cheapest = async () => {
+    try {
+      const body = { ...param, filter: "", sort: "cheapest", order: "asc" };
+      setParam(body);
+      const result = await getProduct(body);
+      // navigate(`/products/${param.category}`)
+      // setAllProduct(result.data.result);
+      navigate(`/products/${param.filter}`);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const newest = async () => {
+    try {
+      const body = { ...param, filter: "", sort: "newest", order: "desc" };
+      setParam(body);
+      const result = await getProduct(body);
+      // navigate(`/products/${param.category}`)
+      // setAllProduct(result.data.result);
+      navigate(`/products/${param.filter}`);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const oldest = async () => {
+    try {
+      const body = { ...param, filter: "", sort: "oldest", order: "asc" };
+      setParam(body);
+      const result = await getProduct(body);
+      // navigate(`/products/${param.category}`)
+      // setAllProduct(result.data.result);
+      // navigate(`/products/${param.filter}`);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [counter, setCounter] = useState(1);
+
+  const next = async () => {
+    setCounter(counter + 1);
+    console.log("itu", counter);
+
+    try {
+      const result = await getProducts(param, counter);
+      // setAllProduct(result.data.result);
+      console.log("angka", counter);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+      dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const prev = async () => {
+    setCounter(counter - 1);
+    console.log("ini", counter);
+
+    try {
+      const result = await getProducts(param, counter);
+      // setAllProduct(result.data.result);
+      console.log("angka", counter);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+      dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //destructuring stateGlobal
+  const { products, currentPage } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  console.log("page: ", currentPage);
+
+  // console.log(`state global:`, stateGlobal);
+  console.log(`data product global:`, products);
+  useEffect(() => {
+    // setTimeout(() => {
+    //   dispatch({ type: "UPDATE_NAME" });
+    // }, 2000);
+
+    getAllProduct();
+  }, [param.filter]);
 
   useDocumentTitle("Products");
   return (
     <Fragment>
-      <main className={`container-fluid ${styles["main-product"]}`}>
-        {/* <header className={styles["header-prod"]}>
-          <aside className={styles["left-header"]}>
-            <img src={coffee} width="30px" height="30px" alt="coffee-icon" />
-            <span className={styles["coffeeshop"]}>Coffee Shop</span>
-          </aside>
-          <aside className={styles["center-header"]}>
-            <p className={styles["home"]}>Home</p>
-            <p className={styles["product"]}>Product</p>
-            <p className={styles["cart"]}>Your Cart</p>
-            <p className={styles["history"]}>History</p>
-          </aside>
-          <aside className={styles["right-header"]}>
-            <img
-              src={search}
-              alt="search-icon"
-              className={styles["search-icon"]}
-            />
-            <img src={msg} alt="msg" className={styles["msg-icon"]} />
-
-            <img
-              src={beard}
-              alt="beard"
-              className={styles["icon-profile-img"]}
-            />
-          </aside>
-        </header> */}
-        <Header />
-
-        <section className="container-fluid text-dark">
-          <div className="row align-items-center">
+      <NavBar onChange={(e) => setSearchProduct(e.target.value)} />
+      <body className={`container-fluid ${styles["main-body"]}`}>
+        <section
+          className={`container-fluid text-dark ${styles["sec-product"]}`}
+        >
+          <div className={`row align-items-center ${styles["sub-product"]}`}>
             <section className={`col-4 border w-25 ${styles["box-side"]}`}>
               <h1 className={`text-center ${styles["promoforyou"]}`}>
                 Promo for you
               </h1>
+
+              {/* <p>{stateGlobal.name}</p> */}
+              {/* krn sudah destructuring jadi name aja */}
+              {/* <p>{name}</p> */}
+
               <br />
               <p className={`text-center ${styles["coupons"]}`}>
                 Coupons will be updated every weeks. <br />
@@ -129,95 +241,138 @@ const Product = () => {
             <section
               className={`col-8 border w-75 row align-items-start ${styles["main-side"]}`}
             >
-              <div className="container text-center">
+              <div className={`container ${styles["filter-side"]}`}>
+
                 <aside
-                  className={`row align-items-start ${styles["sub-category"]}`}
+                  className={`row row-cols-auto ${styles["sub-category"]}`}
                 >
+                  <Link to={`/categorys/favorite-products`}>
                   <aside
                     className={`col text-decoration-underline align-middle ${styles["fav-prod"]}`}
                   >
-                    <p>Favorite Product</p>
+                    <p onClick={handleFavorite}>Favorite Product</p>
                   </aside>
-                  <aside className={`col  ${styles["category"]}`}>Coffee</aside>
-                  <aside className={`col  ${styles["category"]}`}>
+                  </Link>
+
+                  <Link to={`/categorys/coffee`}>
+                    <aside
+                      onClick={() => {
+                        // navigate(`/products/${param.filter}`)
+                        handleCoffee();
+                        
+                      }}
+                      className={`col  ${styles["category"]}`}
+                    >
+                      Coffee
+                    </aside>
+                  </Link>
+                  <Link to={`/categorys/non-coffee`}>
+                  <aside
+                    onClick={handleNonCofee}
+                    className={`col  ${styles["category"]}`}
+                  >
                     Non Coffee
                   </aside>
-                  <aside className={`col ${styles["category"]}`}>Foods</aside>
-                  <aside className={`col ${styles["category"]}`}>Add-on</aside>
+                  </Link>
+
+                  <Link to={`/categorys/food`}>
+                  <aside
+                    onClick={handleFood}
+                    className={`col ${styles["category"]}`}
+                  >
+                    Foods
+                  </aside>
+                  </Link>
+                  <Link to={`/categorys/addon`}>
+                  <aside className={`col ${styles["category"]}`}>Add-on</aside></Link>
                 </aside>
               </div>
+              <span className={` ${styles["sortby"]}`}>Sort by:</span>
+              <label className={` ${styles["dropdown"]}`}>
+                <div className={` ${styles["dd-button"]}`}>Most Popular</div>
+
+                <input
+                  type="checkbox"
+                  className={` ${styles["dd-input"]}`}
+                  id="test"
+                />
+
+                <ul className={` ${styles["dd-menu"]}`}>
+                  <li onClick={mostExpensive}>Most expensive</li>
+                  <li onClick={cheapest}>Cheapest</li>
+                  <li onClick={newest}>Newest</li>
+                  <li onClick={oldest}>Oldest</li>
+                  <li className={` ${styles["divider"]}`}></li>
+                </ul>
+              </label>
+
               <aside className={`"container text-center ${styles["sub-list"]}`}>
                 <div
                   className={`"container text-center ${styles["list-products"]}`}
                 >
-                  <aside className={`row align-items-start ${styles["prod-wrap"]}`}>
+                  <aside
+                    className={`row align-items-start ${styles["prod-wrap"]}`}
+                  >
+                    {products
+                      .filter((product) => {
+                        if (query === "") {
+                          return product;
+                        } else if (
+                          product.name
+                            .toLowerCase()
+                            .includes(query.toLowerCase())
+                        ) {
+                          return product;
+                        }
+                      })
 
-                  {product.map((product) => {
-                    return <ProductCard name={product.name} price={'IDR ' + product.price} key={product.id}/>
-                  })}    
-     
+                      .map((product) => {
+                        return (
+                          <ProductCard
+                            name={product.name}
+                            price={"IDR " + product.price}
+                            image={product.image}
+                            key={product.id}
+                          />
+                        );
+                      })}
                   </aside>
+
+                  <nav
+                    className={`${styles["page"]}`}
+                    aria-label="Page navigation example"
+                  >
+                    <ul className={`pagination ${styles["pagination"]}`}>
+                      <li className={`page-item ${styles["pageitem"]}`}>
+                        <a
+                          className={`page-link ${styles["pagelink"]}`}
+                          onClick={prev}
+                          href="#"
+                        >
+                          Previous
+                        </a>
+                      </li>
+
+                      <li className={`page-item ${styles["pageitem"]}`}>
+                        <a
+                          className={`page-link ${styles["pagelink"]}`}
+                          onClick={next}
+                          href="#"
+                        >
+                          Next
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
-  
               </aside>
             </section>
           </div>
         </section>
-        <footer className={styles["footer-product"]}>
-          <aside className={styles["desc"]}>
-            <aside className={styles["about-coffe"]}>
-              <img src={coffee} width="27px" height="27px" alt="coffee-icon" />
-              <span className={styles["coffeeshp"]}>Coffee Shop</span> <br />
-              <p className={styles["coffee-desc"]}>
-                Coffee Shop is a store that sells some good <br />
-                meals, and especially coffee. We provide <br />
-                high quality beans
-              </p>
-              <aside className={styles["socmed"]}>
-                <img src={fb} alt="fb" width="35px" />
-                <img src={twitter} alt="twitter" width="35px" />
-                <img src={ig} alt="ig" width="35px" />
-                <p className={styles["socmed-url"]}>@2022CoffeeStore</p>
-              </aside>
-            </aside>
-          </aside>
-          <aside className={styles["product-info"]}>
-            <p className={styles["products"]}>Product</p>
-
-            <p className={styles["download-content"]}>
-              Download
-              <br />
-              <br />
-              Pricing <br />
-              <br />
-              Locations <br />
-              <br />
-              Countries <br />
-              <br />
-              Blog
-            </p>
-          </aside>
-          <aside className={styles["engagement"]}>
-            <p className={styles["engage"]}>Engage</p>
-            <p className={styles["engage-content"]}>
-              Coffee Shop ?<br />
-              <br />
-              FAQ
-              <br />
-              <br />
-              About Us
-              <br />
-              <br />
-              Privacy Policy
-              <br />
-              <br />
-              Terms of Service
-            </p>
-          </aside>
-        </footer>
-      </main>
+        <Footer />
+      </body>
     </Fragment>
   );
 };
 
-export default Product;
+export default withNavigate(Products);

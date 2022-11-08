@@ -5,9 +5,11 @@
  padding: 15px;
   background-size: cover;
 }
+.body-pay{
+  background-color:  #BCBABA;
+}
 
 .main-sec {
-    /* background-color:#9a2020; */
     margin: auto;
     justify-content: center;
     margin-left: 7%;
@@ -240,4 +242,20 @@
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .summary{
+    height: 60vh;
+    width: 43vw;
+  }
+  .dash{
+    margin-top: -15%;
+  }
+  .adress-pay{
+    margin-left: -5%;
+  }
+  .main-third{
+    margin-left: -15%;
+  }
 }

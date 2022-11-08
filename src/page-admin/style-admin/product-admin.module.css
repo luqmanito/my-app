@@ -1,0 +1,324 @@
+
+  .body-product{
+    background-color: #BCBABA;
+  }
+
+  .sub-product {
+    max-width: 1440px;
+    background-color: #ffffff;
+    margin: auto;
+  }
+  
+  .coupons {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    margin-top: -10%;
+    color: #000000;
+  }
+  
+  .beef {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 101.34%;
+    text-align: center;
+    color: #000000;
+    margin-top: 4%;
+  }
+  
+  .beef-spaghetti{
+    margin-top:10%
+  }
+  .choco {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 101.34%;
+    text-align: center;
+    color: #000000;
+  }
+
+  .code {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 101.34%;
+    text-align: center;
+    color: #000000;
+  }
+  
+  .codex {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 33px;
+    line-height: 101.34%;
+  
+    text-align: center;
+  
+    color: #000000;
+  }
+  
+  .valid {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 101.34%;
+    text-align: center;
+    color: #000000;
+  }
+  
+  .button-product {
+    margin-top: 20%;
+    background-color: #6a4029 !important;
+    border-color: #6a4029 !important;
+  }
+
+  .add-new {
+    margin-top: 20%;
+    background-color: #FFBA33!important;
+    border-color: #FFBA33 !important;
+    color: #6A4029 !important;
+    font-weight: bold; 
+  }
+
+  .add-product{
+    margin-top: -7%;
+    background-color: #6A4029!important;
+    border-color: #6A4029!important;
+    color: #ffffff !important;
+    font-weight: bold;
+    width: 40vw;
+  }
+  
+  .term {
+    margin-top: 10%;
+    margin-left: 10%;
+    font-family: "Rubik";
+    font-style: normal;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: bold;
+    color: #4f5665;
+  }
+  
+  .ruleterm {
+    margin-top: -2%;
+    margin-left: 10%;
+    font-family: "Rubik";
+    font-style: normal;
+    font-size: 12px;
+    line-height: 14px;
+    
+    color: #4f5665;
+  }
+
+  .box-side{
+    height: 1030px
+  }
+  
+  .main-side {
+    margin-left: 0%;
+   
+    /* background-color: #6A4029; */
+   height: 1030px
+  }
+  
+  .dishes {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 101.34%;
+    text-align: center;
+    color: #000000;              
+  }
+  
+.sub-list{
+  /* background-color: #4f5665; */
+  /* text-align: center; */
+  margin-left: 5%;
+  margin-top: -7%
+}
+
+.prod-wrap {
+
+   display: grid;
+  grid-template-columns: auto auto auto auto ;
+  justify-content: center;
+  ;
+  height: 800px;
+}
+
+@media screen and (max-width: 768px) {
+  .prod-wrap{
+    margin: auto;
+  }
+  
+}
+
+
+  .list-products{
+    margin-top: 5%;
+    /* background-color: #6A4029; */
+    margin-left: -8%;
+    max-width: 1065px;
+    height: 800px;
+  }
+  .price {
+    font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 26px;
+  text-align: center;
+  color: #6A4029;
+  }
+  
+  .fav-prod {
+  cursor: pointer;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #6A4029;
+  margin-top: -1%;
+  z-index: 1;
+  }
+
+  .category {
+    cursor: pointer;
+    font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #9F9F9F;
+  margin-top: 2%;
+  z-index: 1;
+  }
+  
+  .sub-category{
+    margin-left: 3%;
+    margin-top: 3%;
+    background-color: #ffffff;
+    /* text-align: center; */
+  }
+  
+ .promoforyou {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 10%;
+    font-size: 25px;
+    line-height: 30px;
+    color: #6a4029;
+    /* background-color: #4f5665; */
+  }
+  
+  .left-border {
+    /* background-color: #ffcb65; */
+    margin: auto;
+  }
+  
+  
+  
+  
+  /* footer start */
+  
+  .footer-product {
+    background-color: #f8f8f8;
+    display: flex;
+    margin-top: 140px;
+    position: relative;
+    max-width: 1440px;
+    margin: auto;
+  }
+  
+  .desc {
+    margin-top: 30px;
+    margin-left: 45px;
+  }
+  
+  .about-coffe {
+    flex-direction: column;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    color: #4f5665;
+    padding-left: 100px;
+    padding-top: 50px;
+    margin-top: -10%;
+  }
+  
+  .socmed {
+    margin-left: -5px;
+  }
+  
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 575px;
+    margin-top: 1%;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+  
+    color: #4f5665;
+  }
+  .engagement {
+    display: flex;
+    margin-left: 80px;
+    margin-top: 3%;
+    flex-direction: column;
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+  
+    color: #4f5665;
+  }
+  img {
+    vertical-align: middle;
+  }
+  .coffeeshp {
+    font-weight: bolder;
+    font-size: 17px;
+  }
+  
+  .coffee-desc {
+    font-size: 13px;
+    margin-top: 5%;
+  }
+  
+  .socmed-url {
+    color: #afb5c0;
+    font-size: small;
+  }
+  
+  .products {
+    font-weight: bold;
+  }
+  
+  .engage {
+    font-weight: bold;
+    margin-top: -22%;
+  }
+  
+  .download-content,
+  .engage-content {
+    margin-top: 7%;
+  }
+  

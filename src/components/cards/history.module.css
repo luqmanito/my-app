@@ -36,4 +36,20 @@
     height: 1rem;
     width: 1rem;
   }
+  @media screen and (max-width: 768px) {
+    .product-name{
+      margin-top: -105%;
+      font-size: smaller;
+      margin-left: 115%;
+    }
+    .price{
+      margin-left: 30%;
+      position: absolute;
+      width: 10vw;
+    }
+    .status {
+      width: 10vw;
+      margin-left: 45%;
+    }
+  }
   

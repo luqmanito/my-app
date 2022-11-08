@@ -1,54 +1,58 @@
-import React, {Fragment} from "react"
-import { Link } from "react-router-dom";    
-import styles from '../header/headerlogin.module.css'
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import styles from "../header/headerlogin.module.css";
 import coffee from "../../assets/img/coffee-logo.png";
 import search from "../../assets/img/search-icon.png";
 import msg from "../../assets/img/msg-icon.png";
 import beard from "../../assets/img/beard-man-icon.jpg";
 
-
 const HeaderLogin = () => {
-    return (
-        <Fragment>
-        <header class={styles["header-home"]} >
+  return (
+    <Fragment>
+      <main className={styles["body-home"]}>
+      <header className={styles["header-home"]}>
+        <aside className={`${styles["left-header"]}`}>
+          <img
+            className={`${styles["coffee-logos"]}`}
+            src={coffee}
+            alt="coffee-icon"
+          />
+          <span className={`${styles["coffeeshop"]}`}>Coffee Shop</span>
+        </aside>
+        <aside className={`${styles["center-header"]}`}>
+          <Link to="/" className={`${styles["link"]}`}>
+            <p className={`${styles["home"]}`}>Home</p>
+          </Link>
 
+          <Link to="/products" className={`${styles["link"]}`}>
+            <p className={`${styles["product"]}`}>Product</p>
+          </Link>
 
-<aside class={`${styles["left-header"]}`}>
-  <img class={`${styles["coffee-logos"]}`}
-    src={coffee}
-    alt="coffee-icon"
-  />
-  <span class={`${styles["coffeeshop"]}`}>Coffee Shop</span>
-</aside>
-<aside class={`${styles["center-header"]}`}>
-<Link to="/" className={`${styles["link"]}`}>
-  <p class={`${styles["home"]}`}>Home</p>
-  </Link>
-  
-  <Link to="/products" className={`${styles["link"]}`}>
-  <p class={`${styles["product"]}`}>Product</p>
-  </Link>
-  
-  <Link to="/payment" className={`${styles["link"]}`}>
-  <p class={`${styles["cart"]}`}>Your Cart</p>
-  </Link>
-  <Link to="/history" className={`${styles["link"]}`}>
-  <p class={`${styles["history"]}`}>History</p>
-  </Link>
-</aside>
-<aside class={`${styles["right-header"]}`}>
-  <p>Login</p>
+          {/* <Link to="/payment" className={`${styles["link"]}`}> */}
+          <p className={`${styles["cart"]}`}>Your Cart</p>
+          {/* </Link> */}
+          {/* <Link to="/history" className={`${styles["link"]}`}> */}
+          <p className={`${styles["history"]}`}>History</p>
+          {/* </Link> */}
+        </aside>
+        <aside className={`${styles["right-header"]}`}>
+          <Link to="/login" className={`${styles["login"]}`}>
+            <p>Login</p>
+          </Link>
 
-  <button
-    type="button"
-    class={`btn btn-primary ${styles["button-sign-up"]}`}
-  >
-    Sign Up
-  </button>
-</aside>
-</header>
-          </Fragment>
-    )
-}
+          <Link to="/register">
+            <button
+              type="button"
+              className={`btn btn-primary ${styles["button-sign-up"]}`}
+            >
+              Sign Up
+            </button>
+          </Link>
+        </aside>
+      </header>
+      </main>
+    </Fragment>
+  );
+};
 
-export default HeaderLogin
+export default HeaderLogin;

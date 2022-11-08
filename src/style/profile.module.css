@@ -1,19 +1,10 @@
-/* @media screen and (max-width: 768px) {
-    img {
-      display: none;
-    }
-  } */
+.body-head{
+  background-color: #BCBABA;
+}
   
   .body-profile {
-    background: white;
-    width: 1440px;
+    max-width: 1440px;
     position: relative;
-    /* border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px; */
-    background-color: rgb(154, 156, 156);
     margin: auto;
   }
   
@@ -112,7 +103,7 @@
   .main-bg-img {
     position: absolute;
     max-width: 1440px;
-   height: fit-content;
+   height: 90vh;
   
   }
   .main-profile {
@@ -273,7 +264,7 @@
     font-weight: bold;
   }
   
-  .form {
+  .form-contact {
     padding: 20px 30px;
     max-width: 802px;
     box-sizing: border-box;
@@ -686,4 +677,54 @@
   
   .download-content, .engage-content {
     margin-top: -20px;
+  }
+  .editicon{
+    width: 2vw;
+    position: absolute;
+    margin-top: -6%;
+    margin-left: 85%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .body-profile {
+      max-width: 768px;
+      display: flex;
+      flex-direction: column;
+    }
+    .main-profile {
+      /* background-color: #0b132a; */
+    }
+    .user-profile {
+      margin-left: 2%;
+    }
+    .profile-photo{
+      margin-left: 2%;
+    }
+    .contacts{
+      margin-left: -4%;
+      width: 70vw;
+      /* background-color: #0b132a; */
+    }
+    .form1{
+      margin-left: -30%;
+      margin-top: 3%;
+    }
+    .buttons{
+      margin-top: 50%;
+      /* z-index: 1; */
+      margin-left: -90%;
+    }
+    .main-bg-img {
+      width: 100%;
+      object-fit: cover;
+      height: 143vh;
+    }
+    .form1:after {
+      display: none;
+      /* margin-top: -68%;
+      margin-left: 68%; */
+    }
+    .editicon{
+      width: 4vw;
+    }
   }

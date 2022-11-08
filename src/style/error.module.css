@@ -1,0 +1,32 @@
+.body-error {
+    margin: auto;
+    max-width: 1440px;
+    text-align: center;
+    font-size: larger;
+    background-color: #dfb78c
+}
+
+.body-error h1 {
+font-size: 135px;
+font-weight: 700;
+/* height: 25vh; */
+}
+.mainbody{
+    background-color: #BCBABA;
+    height: 52vh;
+    color:#49281A
+}
+
+.forbidden{
+    width: 75vw;
+    
+}
+
+
+@media screen and (max-width: 768px) {
+    .body-error h1 {
+        font-size: 95px;
+        font-weight: 700;
+        /* height: 25vh; */
+        }
+}

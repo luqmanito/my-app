@@ -6,12 +6,12 @@ import beef from "../../assets/img/beef-spaghetti - Edited.png";
 const PromoCard = () => {
   return (
     
-      <div class={`text-center rounded-2 w-75 ${styles["left-border"]} "`}>
-        <span class="border">
+      <div className={`text-center rounded-2 w-75 ${styles["left-border"]} "`}>
+        <span className="border">
           <img
             src={beef}
             alt="beef Spaghetti"
-            class={`${styles["beef-spaghetti"]} w-50 
+            className={`${styles["beef-spaghetti"]} w-50 
                       ${styles["margin-top:40%"]}`}
           />
           <p className={styles["beef"]}>

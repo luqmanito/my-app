@@ -4,11 +4,18 @@ import { useDocumentTitle } from "../helpers/page-title";
 
 import Footer from "../components/footer/footer";
 
-const ForgotPw = () => {
-  // render() {
-    useDocumentTitle("Forgot Password")
-    return (
-      <Fragment>
+class ForgotPw extends Component {
+  state = {
+    tittle: "Register - Haya Coffee",
+    name: "",
+  };
+  componentDidMount(){
+    document.title = this.state.tittle
+  }
+
+    render() {
+return (
+<Fragment>
         
         <main className={`container ${styles["main-forgot"]}`}>
           <section className={`container ${styles["uppertext"]}`}>
@@ -42,7 +49,10 @@ const ForgotPw = () => {
         </main>
         <Footer />
       </Fragment>
-    );
+)
+    } 
+      
+    
   }
 
 

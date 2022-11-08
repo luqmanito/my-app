@@ -7,7 +7,9 @@ import ig from "../../assets/img/ig-icon.png";
 
 const Footer = () => {
   return (
-    <footer className={styles["footer-home"]}>
+    
+    <main className={`container ${styles["main-footer"]}`}>
+    <footer className={`container ${styles["footer-home"]}`}>
             <aside className={styles["desc"]}>
               <aside className={styles["about-coffe"]}>
                 <img
@@ -64,6 +66,8 @@ const Footer = () => {
               </p>
             </aside>
           </footer>
+          </main>
+          
   );
 };
 

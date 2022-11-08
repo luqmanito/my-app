@@ -1,5 +1,5 @@
 import { React, Fragment } from "react";
-import Header from "../components/header/header";
+import NavBar from "../components/header/NavBar";
 import Footer from "../components/footer/footer";
 import { useDocumentTitle } from "../helpers/page-title";
 
@@ -14,14 +14,17 @@ const Payment = () => {
   useDocumentTitle("Payment")
   return (
     <Fragment>
-       <Header />
+       <NavBar />
+       <body className={` ${styles["body-pay"]}`}>
+        
+       
       <main className={`container ${styles["main-pay"]}`}>
         <p className={` ${styles["checkout"]}`}>Checkout your <br /> item now!</p>
         <section className={`container ${styles["main-sec"]}`}>
-          <div class="row">
+          <div className={`row ${styles["main-third"]}`}>
             <aside className={`col-5 container ${styles["summary"]}`}>
               <p className={` ${styles["fontsummary"]}`}>Order Summary</p>
-              <div class="row">
+              <div className="row">
                 <div className={`col-sm  ${styles["hazelpay-content"]}`}>
                   <img src={hazelpay} className={`img-fluid  ${styles["hazelpay"]}`} alt="" />
                 </div>  
@@ -30,20 +33,20 @@ const Payment = () => {
                     Hazelnut Latte <br /> x 1 Regular
                   </p>
                 </div>
-                <div class="col-sm">
+                <div className="col-sm">
                   <p className={`${styles["hazel-font"]}`}>IDR 24.0</p>
                 </div>
               </div>
-              <div class="row">
+              <div className="row">
                 <div className={`col-sm  ${styles["firewing-content"]}`}>
                   <img src={firewing} className={`img-fluid  ${styles["firewing"]}`} alt="" />
                 </div>
-                <div class="col-sm">
+                <div className="col-sm">
                   <p className={`${styles["hazel-font"]}`}>
                     Chicken Fire Wings <br /> x 2
                   </p>
                 </div>
-                <div class="col-sm">
+                <div className="col-sm">
                   <p className={`${styles["hazel-font"]}`}>IDR 24.0</p>
                 </div>
               </div>
@@ -52,12 +55,12 @@ const Payment = () => {
               </div>
               
               <div className={` row ${styles["subtotal-wrap"]}`}>
-                <div class={`col-md-8 ${styles["subtotal"]}`}>
+                <div className={`col-md-8 ${styles["subtotal"]}`}>
                   SUBTOTAL <br />
                   TAX & FEES <br />
                   SHIPPING
                 </div>
-                <div class={`col-6 col-md-4 ${styles["idr"]}`}>
+                <div className={`col-6 col-md-4 ${styles["idr"]}`}>
                   IDR 120.000 <br />
                   IDR 20.000 <br />
                   IDR 10.000
@@ -65,21 +68,21 @@ const Payment = () => {
                 
               </div>
               <div className={` row ${styles["subtotal-wrap"]}`}>
-                <div class={`col-md-8 ${styles["total"]}`}>
+                <div className={`col-md-8 ${styles["total"]}`}>
                   <b>TOTAL</b>  <br />
                 </div>
-                <div class={`col-6 col-md-4 ${styles["idr150"]}`}>
+                <div className={`col-6 col-md-4 ${styles["idr150"]}`}>
                 <b> IDR 150.000</b>
                 </div>
                 
               </div>
             </aside>
             <aside className={`container col-5 ${styles["adress-pay"]}`}>
-              <div class="row">
-                <div class="col-md-8">
+              <div className="row">
+                <div className="col-md-8">
                   <p className={`container ${styles["adress-details"]}`}>Adress Details</p>
                 </div>
-                <div class={`col-6 col-md-4 ${styles["edit"]}`}>
+                <div className={`col-6 col-md-4 ${styles["edit"]}`}>
                   <p>edit</p>
                 </div>
               </div>
@@ -99,9 +102,9 @@ const Payment = () => {
               <p className={` ${styles["method"]}`}>Payment method</p>
               <section className={` ${styles["border-payment"]}`}>
                 <div className={` ${styles["sub-payment"]}`}>
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     name="flexRadioDefault"
                     id="flexRadioDefault1"
@@ -112,9 +115,9 @@ const Payment = () => {
                   </label>
                 </div>
 
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     name="flexRadioDefault"
                     id="flexRadioDefault2"
@@ -126,9 +129,9 @@ const Payment = () => {
                   </label>
                 </div>
 
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="radio"
                     name="flexRadioDefault"
                     id="flexRadioDefault2"
@@ -146,6 +149,7 @@ const Payment = () => {
           </div>
         </section>
       </main>
+      </body>
       <Footer />
     </Fragment>
   );

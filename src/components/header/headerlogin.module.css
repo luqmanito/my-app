@@ -1,8 +1,3 @@
-/* @media screen and (max-width: 768px) {
-  img {
-    display: none;
-  }
-} */
 
 a {
     text-decoration: none;
@@ -25,7 +20,7 @@ a {
   }
   
   .body-home{
-      background-color: #dbdbdb;
+      background-color: #BCBABA;
   }
   
   .header-home {
@@ -249,11 +244,12 @@ a {
   }
   
   .button-sign-up {
-    margin-left: 10%;
-    margin-top: 2%;
+    margin-left: 50%;
+    margin-top: 10%;
     background-color: #ffba33;
     border-color: #ffba33;
     color: #6a4029;
+    width: 10vh;
   }
   
   .people-icon{
@@ -882,4 +878,5 @@ a {
     align-items: center;
     color: #4f5665;
   }
+  
   

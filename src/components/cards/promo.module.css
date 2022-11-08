@@ -48,6 +48,19 @@
   color: #000000;
 }
 
+
+@media screen and (max-width: 768px) {
+  .codex{
+      font-size: larger;
+  }
+  .left-border {
+    height: 450px;
+  }
+  .code{
+    margin-top: -30%;
+  }
+}
+
 .valid {
   font-family: "Poppins";
   font-style: normal;

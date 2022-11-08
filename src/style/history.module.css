@@ -2,18 +2,18 @@
     margin-bottom: 0;
   }
   .main-history {
-    /* background-size: 1440px; */
-    
-    max-width: 1440px;
-    /* background-color: aqua; */
-    
+    max-width: 1464px;
+
+  }
+  .main-body {
+    background-color: #BCBABA;
+ 
   }
   .container {
     background: url("../assets/img/history-bg.jpg");
-    /* background-size: cover; */
-    /* background-position: center; */
+   
     margin: auto;
-    height: 1250px;
+    height: 1200px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -57,3 +57,4 @@
 width: 40px;
 /* margin-lef; */
   }
+

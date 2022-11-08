@@ -1,12 +1,14 @@
-/* @media screen and (max-width: 768px) {
-    img {
-      display: none;
-    }
-  } */
-  
+
+  .body-bg {
+    background-color: #BCBABA;
+  }
+  .side-img{
+    width: 35vw;
+  }
+
   .body-login {
-    background: white;
-    width: 1440px;
+    /* background: rgb(228, 16, 16); */
+    width: 1465px;
     position: relative;
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -38,6 +40,7 @@
     font-size: 15px;
     line-height: 24px;
     color: #0b132a;
+    /* margin-top: -50%; */
   }
   
   .signup {
@@ -63,7 +66,7 @@
   }
   
   .signin {
-    margin-left: 320px;
+    margin-left: 45%;
     width: 233px;
     height: 41px;
     font-family: "Rubik";
@@ -79,19 +82,11 @@
     margin-left: 150px;
   }
   
-  /* input[type="text"],
-  select {
-    width: 76%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  } */
+  
+
 
   .input-text {
-    width: 76%;
+    width: 24vw;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -100,18 +95,7 @@
     box-sizing: border-box;
   }
   
-  /* label[for="email"],
-  [for="pass"],
-  [for="num"],
-  select {
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 24px;
-    color: #4f5665;
-  } */
-  
+
 .label-email {
   font-family: "Rubik";
     font-style: normal;
@@ -121,28 +105,6 @@
     color: #4f5665;
 }
 
-  /* input[type="submit"],
-  select {
-    width: 466px;
-    height: 45px;
-    margin-left: 0%;
-    margin-top: 8%;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
-    background-color: #ffba33;
-    color: #6a4029;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 25px;
-    box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-  } */
 
   .input-submit {
     width: 466px;
@@ -189,6 +151,7 @@
   }
   
   .forgotpw {
+    cursor: pointer;
     font-family: "Rubik";
     font-style: normal;
     font-weight: 700;
@@ -215,7 +178,7 @@
     box-sizing: border-box;
     position: absolute;
     width: 1140px;
-    height: 163px;
+    height: 133px;
     left: 150px;
     top: 978.22px;
     background: #ffffff;
@@ -360,4 +323,81 @@
   .engage {
     font-weight: bold;
   }
+
+  .errorpw, .errormail{
+    margin-top: -5%;
+    color: red;
+    font-weight: bold;
+  }
+  .ui-success{
+   text-align: center;
+   font-weight: bold;
+   color: green;
+  }
+  .ui-fail{
+    text-align: center;
+   font-weight: bold;
+   color: red;
+  }
   
+  @media screen and (max-width: 768px) {
+    .side-img {
+    display: none;
+    
+   }
+   .label-email{
+    position: absolute;
+    margin-top: 2%;
+   }
+   
+   .about-coffe {
+    margin-top: 90%;
+   }
+   .register-form {
+    /* margin-top: 60%; */
+    /* background-color: #4f5665; */
+    margin-left: -45%;
+   }
+   .input-text {
+    width: 35vw;
+    margin-top: 3%;
+   }
+   .input-submit {
+    width: 35vw;
+    /* margin-top: -10%; */
+   }
+   .oauth {
+    width: 35vw;
+    /* margin-top: -10%; */
+   }
+   .signin {
+    margin-top: -5%;
+    margin-left: 18%;
+   }
+   .member-card {
+    width: 80vw;
+    height: 13vh;
+    margin-left: -7%;
+    margin-top: -28%;
+   }
+   .login-sec{
+    height: 70vh;
+   }
+   .createnow {
+    margin-left: -25%;
+    width: fit-content;
+    /* margin-top: -2%; */
+   }
+   .coffee-icon {
+    /* margin-top: 10%; */
+    /* background-color: #0b132a; */
+    margin-left: -45%;
+   }
+   .side-content{
+  /* background-color: #0b132a; */
+  height: 10vh;
+   }
+   .forgotpw{
+    margin-top: 5%;
+   }
+  }

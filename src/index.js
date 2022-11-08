@@ -1,3 +1,4 @@
+// require('dotenv').config()
 import "bootstrap/dist/css/bootstrap.min.css"
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -14,12 +15,15 @@ import router from "./route/router";
 import { RouterProvider } from "react-router-dom";
 // import DetailsProduct from "./pages/detail-products.js";
 import reportWebVitals from './reportWebVitals';
-
+import { store } from "./route";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+<Provider store={store}>
     <RouterProvider router={router}/>
+    </Provider>
   </React.StrictMode>
 );
 

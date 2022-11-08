@@ -1,59 +1,102 @@
-import React, { Component, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import styles from "../style/profile.module.css";
 import { useDocumentTitle } from "../helpers/page-title";
+import withNavigate from "../helpers/withNavigate";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
-
-import coffee from "../assets/img/coffee-logo.png";
-import fb from "../assets/img/fb-icon.png";
-import twitter from "../assets/img/twitter-icon.png";
-import ig from "../assets/img/ig-icon.png";
-import search from "../assets/img/search-icon.png";
-import msg from "../assets/img/msg-icon.png";
-import beard from "../assets/img/beard-man-icon.jpg";
 import coffeebeanscropped from "../assets/img/coffeebeanscropped.jpg";
 import beardMan from "../assets/img/beard-man.jpg";
+import editicon from "../assets/img/edit-icon.png"
+import { useParams } from "react-router-dom";
+import { getProfile, editProfile } from "../helpers/tools";
+import { useDispatch, useSelector } from "react-redux";
 
-const Profile = () => {
+
+const Profile = ({navigate}) => {
+
+const handleClick=()=> {
+  localStorage.clear()
+  // window.location.reload()
+  alert("Logout Sucessfully!")
+  navigate("/login")
+}
+
+const [profile, setProfile] = useState({});
+const [body, setBody] = useState({});
+
+const handleAddress = (e) => {
+  setBody({ ...body, 
+    address: e.target.value,
+   });
+};
+const handleEmail = (e) => {
+  setBody({ ...body, 
+    email: e.target.value, 
+   });
+};
+const handlePhone = (e) => {
+  setBody({ ...body,   
+   mobile_number: e.target.value, 
+   });
+};
+const handleName = (e) => {
+  setBody({ ...body, 
+    name: e.target.value,  
+   });
+};
+const handleBirth = (e) => {
+  setBody({ ...body,    
+   birth_date: e.target.value,  
+   });
+};
+const handleFirstName = (e) => {
+  setBody({ ...body, 
+    firstname: e.target.value,
+   });
+};
+const handleLastName = (e) => {
+  setBody({ ...body, 
+    lastname: e.target.value
+   });
+};
+
+const getDataProfile = async () => {
+  try {
+    const result = await getProfile();
+    setProfile(result.data.result[0]);
+    console.log(result.data.result[0]);
+  } catch (error) {
+    if (error.response.data.statusCode === 403) {
+      navigate("/login");
+    }
+  }
+};
+
+const handleSubmit = async (event) => {
+  try {
+    const result = await editProfile(body);
+    // console.log(event.target.ema il);
+    setBody({})
+    alert("Update Data success");
+    window.location.reload()
+  } catch (error) {
+    console.log(error);
+   
+  }
+};
+
+useEffect(() => {
+  getDataProfile();
+}, []);
+const [gender, setGender] = useState(`${profile.gender}`);
+
   useDocumentTitle("Profile")
     return (
       <Fragment>
-        <body className={styles["body-profile"]}>
-        {/* <header className={styles["header-prof"]}>
-          <aside className={styles["left-header"]}>
-            <img
-              src={coffee}
-              width="30px"
-              height="30px"
-              alt="coffee-icon"
-            />
-            <span className={styles["coffeeshop"]}>Coffee Shop</span>
-          </aside>
-          <aside className={styles["center-header"]}>
-            <p className={styles["home"]}>Home</p>
-            <p className={styles["product"]}>Product</p>
-            <p className={styles["cart"]}>Your Cart</p>
-            <p className={styles["history"]}>History</p>
-          </aside>
-          <aside className={styles["right-header"]}>
-            <img
-              src={search}
-              alt="search-icon"
-              className={styles["search-icon"]}
-            />
-            <img
-              src={msg}
-              alt="msg-icon"
-              className={styles["msg-icon"]}
-            />
-
-            <img
-              src={beard}
-              className={styles["icon-profile-img"]}
-            />
-          </aside>
-        </header> */}
         <Header />
+        <body className={styles["body-head"]}>  
+        <main className={styles["body-profile"]}>
+        
         <img
           src={coffeebeanscropped}
           alt="main-bg-img"
@@ -71,25 +114,27 @@ const Profile = () => {
                 />
               </div>
 
-              <p className={styles["maisarah"]}>Maisarah</p>
-              <p className={styles["emailprofile"]}>Maisarah@gmail.com</p>
+              <p className={styles["maisarah"]}>{profile.name}</p>
+              <p className={styles["emailprofile"]}>{profile.email}</p>
               <p className={styles["transactions"]}>
                 Has been ordered 15 products
               </p>
             </aside>
             <aside className={styles["contacts"]}>
-              <form className={styles["form"]}>
+              <form className={styles["form-contact"]}>
                 <h2>Contacts</h2>
+                <img src={editicon} alt="" className={styles["editicon"]} />
                 <div className={styles["column1"]}>
                   <p className={styles["email"]} type="Email adress :">
-                    <input className={styles["input-profile"]} placeholder="Write your email here.."/>
+                    <input className={styles["input-profile"]} onChange={handleEmail} name="email" placeholder={profile.email}/>
+                    
                   </p>
                   <p className={styles["mobilenum"]} type="Mobile number :">
-                    <input className={styles["input-profile"]} placeholder="Let us know how to contact you back.." />
+                    <input className={styles["input-profile"]} onChange={handlePhone} name="phone" placeholder={profile.mobile_number} />
                   </p>
                 </div>
                 <p className={styles["delivadd"]} type="Delivery adress :">
-                  <input className={styles["input-profile"]} placeholder="What adress to deliver.." />
+                  <input className={styles["input-profile"]} onChange={handleAddress} name="adress" placeholder={profile.address} />
                 </p>
               </form>
             </aside>
@@ -100,27 +145,28 @@ const Profile = () => {
               <h1 className={styles["detailfont"]}>Details</h1>
               <div className={styles["column2"]}>
                 <p className={styles["displayname"]} type="Display name :">
-                  <input className={styles["input-profile"]} placeholder="Write your nickname here.." />
+                  <input className={styles["input-profile"]} onChange={handleName} name="name" placeholder={profile.name} />
                 </p>
                 <p className={styles["firstname"]} type="DD/MM/YY :">
-                  <input className={styles["input-profile"]} placeholder="Your birth date.." />
+                  <input className={styles["input-profile"]} onChange={handleBirth} name="birthdate" placeholder={profile.birth_date} />
                 </p>
               </div>
               <p className={styles["lastname"]} type="First name :">
-                <input className={styles["input-profile"]} placeholder="Write your firstname here.." />
+                <input className={styles["input-profile"]} onChange={handleFirstName} name="firstname" placeholder={profile.firstname} />
               </p>
 
               <p className={styles["date"]} type="Last name :">
-                <input className={styles["input-profile"]} placeholder="Write your lastname.." />
+                <input className={styles["input-profile"]} onChange={handleLastName} name="lastname" placeholder={profile.lastname} />
               </p>
 
               <section className={styles["radiobtn"]}>
-                <div class={styles["malefemale"]}>
+                <div className={styles["malefemale"]}>
                   <input className={styles["input-profile"]}
                     type="radio"
                     id="contactChoice1"
                     name="contact"
                     value="gender"
+                    checked={gender}
                   />
                   <label className={styles["genders"]} for="gender1">Male</label>
                   <br />
@@ -129,6 +175,7 @@ const Profile = () => {
                     id="contactChoice2"
                     name="contact"
                     value="gender"
+                    checked={gender}
                   />
                   <label className={styles["genders"]} for="gender2">Female</label>
                 </div>
@@ -140,75 +187,27 @@ const Profile = () => {
                 Do you want to save the <br />
                 change?
               </p>  
-              <button className={styles["savechange"]}>Save Change</button>
+              <button onClick={handleSubmit} className={styles["savechange"]}>Save Change</button>
               <button className={styles["cancel"]}>Cancel</button>
               <button className={styles["edit"]}>Edit Password</button>
-              <button className={styles["logout"]}>Log out</button>
+
+           
+
+              <button onClick={handleClick} className={styles["logout"]}>Log out</button>
+
+
             </aside>
           </section>
         </section>
-        <footer className={styles["footer-prof"]}>
-          <div id="desc">
-            <aside className={styles["about-coffe"]}>
-              <img
-                src={coffee}
-                width="27px"
-                height="27px"
-                alt="coffee-icon"
-              />
-              <span className={styles["coffeeshp"]}>Coffee Shop</span> <br />
-              <p className={styles["coffee-desc"]}>
-                Coffee Shop is a store that sells some good <br />
-                meals, and especially coffee. We provide <br />
-                high quality beans
-              </p>
-              <aside className={styles["socmed"]}>
-                <img src={fb} alt="" width="35px" />
-                <img src={twitter} alt="" width="35px" />
-                <img src={ig} alt="" width="35px" />
-                <p className={styles["socmed-url"]}>@2022CoffeeStore</p>
-              </aside>
-            </aside>
-          </div>
-          <aside className={styles["product-info"]}>
-            <p className={styles["products"]}>Product</p>
-
-            <p className={styles["download-content"]}>
-              Download
-              <br />
-              <br />
-              Pricing <br />
-              <br />
-              Locations <br />
-              <br />
-              Countries <br />
-              <br />
-              Blog
-            </p>
-          </aside>
-          <aside className={styles["engagement"]}>
-            <p className={styles["engage"]}>Engage</p>
-            <p className={styles["engage-content"]}>
-              Coffee Shop ?<br />
-              <br />
-              FAQ
-              <br />
-              <br />
-              About Us
-              <br />
-              <br />
-              Privacy Policy
-              <br />
-              <br />
-              Terms of Service
-            </p>
-          </aside>
-        </footer >
+      
+        </main>
+        
         </body>
+        <Footer/>
     
       </Fragment>
     );
   }
 
 
-export default Profile;
+export default withNavigate(Profile);

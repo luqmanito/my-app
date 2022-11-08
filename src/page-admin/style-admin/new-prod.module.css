@@ -1,0 +1,266 @@
+.main-product {
+  background-color: rgb(255, 255, 255);
+  max-width: 1440px;
+  height: 900px;
+  /* text-align: center; */
+}
+.main-head {
+  background-color: #bcbaba;
+  
+}
+.promo {
+    margin-left: 10%;
+    margin-top: 1%;
+}
+.promo b{
+color: #6a4029;
+}
+
+.left-content {
+  /* background-color: turquoise; */
+  text-align: center;
+  /* margin-left: 10%; */
+}
+
+.upload {
+  margin-top: 10%;
+  /* margin-left: 20%; */
+}
+.takepic {
+  background-color: #0b132a;
+  border-color: #0b132a;
+  width: 10vw;
+  margin: auto;
+  margin-top: 5%;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  /* margin-right: -5%; */
+}
+.choosepic {
+  background-color: #ffba33;
+  border-color: #ffba33;
+  color: #6a4029;
+  width: 10vw;
+  margin: auto;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+}
+.delivhour {
+  margin-left: -12%;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 10%;
+  color: #6a4029;
+}
+
+.inp-stock {
+  margin-left: -12%;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  color: #6a4029;
+  margin-top: 12%;
+}
+
+.buttonstart {
+  background-color: white;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  color: #9f9f9f;
+  width: 10vw;
+}
+.upload {
+  width: 150px;
+}
+
+.right-content {
+  /* background-color: burlywood; */
+  /* justify-content: center;
+    text-align: center; */
+}
+
+.name {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 10%;
+  color: #6a4029;
+}
+.price,
+.desc,
+.inputsize,
+.delivmethod {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  color: #6a4029;
+}
+.clicksize,
+.clickmethod {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #9f9f9f;
+  margin-left: -2%;
+}
+.inputsize {
+  margin-left: -2%;
+}
+
+.form-cont {
+  border: none;
+  text-decoration: underline;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #9f9f9f;
+}
+.r,
+.l,
+.xl,
+.gr250,
+.gr300,
+.gr500 {
+  width: 40px;
+  margin-left: 5%;
+  text-align: center;
+}
+
+.sizechoice {
+  margin-left: -5%;
+}
+.delivmethod {
+  margin-left: -2%;
+}
+
+.takepic1 {
+  width: 7vw;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  color: #6a4029;
+  background: #ffba33;
+  border-color: #ffba33;
+  border-radius: 20px;
+  margin-left: -20%;
+  text-align: center;
+}
+.takepic2 {
+  width: 7vw;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  color: #6a4029;
+  background: #ffba33;
+  border-color: #ffba33;
+  border-radius: 20px;
+  margin-left: -70%;
+  text-align: center;
+}
+.takepic3 {
+  width: 7vw;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+  color: #6a4029;
+  background: #ffba33;
+  border-color: #ffba33;
+  border-radius: 20px;
+  margin-left: -120%;
+  text-align: center;
+}
+
+.takepic4 {
+  max-width: 24vw;
+  margin-left: -20%;
+  background: #6a4029;
+  box-shadow: 0px 6px 20px rgba(106, 64, 41, 0.4);
+  border-radius: 20px;
+  border-color: #6a4029;
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 138.84%;
+/* identical to box height, or 35px */
+
+letter-spacing: 0.03em;
+
+color: #ffffff;
+
+}
+
+.takepic5 {
+    max-width: 24vw;
+    margin-left: -20%;
+    background: #6a4029;
+    background: rgba(186, 186, 186, 0.35);
+border-radius: 20px;
+    border-color: #ffffff;
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 138.84%;
+letter-spacing: 0.03em;
+color: #4F5665;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    
+     .r,
+    .l,
+    .xl,
+    .gr250,
+    .gr300,
+    .gr500 {
+      width: 38px;
+      
+    }
+    .takepic, .choosepic{
+      width: 20vw;
+    }
+    .buttonstart{
+      width: 25vw;
+    }
+    .takepic1 {
+      width: 20vw;
+    }
+    .takepic2, .takepic3 {
+      width: 20vw;
+    }
+    .takepic2{
+      margin-left: -15%;
+    }
+    .takepic3{
+      margin-left: 16%;
+      margin-top: 5%;
+    }
+    .last-button{
+      margin-left: -35%;
+    }
+
+  }

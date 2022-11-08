@@ -7,7 +7,7 @@ const HistoryCard = () => {
     <section className={`${styles["card-history"]} col-5 col-md-3`}>
       <div className={`row ${styles["box"]}`}>
         <div className={`${styles["img-container"]} col-3`}>
-          <img src={veggie} alt="" />
+          <img className={`${styles["imgprod"]}`} src={veggie} alt="" />
         </div>
         <div className={`${styles["history-detail"]} col-8`}>
           <p className={styles["product-name"]}>Veggie Tomato Mix</p>

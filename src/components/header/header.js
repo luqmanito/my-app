@@ -7,9 +7,11 @@ import beard from "../../assets/img/beard-man-icon.jpg";
 import { Link } from "react-router-dom";
 
 
-const Header = () => {
+const Header = ({onChange}) => {
     return (
         <Fragment>
+          <main className={styles["main-main"]}>
+          <main className={styles["main-header"]}>
         <header className={styles["header-prod"]}>
             <aside className={styles["left-header"]}>
               <img src={coffee} width="30px" height="30px" alt="coffee-icon" />
@@ -30,25 +32,33 @@ const Header = () => {
               </Link>
 
               <Link to="/history" className={`${styles["link"]}`}>
-              <p className={styles["history"]}>History</p>
+              <p className={styles["hi`story"]}>History</p>
               </Link>
 
             </aside>
             <aside className={styles["right-header"]}>
+
+            <span className={styles.search}>
               <img
                 src={search}
                 alt="search-icon"
                 className={styles["search-icon"]}
               />
-              <img src={msg} alt="msg" className={styles["msg-icon"]} />
+              <input type="text" placeholder="Search" onChange={onChange}/>
+        </span>
 
+              <img src={msg} alt="msg" className={styles["msg-icon"]} />
+              <Link to="/profile" className={`${styles["beard"]}`}>
               <img
                 src={beard}
                 alt="beard"
                 className={styles["icon-profile-img"]}
               />
+              </Link>
             </aside>
           </header>
+          </main>
+          </main>
           </Fragment>
     )
 }

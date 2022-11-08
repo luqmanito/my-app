@@ -4,6 +4,7 @@ import { useDocumentTitle } from "../helpers/page-title";
 import Header from "../components/header/header";
 import HeaderLogin from "../components/header/headerlogin";
 import Footer from "../components/footer/footer";
+import NavBar from "../components/header/NavBar";
 
 import loc from "../assets/img/loc-icon.png";
 import heart from "../assets/img/heart-icon.png";
@@ -40,117 +41,114 @@ const Homepage = () => {
     useDocumentTitle("Homepage")
     return (
       <Fragment>
-        <body class={`container-fluid ${styles["body-home"]}`}>
-          
-          <HeaderLogin />
-
-          
+        <main className={`container-fluid ${styles["body-home"]}`}>         
+          <NavBar />         
           <main>
             <div
-              class={`bg-image card shadow-1-strong ${styles["jumbo"]}`}
+              className={`bg-image card shadow-1-strong ${styles["jumbo"]}`}
             >
-              <div class="card-body text-white">
-                <h5 class={`card-title ${styles["startday"]}`}>
+              <div className="card-body text-white">
+                <h5 className={`card-title ${styles["startday"]}`}>
                   Start Your Day with <br />
                   Coffee and Good Meals
                 </h5>
-                <p class={`card-text ${styles["provide"]}`}>
+                <p className={`card-text ${styles["provide"]}`}>
                   We provide high quality beans, good taste, and healthy <br />
                   meals made by love just for you. Start your day with us <br />
                   for a bigger smile!
                 </p>
                 <a
                   href="#!"
-                  class={`btn btn-primary btn-lg ${styles["started"]}`}
+                  className={`btn btn-primary btn-lg ${styles["started"]}`}
                 >
                   Get Started
                 </a>
-                <div class={styles["form-outline"]}>
-                    <input type="search" id="form1" class="form-control" placeholder="Search" aria-label="Search" />
+                <div className={styles["form-outline"]}>
+                    <input type="search" id="form1" className="form-control" placeholder="Search" aria-label="Search" />
                   </div>
               </div>
             </div>
 
             <aside
-              class={`container border rounded-3 ${styles["middle-sec"]}`}
+              className={`container border rounded-3 ${styles["middle-sec"]}`}
               
             >
-              <div class="row text-center">
-                <section class={`col-4 ${styles["staff"]}`}>
-                  <img class={styles["people-icon"]}
+              <div className="row text-center">
+                <section className={`col-4 ${styles["staff"]}`}>
+                  <img className={styles["people-icon"]}
                     src={people}
                     alt=""
                   />
-                  <span class={styles["numbers"]}>90+</span>
-                  <p class={styles["data"]}>Staff</p>
+                  <span className={styles["numbers"]}>90+</span>
+                  <p className={styles["data"]}>Staff</p>
                 </section>
-                <section class={`col-4 ${styles["stores"]}`}>
-                  <img class={styles["people-icon"]} src={loc} alt=""  />
-                  <span class={styles["number30"]}>30+</span>
-                  <p class={styles["datastore"]}>Stores</p>
+                <section className={`col-4 ${styles["stores"]}`}>
+                  <img className={styles["people-icon"]} src={loc} alt=""  />
+                  <span className={styles["number30"]}>30+</span>
+                  <p className={styles["datastore"]}>Stores</p>
                 </section>
-                <section class={`col-4 ${styles["customers"]}`}>
-                  <img class={styles["people-icon"]} src={heart} alt=""  />
-                  <span class={styles["number800"]}>800+</span>
-                  <p class={styles["datacs"]}>Customers</p>
+                <section className={`col-4 ${styles["customers"]}`}>
+                  <img className={styles["people-icon"]} src={heart} alt=""  />
+                  <span className={styles["number800"]}>800+</span>
+                  <p className={styles["datacs"]}>Customers</p>
                 </section>
               </div>
             </aside>
 
-            <aside class={`container ${styles["good-coffee"]}`}>
-              <div class="row text-center">
+            <aside className={`container ${styles["good-coffee"]}`}>
+              <div className="row text-center">
                 <section
-                  class={`col-6 justify-content-center ${styles["teamwork"]}`}
+                  className={`col-6 justify-content-center ${styles["teamwork"]}`}
                 >
                   <img
                     src={techpic}
                     alt=""
                     
-                    class={styles["techpic"]}
+                    className={`img-fluid ${styles["techpic"]}`}
                   />
                 </section>
 
                 <section
-                  class={`col-6 ${styles["quality"]}`}
+                  className={`col-6 ${styles["quality"]}`}
                 >
-                  <p class={styles["healthy"]}>
+                  <p className={styles["healthy"]}>
                     We Provide Good Coffee <br />
                     and Healthy Meals
                   </p>
-                  <p class={styles["todo"]}>
+                  <p className={styles["todo"]}>
                     You can explore the menu that we provide with fun and <br />
                     have their own taste and make your day better.
                   </p>
 
-                  <p class={styles["checklist"]}>
+                  <p className={styles["checklist"]}>
                     <img
                       src={checkmark}
                       alt=""
-                      class={styles["checkmarks"]}
+                      className={styles["checkmarks"]}
                     />
                     High quality beans
                   </p>
-                  <p class={styles["checklist"]}>
+                  <p className={styles["checklist"]}>
                     <img
                       src={checkmark}
                       alt=""
-                      class={styles["checkmarks"]}
+                      className={styles["checkmarks"]}
                     />
                     Healthy meals, you can request the ingredients
                   </p>
-                  <p class={styles["checklist"]}>
+                  <p className={styles["checklist"]}>
                     <img
                       src={checkmark}
                       alt=""
-                      class={styles["checkmarks"]}
+                      className={styles["checkmarks"]}
                     />
                     Chat with our staff to get better experience for ordering
                   </p>
-                  <p class={styles["checklist"]}>
+                  <p className={styles["checklist"]}>
                     <img
                       src={checkmark}
                       alt=""
-                      class={styles["checkmarks"]}
+                      className={styles["checkmarks"]}
                     />
                     Free member card with a minimum purchase of IDR 200.000.
                   </p>
@@ -158,14 +156,14 @@ const Homepage = () => {
               </div>
             </aside>
 
-            <aside class={`container-fluid ${styles["people-fav"]}`}>
-              <div class="row text-center">
+            <aside className={`container-fluid ${styles["people-fav"]}`}>
+              <div className="row text-center">
                 <section
-                  class={`col-12 ${styles["yours"]}`}
+                  className={`col-12 ${styles["yours"]}`}
                   
                 >
-                  <p class={styles["here"]}>Here is People's Favorite</p>
-                  <p class={styles["choose"]}>
+                  <p className={styles["here"]}>Here is People's Favorite</p>
+                  <p className={styles["choose"]}>
                     Let's choose and have a bit taste of poeple's favorite. It
                     might be yours too!
                   </p>
@@ -173,186 +171,186 @@ const Homepage = () => {
               </div>
             </aside>
 
-            <aside class={`container-fluid ${styles["middle-third"]}`}>
-              <div class={`row text-center ${styles["choice"]}`}>
+            <aside className={`container-fluid ${styles["middle-third"]}`}>
+              <div className={`row text-center ${styles["choice"]}`}>
                 <section
-                  class={`col-4 ${styles["prod-info"]}`}
+                  className={`col-4 ${styles["prod-info"]}`}
                  
                 >
                   <img
                     src={creamy}
                     alt=""
                    
-                    class={styles["hzl"]}
+                    className={`img-fluid ${styles["hzl"]}`}
                   />
-                  <div class={`border ${styles["wrap"]}`}>
-                    <p class={styles["hazelnutsyrup"]}>Hazelnut Latte</p>
-                    <div class={styles["hazel-desc"]}>
-                      <p class={styles["hazeldesc"]}>
+                  <div className={`border ${styles["wrap"]}`}>
+                    <p className={styles["hazelnutsyrup"]}>Hazelnut Latte</p>
+                    <div className={styles["hazel-desc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                           
                         />
                         Hazelnut Syrup
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Vanilla Whipped Cream
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Ice / Hot
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Sliced Banana on Top
                       </p>
                     </div>
-                    <p class={styles["price25"]}>IDR 25.000</p>
-                    <button type="button" class="btn btn-outline-warning">
+                    <p className={styles["price25"]}>IDR 25.000</p>
+                    <button type="button" className="btn btn-outline-warning">
                       Order Now
                     </button>
                   </div>
                 </section>
 
                 <section
-                  class={`col-4 ${styles["prod-info"]}`}
+                  className={`col-4 ${styles["prod-info"]}`}
                   
                 >
                   <img
                     src={pinky}
                     alt=""
-                    class={styles["hzl"]}
+                    className={`img-fluid ${styles["hzl"]}`}
                   />
-                  <div class={`border ${styles["wrap"]}`}>
-                    <p class={styles["hazelnutsyrup"]}>Pinky Promise</p>
-                    <div class={styles["hazel-desc"]}>
-                      <p class={styles["hazeldesc"]}>
+                  <div className={`border ${styles["wrap"]}`}>
+                    <p className={styles["hazelnutsyrup"]}>Pinky Promise</p>
+                    <div className={styles["hazel-desc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         1 Shot of Coffee
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Vanilla Whipped Cream
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Chocolate Biscuits
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Strawberry Syrup
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Sliced strawberry on Top
                       </p>
                     </div>
-                    <p class={styles["price30"]}>IDR 30.000</p>
-                    <button type="button" class="btn btn-outline-warning">
+                    <p className={styles["price30"]}>IDR 30.000</p>
+                    <button type="button" className="btn btn-outline-warning">
                       Order Now
                     </button>
                   </div>
                 </section>
 
                 <section
-                  class={`col-4 ${styles["prod-info"]}`}
+                  className={`col-4 ${styles["prod-info"]}`}
                   
                 >
                   <img
                     src={creamy}
                     alt=""
                     
-                    class={styles["hzl"]}
+                    className={`img-fluid ${styles["hzl"]}`}
                   />
-                  <div class={`border ${styles["wrap"]}`}>
-                    <p class={styles["hazelnutsyrup"]}>Chicken Wings</p>
-                    <div class={styles["hazel-desc"]}>
-                      <p class={styles["hazeldesc"]}>
+                  <div className={`border ${styles["wrap"]}`}>
+                    <p className={styles["hazelnutsyrup"]}>Chicken Wings</p>
+                    <div className={styles["hazel-desc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Wings
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Drum Sticks
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Mayonaise and Lemon
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Hot Fried
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Secret Recipe
                       </p>
-                      <p class={styles["hazeldesc"]}>
+                      <p className={styles["hazeldesc"]}>
                         <img
                           src={smallcheck}
                           alt=""
-                          class={styles["smallcheck"]}
+                          className={styles["smallcheck"]}
                         />
                         Buy 1 Get 1 only for Dine in
                       </p>
                     </div>
-                    <p class={styles["price40"]}>IDR 40.000</p>
-                    <button type="button" class="btn btn-outline-warning">
+                    <p className={styles["price40"]}>IDR 40.000</p>
+                    <button type="button" className="btn btn-outline-warning">
                       Order Now
                     </button>
                   </div>
@@ -360,14 +358,14 @@ const Homepage = () => {
               </div>
             </aside>
 
-            <aside class={`container-fluid ${styles["visit-store"]}`}>
-              <div class="row text-center">
-                <section class={`col-12" ${styles["visit-see"]}`}>
-                  <p class={styles["visit"]}>
+            <aside className={`container-fluid ${styles["visit-store"]}`}>
+              <div className="row text-center">
+                <section className={`col-12" ${styles["visit-see"]}`}>
+                  <p className={styles["visit"]}>
                     Visit Our Store in the <br />
                     Spot on the Map Below
                   </p>
-                  <p class={styles["see"]}>
+                  <p className={styles["see"]}>
                     See our store in every city on the spot and spen your good
                     day there. <br />
                     See you soon!
@@ -377,57 +375,57 @@ const Homepage = () => {
             </aside>
 
             <aside
-              class={`container-fluid ${styles["worldmap"]}`}
+              className={`container-fluid ${styles["worldmap"]}`}
             >
-              <div class="row text-center">
+              <div className="row text-center">
                 <section
-                  class={`col-12 ${styles["world"]}`}
+                  className={`col-12 ${styles["world"]}`}
                   
                 >
-                  <img class={styles["world-pic"]} src={world} alt=""/>
-                  <p class={styles["partner"]}>Our Partner</p>
+                  <img className={styles["world-pic"]} src={world} alt=""/>
+                  <p className={styles["partner"]}>Our Partner</p>
                 </section>
               </div>
             </aside>
 
             <div
-              class={`row ${styles["logos"]}`}
+              className={`row ${styles["logos"]}`}
             >
-              <div class="col">
+              <div className="col">
                 <img
-                  class={styles["logo"]}
+                  className={styles["logo"]}
                   src={netflix}
                   alt=""
                   
                 />
               </div>
-              <div class="col">
+              <div className="col">
                 <img
-                  class={styles["logo"]}
+                  className={styles["logo"]}
                   src={reddit}
                   alt=""
                  
                 />
               </div>
-              <div class="col">
+              <div className="col">
                 <img
-                  class={styles["logo"]}
+                  className={styles["logo"]}
                   src={amazon}
                   alt=""
                  
                 />
               </div>
-              <div class="col">
+              <div className="col">
                 <img
-                  class={styles["logo"]}
+                  className={styles["logo"]}
                   src={discord}
                   alt=""
                  
                 />
               </div>
-              <div class="col">
+              <div className="col">
                 <img
-                  class={styles["logo"]}
+                  className={styles["logo"]}
                   src={spotify}
                   alt=""
                   
@@ -435,14 +433,14 @@ const Homepage = () => {
               </div>
             </div>
 
-            <aside class={`container-fluid ${styles["visit-store"]}`}>
-              <div class="row text-center">
-                <section class={`col-12" ${styles["visit-see"]}`}>
-                  <p class={styles["visit"]}>
+            <aside className={`container-fluid ${styles["visit-store"]}`}>
+              <div className="row text-center">
+                <section className={`col-12" ${styles["visit-see"]}`}>
+                  <p className={styles["visit"]}>
                     Loved by Thousands of <br />
                     Happy Customer
                   </p>
-                  <p class={styles["see"]}>
+                  <p className={styles["see"]}>
                   These are the stories of our customers who have visited us with great  <br />
                   pleasure.
                   </p>
@@ -450,41 +448,41 @@ const Homepage = () => {
               </div>
             </aside>
 
-            <div class={`container-fluid row ${styles["review-wrap"]}`}>
+            <div className={`container-fluid row ${styles["review-wrap"]}`}>
               <div
-                class={`col ${styles["review2"]}`}
+                className={`col ${styles["review2"]}`}
                 
               >
                 <div
-                  class={`border text-center rounded-2 left-border w-75 ${styles["rusia"]}`}
+                  className={`border text-center rounded-2 left-border w-75 ${styles["rusia"]}`}
                 >
-                  <div class="row cs2">
-                    <div class="col-8">
-                      <div class="row">
-                        <div class="col-3">
-                          <img class={styles["joe-pic"]}
+                  <div className="row cs2">
+                    <div className="col-8">
+                      <div className="row">
+                        <div className="col-3">
+                          <img className={styles["joe-pic"]}
                             src={joebiden}
                             alt=""
                             
                           />
                         </div>
-                        <div class="col-9">
-                          <p class={styles["putin"]}>Joe Biden</p>
-                          <p class={styles["moskwa"]}>Washington, USA</p>
+                        <div className="col-9">
+                          <p className={styles["putin"]}>Joe Biden</p>
+                          <p className={styles["moskwa"]}>Washington, USA</p>
                         </div>
                       </div>
                     </div>
-                    <div class="col-4">
-                      <span class={styles["rating2"]}>4.5</span>
+                    <div className="col-4">
+                      <span className={styles["rating2"]}>4.5</span>
                       <img 
                         src={star}
                         alt=""
                         
-                        class={styles["stars2"]}
+                        className={styles["stars2"]}
                       />
                     </div>
                   </div>
-                  <p class={styles["statement2"]}>
+                  <p className={styles["statement2"]}>
                     “Our future cannot depend on the government alone. The
                     ultimate solutions lie in the attitudes <br />
                     and the actions of the American people.
@@ -493,38 +491,38 @@ const Homepage = () => {
               </div>
 
               <div
-                class={`col ${styles["review2"]}`}
+                className={`col ${styles["review2"]}`}
                 
               >
                 <div
-                  class={`border text-center rounded-2 left-border w-75 ${styles["rusia"]}`}
+                  className={`border text-center rounded-2 left-border w-75 ${styles["rusia"]}`}
                 >
-                  <div class="row cs2">
-                    <div class="col-8">
-                      <div class="row">
-                        <div class="col-3">
-                          <img class={styles["putin-pic"]}
+                  <div className="row cs2">
+                    <div className="col-8">
+                      <div className="row">
+                        <div className="col-3">
+                          <img className={styles["putin-pic"]}
                             src={putin}
                             alt=""
                            
                           />
                         </div>
-                        <div class="col-9">
-                          <p class={styles["putin"]}>Vladimir Putin</p>
-                          <p class={styles["moskwa"]}>Moskwa, Rusia</p>
+                        <div className="col-9">
+                          <p className={styles["putin"]}>Vladimir Putin</p>
+                          <p className={styles["moskwa"]}>Moskwa, Rusia</p>
                         </div>
                       </div>
                     </div>
-                    <div class="col-4">
-                      <span class={styles["rating2"]}>4.5</span>
+                    <div className="col-4">
+                      <span className={styles["rating2"]}>4.5</span>
                       <img
                         src={star}
                         alt=""
-                        class={styles["stars2"]}
+                        className={styles["stars2"]}
                       />
                     </div>
                   </div>
-                  <p class={styles["statement2"]}>
+                  <p className={styles["statement2"]}>
                     “Russia is a part of European culture. <br />
                     Therefore, it is with difficulty that I imagine NATO as an
                     enemy.
@@ -532,37 +530,37 @@ const Homepage = () => {
                 </div>
               </div>
 
-              <div class={`col ${styles["review2"]}`}>
+              <div className={`col ${styles["review2"]}`}>
                 <div
-                  class={`border text-center rounded-2 left-border w-75 ${styles["rusia"]}`}
+                  className={`border text-center rounded-2 left-border w-75 ${styles["rusia"]}`}
                 >
-                  <div class="row cs2">
-                    <div class="col-8">
-                      <div class="row">
-                        <div class="col-3">
-                          <img class={styles["kim-pic"]}
+                  <div className="row cs2">
+                    <div className="col-8">
+                      <div className="row">
+                        <div className="col-3">
+                          <img className={styles["kim-pic"]}
                             src={kim}
                             alt=""
                           
                           />
                         </div>
-                        <div class="col-9">
-                          <p class={styles["putin"]}>Kim Jong Un</p>
-                          <p class={styles["pyongyang"]}>Pyongyang, Korea</p>
+                        <div className="col-9">
+                          <p className={styles["putin"]}>Kim Jong Un</p>
+                          <p className={styles["pyongyang"]}>Pyongyang, Korea</p>
                         </div>
                       </div>
                     </div>
-                    <div class="col-4">
-                      <span class={styles["rating3"]}>4.5</span>
+                    <div className="col-4">
+                      <span className={styles["rating3"]}>4.5</span>
                       <img
                         src={star}
                         alt=""
                         
-                        class={styles["stars2"]}
+                        className={styles["stars2"]}
                       />
                     </div>
                   </div>
-                  <p class={styles["statement2"]}>
+                  <p className={styles["statement2"]}>
                     “When young people are powerful, our Party <br />
                     and People's Army are powerful, and there is <br />
                     nothing for us to be afraid of.
@@ -571,102 +569,49 @@ const Homepage = () => {
               </div>
             </div>
 
-            <div class={`row ${styles["navbar"]}`}>
-              <div class="col">
+            <div className={`row ${styles["navbar"]}`}>
+              <div className="col">
                 <img
                   src={dotdot}
                   alt=""
                   
-                  class={styles["dotdot"]}
+                  className={styles["dotdot"]}
                 />
               </div>
-              <div class={`col ${styles["leftright"]}`}>
-                <img class={styles["left-pic"]}
+              <div className={`col ${styles["leftright"]}`}>
+                <img className={styles["left-pic"]}
                   src={left}
                   alt=""
                   
                 />
-                <img class={styles["right-pic"]}
+                <img className={styles["right-pic"]}
                   src={right}
                   alt=""
                  
                 />
               </div>
             </div>
-
-            <section class={styles["member-card"]}>
-              <aside class={styles["member-desc"]}>
-                <p class={styles["getmember"]}>
+            <Footer/>
+            <section className={styles["member-card"]}>
+              <aside className={styles["member-desc"]}>
+                <p className={styles["getmember"]}>
                   Check our promo
                   <br />
                   today!
                 </p>
-                <p class={styles["letsjoin"]}>
+                <p className={styles["letsjoin"]}>
                   Let's see the deals and pick yours!
                 </p>
               </aside>
               <aside>
-                <button class={styles["createnow"]}>See Promo</button>
+                <button className={styles["createnow"]}>See Promo</button>
               </aside>
             </section>
           </main>
 
-
-
-          <footer class={styles["footer-home"]}>
-            <aside class={styles["about-coffe"]}>
-              <img class={styles["coffee-logo"]}
-                src={coffeelogo}
-                alt="coffee-icon"
-              />
-              <span class={styles["coffeeshp"]}>Coffee Shop</span> <br />
-              <p class={styles["coffee-desc"]}>
-                Coffee Shop is a store that sells some good <br />
-                meals, and especially coffee. We provide <br />
-                high quality beans
-              </p>
-              <aside class={styles["socmed"]}>
-                <img class={styles["socmed-icon"]} src={fb} alt=""  />
-                <img class={styles["socmed-icon"]} src={twitter} alt="" />
-                <img class={styles["socmed-icon"]} src={ig} alt=""  />
-                <p class={styles["socmed-url"]}>@2022CoffeeStore</p>
-              </aside>
-            </aside>
-            <aside class={styles["product-info"]}>
-              <p class={styles["products"]}>Product</p>
-
-              <p class={styles["download-content"]}>
-                Download
-                <br />
-                <br />
-                Pricing <br />
-                <br />
-                Locations <br />
-                <br />
-                Countries <br />
-                <br />
-                Blog
-              </p>
-            </aside>
-            <aside class={styles["engagement"]}>
-              <p class={styles["engage"]}>Engage</p>
-              <p class={styles["engage-content"]}>
-                Coffee Shop ?<br />
-                <br />
-                FAQ
-                <br />
-                <br />
-                About Us
-                <br />
-                <br />
-                Privacy Policy
-                <br />
-                <br />
-                Terms of Service
-              </p>
-            </aside>
-          </footer>
-        </body>
+ 
+        </main>
+        
       </Fragment>
     );
   }

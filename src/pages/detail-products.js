@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import { useDocumentTitle } from "../helpers/page-title";
+import NavBar from "../components/header/NavBar";
 
 import styles from "../style/detail-products.module.css";
 import brew from "../assets/img/brew.png";
@@ -15,12 +15,15 @@ const DetailsProducts = () => {
   useDocumentTitle("Product Detail")
   return (
     <Fragment>
-      <Header />
-      <main class={`container ${styles["main-detail"]}`}>
-      <p class={`container ${styles["promo"]}`} >Favorite & Promo  &gt; <b>Cold Brew</b> </p>
-        <section class="row">
-          <div class={`col-5 ${styles["left-content"]}`}>
-            <div class={`${styles["main-left"]}`}>
+      <NavBar />
+      <body className={`${styles["body-detail"]}`}>
+        
+      
+      <main className={`container ${styles["main-detail"]}`}>
+      <p className={`container ${styles["promo"]}`} >Favorite & Promo  &gt; <b>Cold Brew</b> </p>
+        <section className="row">
+          <div className={`col-5 ${styles["left-content"]}`}>
+            <div className={`${styles["main-left"]}`}>
             <img className={`img-fluid ${styles["brew"]}`} src={brew} alt="" />
             <p className={`${styles["coldbrew"]}`}>COLD BREW</p>
             <p className={`${styles["idr30"]}`}>IDR 30.000</p>
@@ -28,7 +31,7 @@ const DetailsProducts = () => {
             <button className={`${styles["askstaff"]}`}>Ask a Staff</button>
             </div>
           </div>
-          <div class={`col-6 ${styles["right-content"]}`}>
+          <div className={`col-6 ${styles["right-content"]}`}>
             <aside className={`container ${styles["main-content"]}`}>
               <p className={`${styles["schedule"]}`}>Delivery only on <b>Monday to <br /> friday </b>  at <b> 1 - 7 pm </b> </p>
               <p className={`${styles["brewmethod"]}`}>
@@ -66,10 +69,10 @@ const DetailsProducts = () => {
         </section>
         <section className={`container ${styles["floating-bar"]}`}>
           <div className={`row ${styles["floating-sec"]}`}>
-            <div class={`col-8 ${styles["left-bottom"]}`}>
-              <div class="container">
-                <div class="row">
-                  <div class="col">
+            <div className={`col-8 ${styles["left-bottom"]}`}>
+              <div className="container">
+                <div className="row">
+                  <div className="col">
                     <img className={`img-fluid ${styles["brew2"]}`} src={brew} alt="" />
                   </div>
                   <div className={`col-6 ${styles["result"]}`}>
@@ -81,12 +84,13 @@ const DetailsProducts = () => {
                 </div>
               </div>
             </div>
-            <div class={`col-4 ${styles["right-bottom"]}`}>
+            <div className={`col-4 ${styles["right-bottom"]}`}>
               <button className={`${styles["button-check"]}`}>Checkout</button>
             </div>
           </div>
         </section>
       </main>
+      </body>
       <Footer />
     </Fragment>
   );

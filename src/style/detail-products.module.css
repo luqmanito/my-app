@@ -22,6 +22,9 @@ color: #6A4029;
   max-width: 1440px;
   
 }
+.body-detail{
+  background-color: #BCBABA;
+}
 
 .left-content {
   /* background-color: beige; */
@@ -355,14 +358,6 @@ color: #000000;
   
 }
 
-/* .min {
-  width: 30px;
-}
-
-.plus {
-  width: 30px;
-} */
-
 .button-check {
   border-radius: 12px;
   border-color: #ffba33;
@@ -386,4 +381,28 @@ color: #000000;
 .right-bottom {
   /* background-color: aquamarine; */
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .main-content{
+    margin-left: 15%;
+  }
+  .idr30{
+    font-size: larger;
+  }
+  .addcart, .askstaff {
+    margin-left: -15%;
+  }
+  .button {
+    margin-left: -5%;
+    margin-top: -5%;
+    width: 51vw;
+  }
+  .choose{
+    margin-left:30%;
+  }
+  .left-bottom {
+    width: 42vw;
+    margin-left: 2%;
+  }
 }

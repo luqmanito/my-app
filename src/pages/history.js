@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useDocumentTitle } from "../helpers/page-title";
-import Header from "../components/header/header";
+import NavBar from "../components/header/NavBar";
 import Footer from "../components/footer/footer";
 import styles from "../style/history.module.css";
 import HistoryCard from "../components/cards/history";
@@ -12,9 +12,11 @@ const History = () => {
   useDocumentTitle("Order History")
   return (
     <Fragment>
+      <body className={` ${styles["main-body"]}`}>
+        
       
       <main className={`container ${styles["main-history"]}`}>
-      <Header />
+      <NavBar />
         <div className={styles["container"]}>
           <section
             className={`col-12 ${styles["title-container"]} text-center`}
@@ -46,7 +48,7 @@ const History = () => {
         </div>
         <Footer />
       </main>
-      
+      </body>
     </Fragment>
   );
 };

@@ -1,0 +1,18 @@
+.img-preview{
+    border-radius: 50%;
+    width: 10vw;
+    margin-top: 10%;
+}
+
+.upload-button{
+    /* width: 25vw; */
+    /* background-color: aqua; */
+    /* text-align: center; */
+    margin-left:15%;
+    margin-top: 3%;
+justify-content:center
+}
+.upload{
+    /* position: absolute; */
+    /* margin-left: -27%; */
+}
