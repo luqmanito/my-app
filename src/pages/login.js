@@ -6,6 +6,8 @@ import withNavigate from "../helpers/withNavigate";
 import { login } from "../helpers/tools";
 import { useDocumentTitle } from "../helpers/page-title";
 import Popup from 'reactjs-popup';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import dish from "../assets/img/dish-table.jpg";
 import coffee from "../assets/img/coffee-logo.png";
@@ -22,7 +24,11 @@ const Login = ({ navigate }) => {
     const userInfo = localStorage.getItem("userInfo");
     setUserInfo(userInfo);
     if (!userInfo) return;
-    alert("Login Succesfully!");
+    // alert("Login Succesfully!");
+    toast.success("Login Succesfully!",{
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2000,
+    })
     navigate("/");
   }, [clickLogin]);
 
@@ -118,6 +124,7 @@ const Login = ({ navigate }) => {
                         value="Login"
                       />
                     </div>
+                    <ToastContainer />
                     <button className={styles["oauth"]}>
                       <img
                         src={google}

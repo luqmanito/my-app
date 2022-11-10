@@ -17,6 +17,9 @@ const EditPromo = () => {
   const [promo, setPromo] = useState({});
   const [body, setBody] = useState({});
   const [idPromo, setIdPromo] = useState(null)
+  const [name, setName] = useState({});
+  const [price, setPrice] = useState({});
+  const [desc, setDesc] = useState({});
   
   const handleName = (e) => {
     setBody({ ...body, 
@@ -39,7 +42,11 @@ const EditPromo = () => {
     try {
       const result = await getPromo();
       setPromo(result.data.result[0]);
-      console.log(result.data.result[0]);
+      console.log(result.data.result[4]);
+      const useResult = result.data.result[4]
+      setName(useResult.name)
+      setPrice(useResult.price)
+      setDesc(useResult.description)
       const id = result.data.result[0].id
       setIdPromo(id)
     } catch (error) {
@@ -55,7 +62,7 @@ const EditPromo = () => {
       // console.log(event.target.email);
       setBody({})
       alert("Update Data success");
-      window.location.reload()
+      // window.location.reload()
     } catch (error) {
       console.log(error);
      
@@ -160,7 +167,7 @@ const EditPromo = () => {
                   className={`form-control ${styles["form-cont"]}`}
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Type promo name min. 50 characters"
+                  placeholder={name}
                 ></input>
               </div>
               <div class="mb-3">
@@ -171,7 +178,7 @@ const EditPromo = () => {
                   type="text"
                   className={`form-control ${styles["form-cont"]}`}
                   id="exampleInputPassword1"
-                  placeholder="Type the normal price"
+                  placeholder={price}
                 ></input>
               </div>
               <div class="mb-3">
@@ -182,7 +189,7 @@ const EditPromo = () => {
                   type="text"
                   className={`form-control ${styles["form-cont"]}`}
                   id="exampleInputPassword1"
-                  placeholder="Describe your promo min. 150 characters"
+                  placeholder={desc}
                 ></input>
               </div>
             </form>

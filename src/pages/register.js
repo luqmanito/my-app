@@ -8,10 +8,7 @@ import Footer from "../components/footer/footer";
 import dish from "../assets/img/dish-table.jpg";
 import coffee from "../assets/img/coffee-logo.png";
 import google from "../assets/img/google-icon.png";
-import fb from "../assets/img/fb-icon.png";
-import twitter from "../assets/img/twitter-icon.png";
-import ig from "../assets/img/ig-icon.png";
-import { Axios } from "axios";
+
 
 const Register = ({navigate}) => {
   useDocumentTitle("Register")

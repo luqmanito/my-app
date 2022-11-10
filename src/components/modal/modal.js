@@ -1,46 +1,45 @@
-import React, { Fragment, useState } from "react";
-import { Component } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { logoutBe } from "../../helpers/tools";
 import styles from "../modal/modal.module.css";
 
-export default class Modal extends Component {
-//   const [modal, setModal] = useState(true);
+const Modal = (props) => {
+  const navigate = useNavigate();
 
-//   const toggleModal = () => {
-//     setModal(!modal);
-//   };
-
-//   if(modal) {
-//     document.body.classList.add('active-modal')
-//   } else {
-//     document.body.classList.remove('active-modal')
-//   }
-  render() {
+  const handleOk = async () => {
+    try {
+      await logoutBe();
+      localStorage.removeItem("userInfo");
+      navigate("/login")
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <Fragment>
-      {/* <button onClick={toggleModal} className={styles["btn-modal"]}>
-        Open
-      </button> */}
-
-      { (
-        <div className={styles["modal"]}>
-          <div className={styles["overlay"]}></div>
+    <>
+      {props.open ? (
+        <div className={styles.modal}>
           <div className={styles["modal-content"]}>
-            <h2>Hello Modal</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-              perferendis suscipit officia recusandae, eveniet quaerat assumenda
-              id fugit, dignissimos maxime non natus placeat illo iusto!
-              Sapiente dolorum id maiores dolores? Illum pariatur possimus
-              quaerat ipsum quos molestiae rem aspernatur dicta tenetur. Sunt
-              placeat tempora vitae enim incidunt porro fuga ea.
-            </p>
-            <button className={styles["close-modal"]} >
-              CLOSE
-            </button>
+            <div className={styles["modal-header"]}>
+              <p className={styles["modal-title"]}>{props.title}</p>
+            </div>
+            <div className={styles["modal-body"]}>{props.body}</div>
+            <div className={styles["modal-footer"]}>
+              <button className={styles.button} onClick={handleOk}>
+                yes
+              </button>
+              <button
+                className={styles.button}
+                onClick={() => props.setOpen(!props)}
+              >
+                no
+              </button>
+            </div>
           </div>
         </div>
-      )}
-      <p>Lorem ipsum , quisquam molestiae.</p>
-      </Fragment>
+      ) : null}
+    </>
   );
-}}
+};
+
+export default Modal;

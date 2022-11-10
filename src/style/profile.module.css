@@ -1,3 +1,8 @@
+body.active-modal {
+  overflow-y: hidden;
+}
+
+
 .body-head{
   background-color: #BCBABA;
 }
@@ -691,9 +696,7 @@
       display: flex;
       flex-direction: column;
     }
-    .main-profile {
-      /* background-color: #0b132a; */
-    }
+  
     .user-profile {
       margin-left: 2%;
     }

@@ -16,6 +16,8 @@ class ForgotPw extends Component {
     render() {
 return (
 <Fragment>
+        <body className={`${styles["main-body"]}`}>
+          
         
         <main className={`container ${styles["main-forgot"]}`}>
           <section className={`container ${styles["uppertext"]}`}>
@@ -47,6 +49,7 @@ return (
             
           
         </main>
+        </body>
         <Footer />
       </Fragment>
 )

@@ -1,10 +1,16 @@
 .main-forgot {
   max-width: 1440px;
-  background-image: url(https://scontent.fcgk22-1.fna.fbcdn.net/v/t39.30808-6/313167893_10221269754964194_4916761522704169923_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e3f864&_nc_ohc=jSdbbfD5h3YAX8MkCbX&_nc_ht=scontent.fcgk22-1.fna&oh=00_AfBL41SS-5DU3xLqFYj-A9SGtyJebRTKArfuQ7Ob7YYzhw&oe=636089E4);
+  background-image: url(https://scontent.fcgk22-1.fna.fbcdn.net/v/t39.30808-6/313167893_10221269754964194_4916761522704169923_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e3f864&_nc_ohc=c8Bp03egsR8AX93dRpp&_nc_ht=scontent.fcgk22-1.fna&oh=00_AfAgh734nBzskXmlhYcvO_VG4VBY1ZP2MWoBzUfnadVLnQ&oe=63725624);
   height:900px;
   padding: 20px;
   justify-content: center;
+ 
 }
+
+.main-body{
+  background-color: #BCBABA;
+}
+
 .forgot {
   font-family: "Poppins";
   font-style: normal;

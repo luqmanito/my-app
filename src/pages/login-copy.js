@@ -5,6 +5,8 @@ import Footer from "../components/footer/footer";
 import withNavigate from "../helpers/withNavigate";
 import { login } from "../helpers/tools";
 import { useDocumentTitle } from "../helpers/page-title";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import dish from "../assets/img/dish-table.jpg";
 import coffee from "../assets/img/coffee-logo.png";
@@ -16,7 +18,6 @@ const Login2 = ({ navigate }) => {
 
   const [userInfo, setUserInfo] = useState({});
   const [clickLogin, setClickLogin] = useState(false);
-
   const initValue = { email: "", password: "" };
   const [formValues, setFormValues] = useState(initValue);
   const [formErrors, setFormErrors] = useState({});
@@ -35,11 +36,19 @@ const Login2 = ({ navigate }) => {
       const loginRequest = await login(formValues);
       localStorage.setItem("userInfo", JSON.stringify(loginRequest.data.data));
       setIsSubmit(true);
+
+      toast.success("Login Succesfully!",{
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+      })
+
+
+
     } catch (error) {
       setIsCorrect((true));
       setTimeout(() => {
         setIsCorrect((false));
-      }, 3000);
+      }, 2000);
     } finally {
       setClickLogin(!clickLogin);
     }
@@ -164,6 +173,7 @@ const Login2 = ({ navigate }) => {
                             value="Login"
                           />
                         </div>
+                        <ToastContainer />
                         <button className={styles["oauth"]}>
                           <img
                             src={google}
