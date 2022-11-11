@@ -9,9 +9,13 @@ import { getProduct, getProducts } from "../helpers/tools";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../components/footer/footer";
+import IsLoading from "../components/loading/isLoading";
+import { setProduct } from "../redux/action";
 
+const Products = ({ navigate }) => {
 
-const Products = ({ navigate}) => {
+  // const [product, setProduct] = useState([])
+
   const [param, setParam] = useState({
     filter: "",
     sort: "",
@@ -19,18 +23,12 @@ const Products = ({ navigate}) => {
     page: 1,
   });
 
-  
-
   const [query, setSearchProduct] = useState("");
 
   const getAllProduct = async () => {
     try {
       const result = await getProducts(param, counter);
-      // setAllProduct(result.data.result);
-      console.log("angka", counter);
-      console.log(`inidia`, param.filter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
-      dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
     } catch (error) {
       console.log(error);
     }
@@ -82,7 +80,7 @@ const Products = ({ navigate}) => {
       // navigate(`/products/${param.category}`)
       // setAllProduct(result.data.result);
       // navigate(`/products/${param.filter}`);
-      <Link to={`/products/${param.filter}`}/> 
+      <Link to={`/products/${param.filter}`} />;
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -157,7 +155,7 @@ const Products = ({ navigate}) => {
       // setAllProduct(result.data.result);
       console.log("angka", counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
-      dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
+      // dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
     } catch (error) {
       console.log(error);
     }
@@ -170,26 +168,30 @@ const Products = ({ navigate}) => {
       const result = await getProducts(param, counter);
       // setAllProduct(result.data.result);
       console.log("angka", counter);
-      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
-      dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
+      dispatch(setProduct(result.data.result));
+      // dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
     } catch (error) {
       console.log(error);
     }
   };
 
   //destructuring stateGlobal
-  const { products, currentPage } = useSelector((state) => state);
+  // const { products, currentPage, isPending  } = useSelector((state) => state);
+  const {product} = useSelector((state) => state.homeReducer);
   const dispatch = useDispatch();
+  // console.log(`products global:`, product);
+  
+  // const isPending = dispatch({ type: "LOADING_PAGE" });
 
-  console.log("page: ", currentPage);
+  // console.log("page: ", currentPage);
 
-  // console.log(`state global:`, stateGlobal);
-  console.log(`data product global:`, products);
+  
+  // console.log(`data product global:`, products);
   useEffect(() => {
     // setTimeout(() => {
     //   dispatch({ type: "UPDATE_NAME" });
     // }, 2000);
-
+    dispatch({ type: "LOADING_PAGE" })
     getAllProduct();
   }, [param.filter]);
 
@@ -242,16 +244,15 @@ const Products = ({ navigate}) => {
               className={`col-8 border w-75 row align-items-start ${styles["main-side"]}`}
             >
               <div className={`container ${styles["filter-side"]}`}>
-
                 <aside
                   className={`row row-cols-auto ${styles["sub-category"]}`}
                 >
                   <Link to={`/categorys/favorite-products`}>
-                  <aside
-                    className={`col text-decoration-underline align-middle ${styles["fav-prod"]}`}
-                  >
-                    <p onClick={handleFavorite}>Favorite Product</p>
-                  </aside>
+                    <aside
+                      className={`col text-decoration-underline align-middle ${styles["fav-prod"]}`}
+                    >
+                      <p onClick={handleFavorite}>Favorite Product</p>
+                    </aside>
                   </Link>
 
                   <Link to={`/categorys/coffee`}>
@@ -259,7 +260,6 @@ const Products = ({ navigate}) => {
                       onClick={() => {
                         // navigate(`/products/${param.filter}`)
                         handleCoffee();
-                        
                       }}
                       className={`col  ${styles["category"]}`}
                     >
@@ -267,24 +267,27 @@ const Products = ({ navigate}) => {
                     </aside>
                   </Link>
                   <Link to={`/categorys/non-coffee`}>
-                  <aside
-                    onClick={handleNonCofee}
-                    className={`col  ${styles["category"]}`}
-                  >
-                    Non Coffee
-                  </aside>
+                    <aside
+                      onClick={handleNonCofee}
+                      className={`col  ${styles["category"]}`}
+                    >
+                      Non Coffee
+                    </aside>
                   </Link>
 
                   <Link to={`/categorys/food`}>
-                  <aside
-                    onClick={handleFood}
-                    className={`col ${styles["category"]}`}
-                  >
-                    Foods
-                  </aside>
+                    <aside
+                      onClick={handleFood}
+                      className={`col ${styles["category"]}`}
+                    >
+                      Foods
+                    </aside>
                   </Link>
                   <Link to={`/categorys/addon`}>
-                  <aside className={`col ${styles["category"]}`}>Add-on</aside></Link>
+                    <aside className={`col ${styles["category"]}`}>
+                      Add-on
+                    </aside>
+                  </Link>
                 </aside>
               </div>
               <span className={` ${styles["sortby"]}`}>Sort by:</span>
@@ -313,29 +316,37 @@ const Products = ({ navigate}) => {
                   <aside
                     className={`row align-items-start ${styles["prod-wrap"]}`}
                   >
-                    {products
-                      .filter((product) => {
-                        if (query === "") {
-                          return product;
-                        } else if (
-                          product.name
-                            .toLowerCase()
-                            .includes(query.toLowerCase())
-                        ) {
-                          return product;
-                        }
-                      })
+                    {
+                    // isPending ? (
+                    //   <div className={`${styles.loading}`}>
+                    //     <IsLoading />
+                    //   </div>
+                    // ) : (
+                      product
+                        .filter((product) => {
+                          if (query === "") {
+                            return product;
+                          } else if (
+                            product.name
+                              .toLowerCase()
+                              .includes(query.toLowerCase())
+                          ) {
+                            return product;
+                          }
+                        })
 
-                      .map((product) => {
-                        return (
-                          <ProductCard
-                            name={product.name}
-                            price={"IDR " + product.price}
-                            image={product.image}
-                            key={product.id}
-                          />
-                        );
-                      })}
+                        .map((product) => {
+                          return (
+                            <ProductCard
+                              name={product.name}
+                              price={"IDR " + product.price}
+                              image={product.image}
+                              key={product.id}
+                            />
+                          );
+                        })
+                    // )
+                    }
                   </aside>
 
                   <nav

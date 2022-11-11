@@ -1,36 +1,18 @@
-const {createStore} = require("redux")
+import { applyMiddleware, createStore } from "redux";
+import reducer from "./reducer/reducer";
+import thunk from 'redux-thunk'
+import { getProduct } from "../helpers/tools";
 
-const initState = {
-    products: [],
-    name: 'Luqman',
-    currentPage: 1,
-    // promo: []
-    
+const store = createStore(reducer, applyMiddleware(thunk));
+
+const getAllProductAction = (param) => {
+    return {
+        type : "UPDATE_DATA_PRODUCT",
+        payload :getProduct(param)
+    }
 }
 
-const reducer = (state= initState, action) => {
-    if(action.type === 'UPDATE_DATA_PRODUCT') {
-        return {
-            ...state,
-            products: action.payload
-        }
-    }
-    if (action.type === `UPDATE_NAME`) {
-        return {
-            ...state,
-            name: `Grahito`
-        }
-    }
 
-    if(action.type === 'UPDATE_PAGE') {
-        return {
-            ...state,
-            currentPage: action.payload
-        }
-    }
 
-    return state
-}
 
-const store = createStore(reducer)
-export default store
+export default store;
