@@ -6,39 +6,58 @@ import PromoCard from "../components/cards/promo";
 import NavBar from "../components/header/NavBar";
 import withNavigate from "../helpers/withNavigate";
 import { getProduct, getProducts } from "../helpers/tools";
+import withSearchParams from "../helpers/withSearchParams";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../components/footer/footer";
 import IsLoading from "../components/loading/isLoading";
 import { setProduct } from "../redux/action";
+import { useNavigate, useLocation } from "react-router-dom";
+import { debounce } from "../helpers/debounce";
 
-const Products = ({ navigate }) => {
+const useQuery = () => {
+  const { search } = useLocation();
+  return useMemo(() => new URLSearchParams(search), [search]);
+};
 
-  // const [product, setProduct] = useState([])
+const Products = (props) => {
+  const getQuery = useQuery();
+  const isPending = useSelector((state) => state.globalReducer.isLoading);
+  console.log(isPending);
+  const [counter, setCounter] = useState(1);
+  const [thisPage, setThisPage] = useState(1);
 
   const [param, setParam] = useState({
-    filter: "",
-    sort: "",
-    order: "desc",
-    page: 1,
+    search: getQuery.get("search") ?? "",
+    sort: getQuery.get("sort") ?? "",
+    filter: getQuery.get("filter") ?? "",
+    page: getQuery.get("page") ?? 1,
   });
 
-  const [query, setSearchProduct] = useState("");
+  const [searchProduct, setSearchProduct] = useState("");
 
-  const getAllProduct = async () => {
+  const getAllProduct = debounce(async () => {
     try {
-      const result = await getProducts(param, counter);
+      const body = {
+        search: getQuery.get(`${searchProduct}`) ?? "",
+        filter: "",
+        sort: "asc",
+      };
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+      dispatch({ type: "LOADING_PAGE_FALSE" });
+      // console.log(isLoading);
     } catch (error) {
       console.log(error);
     }
-  };
+  }, 1500);
+
   const handleNonCofee = async () => {
     try {
-      const body = { ...param, filter: "non-coffee", sort: "", order: "asc" };
+      const body = { ...param, filter: "non-coffee", sort: "" };
       setParam(body);
-      const result = await getProduct(body);
-      // setAllProduct(result.data.result);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -49,13 +68,12 @@ const Products = ({ navigate }) => {
       const body = {
         ...param,
         sort: "most-popular",
-        order: "desc",
+        sort: "desc",
         filter: "",
       };
       setParam(body);
-      const result = await getProduct(body);
-      // setAllProduct(result.data.result);
-      // navigate(`/products/${param.filter}`);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -63,10 +81,10 @@ const Products = ({ navigate }) => {
   };
   const handleFood = async () => {
     try {
-      const body = { ...param, filter: "food", sort: "", order: "asc" };
+      const body = { ...param, filter: "food", sort: "", sort: "asc" };
       setParam(body);
-      const result = await getProduct(body);
-      // setAllProduct(result.data.result);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -74,13 +92,11 @@ const Products = ({ navigate }) => {
   };
   const handleCoffee = async () => {
     try {
-      const body = { ...param, filter: "coffee", sort: "", order: "asc" };
+      const body = { ...param, filter: "coffee", sort: "", sort: "asc" };
       setParam(body);
-      const result = await getProduct(body);
-      // navigate(`/products/${param.category}`)
-      // setAllProduct(result.data.result);
-      // navigate(`/products/${param.filter}`);
-      <Link to={`/products/${param.filter}`} />;
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
+
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -92,13 +108,10 @@ const Products = ({ navigate }) => {
         ...param,
         filter: "",
         sort: "most-expensive",
-        order: "desc",
       };
       setParam(body);
-      const result = await getProduct(body);
-      // navigate(`/products/${param.category}`)
-      // setAllProduct(result.data.result);
-      // navigate(`/products/${param.filter}`);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -106,12 +119,10 @@ const Products = ({ navigate }) => {
   };
   const cheapest = async () => {
     try {
-      const body = { ...param, filter: "", sort: "cheapest", order: "asc" };
+      const body = { ...param, filter: "", sort: "cheapest" };
       setParam(body);
-      const result = await getProduct(body);
-      // navigate(`/products/${param.category}`)
-      // setAllProduct(result.data.result);
-      navigate(`/products/${param.filter}`);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -119,12 +130,10 @@ const Products = ({ navigate }) => {
   };
   const newest = async () => {
     try {
-      const body = { ...param, filter: "", sort: "newest", order: "desc" };
+      const body = { ...param, filter: "", sort: "newest" };
       setParam(body);
-      const result = await getProduct(body);
-      // navigate(`/products/${param.category}`)
-      // setAllProduct(result.data.result);
-      navigate(`/products/${param.filter}`);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -132,73 +141,60 @@ const Products = ({ navigate }) => {
   };
   const oldest = async () => {
     try {
-      const body = { ...param, filter: "", sort: "oldest", order: "asc" };
+      const body = { ...param, filter: "", sort: "oldest" };
       setParam(body);
-      const result = await getProduct(body);
-      // navigate(`/products/${param.category}`)
-      // setAllProduct(result.data.result);
-      // navigate(`/products/${param.filter}`);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
     }
   };
 
-  const [counter, setCounter] = useState(1);
-
   const next = async () => {
-    setCounter(counter + 1);
-    console.log("itu", counter);
-
+    const tempCount = counter + 1;
+    setCounter(tempCount);
     try {
-      const result = await getProducts(param, counter);
-      // setAllProduct(result.data.result);
+      const result = await getProducts(param, tempCount);
       console.log("angka", counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
-      // dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
     } catch (error) {
       console.log(error);
     }
   };
   const prev = async () => {
-    setCounter(counter - 1);
-    console.log("ini", counter);
-
+    const tempCount = counter - 1;
+    setCounter(tempCount);
     try {
-      const result = await getProducts(param, counter);
-      // setAllProduct(result.data.result);
+      const result = await getProducts(param, tempCount);
       console.log("angka", counter);
       dispatch(setProduct(result.data.result));
-      // dispatch({ type: "UPDATE_PAGE", payload: { currentpage: counter } });
     } catch (error) {
       console.log(error);
     }
   };
 
-  //destructuring stateGlobal
-  // const { products, currentPage, isPending  } = useSelector((state) => state);
-  const {product} = useSelector((state) => state.homeReducer);
+  const { product } = useSelector((state) => state.homeReducer);
   const dispatch = useDispatch();
-  // console.log(`products global:`, product);
-  
-  // const isPending = dispatch({ type: "LOADING_PAGE" });
 
-  // console.log("page: ", currentPage);
+  const callSearch = () => {
+    product.name.toLowerCase().includes(searchProduct.toLowerCase());
+  };
 
-  
-  // console.log(`data product global:`, products);
   useEffect(() => {
-    // setTimeout(() => {
-    //   dispatch({ type: "UPDATE_NAME" });
-    // }, 2000);
-    dispatch({ type: "LOADING_PAGE" })
+    dispatch({ type: "LOADING_PAGE" });
     getAllProduct();
-  }, [param.filter]);
+    // getDataProd()
+  }, []);
+  console.log(product);
+
+  const updateChange = (e) => setSearchProduct(e.target.value);
+  const debounceOnChange = debounce(updateChange, 1000);
 
   useDocumentTitle("Products");
   return (
     <Fragment>
-      <NavBar onChange={(e) => setSearchProduct(e.target.value)} />
+      <NavBar onChange={debounceOnChange} />
       <body className={`container-fluid ${styles["main-body"]}`}>
         <section
           className={`container-fluid text-dark ${styles["sec-product"]}`}
@@ -208,11 +204,6 @@ const Products = ({ navigate }) => {
               <h1 className={`text-center ${styles["promoforyou"]}`}>
                 Promo for you
               </h1>
-
-              {/* <p>{stateGlobal.name}</p> */}
-              {/* krn sudah destructuring jadi name aja */}
-              {/* <p>{name}</p> */}
-
               <br />
               <p className={`text-center ${styles["coupons"]}`}>
                 Coupons will be updated every weeks. <br />
@@ -247,47 +238,35 @@ const Products = ({ navigate }) => {
                 <aside
                   className={`row row-cols-auto ${styles["sub-category"]}`}
                 >
-                  <Link to={`/categorys/favorite-products`}>
-                    <aside
-                      className={`col text-decoration-underline align-middle ${styles["fav-prod"]}`}
-                    >
-                      <p onClick={handleFavorite}>Favorite Product</p>
-                    </aside>
-                  </Link>
+                  <aside
+                    className={`col text-decoration-underline align-middle ${styles["fav-prod"]}`}
+                  >
+                    <p onClick={handleFavorite}>Favorite Product</p>
+                  </aside>
 
-                  <Link to={`/categorys/coffee`}>
-                    <aside
-                      onClick={() => {
-                        // navigate(`/products/${param.filter}`)
-                        handleCoffee();
-                      }}
-                      className={`col  ${styles["category"]}`}
-                    >
-                      Coffee
-                    </aside>
-                  </Link>
-                  <Link to={`/categorys/non-coffee`}>
-                    <aside
-                      onClick={handleNonCofee}
-                      className={`col  ${styles["category"]}`}
-                    >
-                      Non Coffee
-                    </aside>
-                  </Link>
+                  <aside
+                    onClick={() => {
+                      handleCoffee();
+                    }}
+                    className={`col  ${styles["category"]}`}
+                  >
+                    Coffee
+                  </aside>
+                  <aside
+                    onClick={handleNonCofee}
+                    className={`col  ${styles["category"]}`}
+                  >
+                    Non Coffee
+                  </aside>
 
-                  <Link to={`/categorys/food`}>
-                    <aside
-                      onClick={handleFood}
-                      className={`col ${styles["category"]}`}
-                    >
-                      Foods
-                    </aside>
-                  </Link>
-                  <Link to={`/categorys/addon`}>
-                    <aside className={`col ${styles["category"]}`}>
-                      Add-on
-                    </aside>
-                  </Link>
+                  <aside
+                    onClick={handleFood}
+                    className={`col ${styles["category"]}`}
+                  >
+                    Foods
+                  </aside>
+
+                  <aside className={`col ${styles["category"]}`}>Add-on</aside>
                 </aside>
               </div>
               <span className={` ${styles["sortby"]}`}>Sort by:</span>
@@ -308,6 +287,7 @@ const Products = ({ navigate }) => {
                   <li className={` ${styles["divider"]}`}></li>
                 </ul>
               </label>
+              {}
 
               <aside className={`"container text-center ${styles["sub-list"]}`}>
                 <div
@@ -316,37 +296,39 @@ const Products = ({ navigate }) => {
                   <aside
                     className={`row align-items-start ${styles["prod-wrap"]}`}
                   >
-                    {
-                    // isPending ? (
-                    //   <div className={`${styles.loading}`}>
-                    //     <IsLoading />
-                    //   </div>
-                    // ) : (
-                      product
-                        .filter((product) => {
-                          if (query === "") {
-                            return product;
-                          } else if (
-                            product.name
-                              .toLowerCase()
-                              .includes(query.toLowerCase())
-                          ) {
-                            return product;
-                          }
-                        })
+                    {isPending ? (
+                      <div className={`${styles.loading}`}>
+                        <IsLoading />
+                      </div>
+                    ) : (
+                      <div className={` ${styles["main-menu"]}`}>
+                        {product
+                            .filter((product) => {
+                              if (searchProduct === "") {
+                                return product;
+                              } else if (
+                                product.name
+                                  .toLowerCase()
+                                  .includes(searchProduct.toLowerCase())
+                              ) {
+                                return product;
+                              }
+                            })
+                            .map((product) => {
+                              return (
+                                <ProductCard
+                                  name={product.name}
+                                  price={"IDR " + product.price}
+                                  image={product.image}
+                                  dataId={product.id}
+                                />
+                              );
+                            })
 
-                        .map((product) => {
-                          return (
-                            <ProductCard
-                              name={product.name}
-                              price={"IDR " + product.price}
-                              image={product.image}
-                              key={product.id}
-                            />
-                          );
-                        })
-                    // )
-                    }
+                          // }
+                        }
+                      </div>
+                    )}
                   </aside>
 
                   <nav
@@ -386,4 +368,4 @@ const Products = ({ navigate }) => {
   );
 };
 
-export default withNavigate(Products);
+export default withSearchParams(Products);

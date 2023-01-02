@@ -1,7 +1,7 @@
 import React, {Fragment} from "react"
 import styles from "../components-admin/manage-card.module.css";
-import hazelpay from "../assets/img/hazelpay.png";
-import firewing from "../assets/img/firewings.png";
+import hazelpay from "../assets/images/hazelpay.png";
+import firewing from "../assets/images/firewings.png";
 
 
 const ManageCardAdmin = () => {

@@ -2,13 +2,13 @@ import React, { useState, useEffect, Fragment } from "react";
 import HeaderAdmin from "../components-admin/header/header";
 import styles from "../page-admin/style-admin/new-promo.module.css";
 import Footer from "../components/footer/footer";
-import upload from "../assets/img/upload.png";
-import r from "../assets/img/r.png";
-import l from "../assets/img/l.png";
-import xl from "../assets/img/xl.png";
-import size1 from "../assets/img/250.png";
-import size2 from "../assets/img/300.png";
-import size3 from "../assets/img/500.png";
+import upload from "../assets/images/upload.png";
+import r from "../assets/images/r.png";
+import l from "../assets/images/l.png";
+import xl from "../assets/images/xl.png";
+import size1 from "../assets/images/250.png";
+import size2 from "../assets/images/300.png";
+import size3 from "../assets/images/500.png";
 import { addPromo } from "../helpers/tools";
 
 const NewPromo = () => {

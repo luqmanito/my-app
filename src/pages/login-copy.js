@@ -7,11 +7,11 @@ import { login } from "../helpers/tools";
 import { useDocumentTitle } from "../helpers/page-title";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import dish from "../assets/img/dish-table.jpg";
-import coffee from "../assets/img/coffee-logo.png";
-import google from "../assets/img/google-icon.png";
-
+import eye from "../assets/images/eye.png";
+import eyeDash from "../assets/images/eyeSlash.png";
+import dish from "../assets/images/dish-table.jpg";
+import coffee from "../assets/images/coffee-logo.png";
+import google from "../assets/images/google-icon.png";
 
 const Login2 = ({ navigate }) => {
   useDocumentTitle("Login");
@@ -23,6 +23,7 @@ const Login2 = ({ navigate }) => {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [isPwdShown, setIsPwdShown] = useState(false);
 
   const handleChange = (el) => {
     const { name, value } = el.target;
@@ -36,18 +37,14 @@ const Login2 = ({ navigate }) => {
       const loginRequest = await login(formValues);
       localStorage.setItem("userInfo", JSON.stringify(loginRequest.data.data));
       setIsSubmit(true);
-
-      toast.success("Login Succesfully!",{
+      toast.success("Login Succesfully!", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2000,
-      })
-
-
-
+      });
     } catch (error) {
-      setIsCorrect((true));
+      setIsCorrect(true);
       setTimeout(() => {
-        setIsCorrect((false));
+        setIsCorrect(false);
       }, 2000);
     } finally {
       setClickLogin(!clickLogin);
@@ -82,134 +79,130 @@ const Login2 = ({ navigate }) => {
 
   return (
     <Fragment>
-      <body className={`container-fluid ${styles["body-bg"]}`}>
-        <main className={`container-fluid ${styles["body-login"]}`}>
-          <section className={styles["login-sec"]}>
-            <aside className={styles["side-content"]}>
-              <img className={`container ${styles["side-img"]}`} src={dish} />
-            </aside>
-            <aside className={styles["right-side"]}>
-              <div className={styles["coffee-icon"]}>
-                <img
-                  src={coffee}
-                  width="20px"
-                  height="20px"
-                  alt="coffee-icon"
-                />
-                Coffee Shop
-                <Link to={"/register"}>
-                  <button className={styles["signup"]}>Sign Up</button>
-                </Link>
-              </div>
+      <section className={`container ${styles["login-sec"]}`}>
+        <aside className={styles["side-content"]}>
+          <img className={`container ${styles["side-img"]}`} src={dish} />
+        </aside>
+        <aside className={styles["right-side"]}>
+          <div className={styles["coffee-icon"]}>
+            <img src={coffee} width="20px" height="20px" alt="coffee-icon" />
+            Coffee Shop
+            <Link to={"/register"}>
+              <button className={styles["signup"]}>Sign Up</button>
+            </Link>
+          </div>
+          <div>
+            <section className={styles["register-form"]}>
+              <p className={styles["signin"]}>Login</p>
+              {Object.keys(formErrors).length === 0 && isSubmit ? (
+                <div className={styles["ui-success"]}>
+                  Signed in succesfully!
+                </div>
+              ) : (
+                ""
+              )}
+              {Object.keys(formErrors).length === 0 && isCorrect ? (
+                <div className={styles["ui-fail"]}>
+                  Email or Password is wrong!
+                </div>
+              ) : (
+                ""
+              )}
+
+              <form onSubmit={handleSubmit2} className={styles["label-input"]}>
+                <label className={styles["label-email"]} for="email">
+                  Email Adress:
+                </label>
+
+                <div>
+                  <input
+                    onChange={handleChange}
+                    name="email"
+                    className={styles["input-text"]}
+                    type="text"
+                    placeholder="Enter your email adress"
+                    value={formValues.email}
+                  />
+                </div>
+
+                <p className={styles["errormail"]}>{formErrors.email}</p>
+                <div>
+                  <label className={styles["label-pass"]} for="pass">
+                    Password:
+                  </label>
+                </div>
+                <div>
+                  <input
+                    onChange={handleChange}
+                    name="password"
+                    className={styles["input-text"]}
+                    type={isPwdShown ? "text" : "password"}
+                    placeholder="Enter your password"
+                    value={formValues.password}
+                  />
+
+                  <img
+                    className={styles["icon-eye"]}
+                    src={isPwdShown ? eye : eyeDash}
+                    alt=""
+                    onClick={() => setIsPwdShown(!isPwdShown)}
+                  />
+                </div>
+                <p className={styles["errorpw"]}>{formErrors.password}</p>
+              
               <div>
-                <section className={styles["register-form"]}>
-                  <p className={styles["signin"]}>Login</p>
-                  {Object.keys(formErrors).length === 0 && isSubmit ? (
-                    <div className={styles["ui-success"]}>
-                      Signed in succesfully!
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {Object.keys(formErrors).length === 0 && isCorrect ? (
-                    <div className={styles["ui-fail"]}>
-                      Email or Password is wrong!
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  
-                  <form
-                    onSubmit={handleSubmit2}
-                    className={styles["label-input"]}
-                  >
-                    <div className={styles["ui-divider"]}>
-                      <div className={styles["ui-form"]}>
-                        <label className={styles["label-email"]} for="email">
-                          Email Adress:
-                        </label>
-                        <br />
-                        <input
-                          onChange={handleChange}
-                          name="email"
-                          className={styles["input-text"]}
-                          type="text"
-                          placeholder="Enter your email adress"
-                          value={formValues.email}
-                        />
-                        <br />
-                        <p className={styles["errormail"]}>
-                          {formErrors.email}
-                        </p>
-                        <label className={styles["label-email"]} for="pass">
-                          Password:
-                        </label>
-                        <br />
-                        <input
-                          onChange={handleChange}
-                          name="password"
-                          className={styles["input-text"]}
-                          type="password"
-                          placeholder="Enter your password"
-                          value={formValues.password}
-                        />
-                        <br />
-                        <p className={styles["errorpw"]}>
-                          {formErrors.password}
-                        </p>
-                        <p
-                          className={styles["forgotpw"]}
-                          onClick={() => {
-                            navigate("/forgot");
-                          }}
-                        >
-                          Forgot password?
-                        </p>
-
-                        <div id="submit">
-                          <input
-                            className={styles["input-submit"]}
-                            type="submit"
-                            value="Login"
-                          />
-                        </div>
-                        <ToastContainer />
-                        <button className={styles["oauth"]}>
-                          <img
-                            src={google}
-                            width="20px"
-                            height="auto"
-                            alt="google-icon"
-                          />
-                          Login with Google
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </section>
+                <label
+                  className={styles["forgotpw"]}
+                  onClick={() => {
+                    navigate("/forgot");
+                  }}
+                >
+                  Forgot password?
+                </label>
               </div>
+              <input
+                className={styles["input-submit"]}
+                type="submit"
+                value="Login"
+              />
+</form>
+              <ToastContainer />
+              <button className={styles["oauth"]}>
+                <img
+                  src={google}
+                  width="20px"
+                  height="auto"
+                  alt="google-icon"
+                />
+                Login with Google
+              </button>
+            </section>
+          </div>
 
-              <section className={styles["other-content"]}></section>
-            </aside>
-          </section>
-          <section className={styles["member-card"]}>
-            <aside className={styles["member-desc"]}>
-              <p className={styles.getmember}>
-                Get your member
-                <br />
-                card now!
-              </p>
-              <p className={styles.letsjoin}>
-                Let's join with our member and enjoy the deals.
-              </p>
-            </aside>
-            <aside>
-              <button className={styles.createnow}>Create Now</button>
-            </aside>
-          </section>
-        </main>
-        <Footer />
-      </body>
+          <section className={styles["other-content"]}></section>
+        </aside>
+      </section>
+      <section className={styles["member-card"]}>
+        <aside className={styles["member-desc"]}>
+          <p className={styles.getmember}>
+            Get your member
+            <br />
+            card now!
+          </p>
+          <p className={styles.letsjoin}>
+            Let's join with our member and enjoy the deals.
+          </p>
+        </aside>
+        <aside>
+          <button 
+          onClick={() => {
+            navigate("/register");
+          }}
+          className={styles.createnow}>Create Now</button>
+        </aside>
+      </section>
+
+      <Footer />
     </Fragment>
   );
 };

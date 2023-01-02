@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useMemo } from "react";
 import styles from "../page-admin/style-admin/product-admin.module.css";
 import { useDocumentTitle } from "../helpers/page-title";
 import ProductCardAdmin from "../components-admin/product";
@@ -6,33 +6,53 @@ import PromoCardAdmin from "../components-admin/promo";
 import NavBar from "../components/header/NavBar";
 import { Link } from "react-router-dom";
 import withNavigate from "../helpers/withNavigate";
-import { getProduct } from "../helpers/tools";
+import { getProducts } from "../helpers/tools";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../components/footer/footer";
 import HeaderAdmin from "../components-admin/header/header";
+import { useNavigate, useLocation } from "react-router-dom";
+import { setProduct } from "../redux/action";
 
-const ProductsAdmin = ({ navigate }) => {
+const useQuery = () => {
+  const { search } = useLocation();
+  return useMemo(() => new URLSearchParams(search), [search]);
+};
+
+const ProductsAdmin = ( props ) => {
+
+  const getQuery = useQuery();
+  const [counter, setCounter] = useState(1);
+
   const [param, setParam] = useState({
-    filter: "",
-    sort: "",
-    order: "desc",
+    search: getQuery.get("search") ?? "",
+    sort: getQuery.get("sort") ?? "",
+    filter: getQuery.get("filter") ?? "",
+    page: getQuery.get("page") ?? 1,
   });
+
+  const [searchProduct, setSearchProduct] = useState("");
 
   const getAllProduct = async () => {
     try {
-      const result = await getProduct(param);
-      // setAllProduct(result.data.result);
+      const body = {
+        search: getQuery.get(`${searchProduct}`) ?? "",
+        filter: "",
+        sort: "asc",
+      };
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+      dispatch({ type: "LOADING_PAGE_FALSE" });
     } catch (error) {
       console.log(error);
     }
   };
+
   const handleNonCofee = async () => {
     try {
-      const body = { ...param, filter: "non-coffee", sort: "", order: "asc" };
+      const body = { ...param, filter: "non-coffee", sort: "" };
       setParam(body);
-      const result = await getProduct(body);
-      // setAllProduct(result.data.result);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -43,13 +63,12 @@ const ProductsAdmin = ({ navigate }) => {
       const body = {
         ...param,
         sort: "most-popular",
-        order: "desc",
+        sort: "desc",
         filter: "",
       };
       setParam(body);
-      const result = await getProduct(body);
-      // setAllProduct(result.data.result);
-      navigate(`/products/${param.filter}`);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -57,10 +76,10 @@ const ProductsAdmin = ({ navigate }) => {
   };
   const handleFood = async () => {
     try {
-      const body = { ...param, filter: "food", sort: "", order: "asc" };
+      const body = { ...param, filter: "food", sort: "", sort: "asc" };
       setParam(body);
-      const result = await getProduct(body);
-      // setAllProduct(result.data.result);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -68,31 +87,100 @@ const ProductsAdmin = ({ navigate }) => {
   };
   const handleCoffee = async () => {
     try {
-      const body = { ...param, filter: "coffee", sort: "", order: "asc" };
+      const body = { ...param, filter: "coffee", sort: "", sort: "asc" };
       setParam(body);
-      const result = await getProduct(body);
-      // navigate(`/products/${param.category}`)
-      // setAllProduct(result.data.result);
-      navigate(`/products/${param.filter}`);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
+
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const mostExpensive = async () => {
+    try {
+      const body = {
+        ...param,
+        filter: "",
+        sort: "most-expensive",
+        // sort: "desc",
+      };
+      setParam(body);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const cheapest = async () => {
+    try {
+      const body = { ...param, filter: "", sort: "cheapest" };
+      setParam(body);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const newest = async () => {
+    try {
+      const body = { ...param, filter: "", sort: "newest" };
+      setParam(body);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const oldest = async () => {
+    try {
+      const body = { ...param, filter: "", sort: "oldest"};
+      setParam(body);
+      props.setSearchParams(body);
+      const result = await getProducts(body, counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
     }
   };
 
-  //destructuring stateGlobal
-  const { products, name } = useSelector((state) => state);
+  const next = async () => {
+    const tempCount = counter + 1;
+    setCounter(tempCount);
+
+    try {
+
+      const result = await getProducts(param, tempCount);
+      console.log("angka", counter);
+      dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const prev = async () => {
+    const tempCount = counter - 1;
+    setCounter(tempCount);
+    try {
+      const result = await getProducts(param, tempCount);
+      console.log("angka", counter);
+      dispatch(setProduct(result.data.result));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const { product } = useSelector((state) => state.homeReducer);
   const dispatch = useDispatch();
 
-  // console.log(`state global:`, stateGlobal);
-  console.log(`data product global:`, products);
   useEffect(() => {
-    setTimeout(() => {
-      dispatch({ type: "UPDATE_NAME" });
-    }, 2000);
-
+    dispatch({ type: "LOADING_PAGE" });
     getAllProduct();
   }, []);
+
+
 
   useDocumentTitle("Products Admin");
 
@@ -161,7 +249,6 @@ const ProductsAdmin = ({ navigate }) => {
                   </aside>
                   <aside
                     onClick={() => {
-                      // navigate(`/products/${param.filter}`)
                       handleCoffee();
                     }}
                     className={`col  ${styles["category"]}`}
@@ -190,13 +277,13 @@ const ProductsAdmin = ({ navigate }) => {
                   <aside
                     className={`row align-items-start ${styles["prod-wrap"]}`}
                   >
-                    {products.map((product) => {
+                    {product.map((product) => {
                       return (
                         <ProductCardAdmin
                           name={product.name}
                           price={"IDR " + product.price}
                           image={product.image}
-                          key={product.id}
+                          dataId={product.id}
                         />
                       );
                     })}

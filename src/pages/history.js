@@ -4,8 +4,8 @@ import NavBar from "../components/header/NavBar";
 import Footer from "../components/footer/footer";
 import styles from "../style/history.module.css";
 import HistoryCard from "../components/cards/history";
-import del from "../assets/img/delete.png";
-import delx from "../assets/img/deletex.png";
+import del from "../assets/images/delete.png";
+import delx from "../assets/images/deletex.png";
 
 
 const History = () => {
@@ -30,20 +30,7 @@ const History = () => {
           </section>
           <section className={`container ${styles["list-history"]}`}>
             <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
+          
           </section>
         </div>
         <Footer />

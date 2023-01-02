@@ -1,7 +1,7 @@
 const initState = {
     name: 'Luqman',
     currentPage: 1,
-    isPending: false
+    isLoading: false
     
     
 }
@@ -23,9 +23,16 @@ const globalReducer = (state = initState, action) => {
     if(action.type === 'LOADING_PAGE') {
         return {
             ...state,
-            isPending: true
+            isLoading: true
         }
     }
+    if(action.type === 'LOADING_PAGE_FALSE') {
+        return {
+            ...state,
+            isLoading: false
+        }
+    }
+    
     
     return state
      

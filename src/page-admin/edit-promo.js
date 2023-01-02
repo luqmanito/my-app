@@ -2,13 +2,13 @@ import React, { useState, useEffect, Fragment } from "react";
 import HeaderAdmin from "../components-admin/header/header";
 import styles from "../page-admin/style-admin/edit-promo.module.css";
 import Footer from "../components/footer/footer";
-import upload from "../assets/img/upload.png";
-import r from "../assets/img/r.png";
-import l from "../assets/img/l.png";
-import xl from "../assets/img/xl.png";
-import size1 from "../assets/img/250.png";
-import size2 from "../assets/img/300.png";
-import size3 from "../assets/img/500.png";
+import upload from "../assets/images/upload.png";
+import r from "../assets/images/r.png";
+import l from "../assets/images/l.png";
+import xl from "../assets/images/xl.png";
+import size1 from "../assets/images/250.png";
+import size2 from "../assets/images/300.png";
+import size3 from "../assets/images/500.png";
 import PromoCardAdmin from "../components-admin/promo";
 import { editPromo, getPromo } from "../helpers/tools";
 
@@ -51,7 +51,6 @@ const EditPromo = () => {
       setIdPromo(id)
     } catch (error) {
       if (error.response.data.statusCode === 403) {
-        // navigate("/login");
       }
     }
   };
@@ -59,10 +58,8 @@ const EditPromo = () => {
   const handleSubmit = async (event) => {
     try {
       const result = await editPromo(body, idPromo);
-      // console.log(event.target.email);
       setBody({})
       alert("Update Data success");
-      // window.location.reload()
     } catch (error) {
       console.log(error);
      

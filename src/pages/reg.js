@@ -3,12 +3,12 @@ import styles from "../style/register.module.css"
 import { useDocumentTitle } from "../helpers/page-title";
 import {Link} from "react-router-dom"
 
-import dish from "../assets/img/dish-table.jpg";
-import coffee from "../assets/img/coffee-logo.png";
-import google from "../assets/img/google-icon.png";
-import fb from "../assets/img/fb-icon.png";
-import twitter from "../assets/img/twitter-icon.png";
-import ig from "../assets/img/ig-icon.png";
+import dish from "../assets/images/dish-table.jpg";
+import coffee from "../assets/images/coffee-logo.png";
+import google from "../assets/images/google-icon.png";
+import fb from "../assets/images/fb-icon.png";
+import twitter from "../assets/images/twitter-icon.png";
+import ig from "../assets/images/ig-icon.png";
 import { regis } from "../helpers/tools";
 
 const Reg = () => {
@@ -29,7 +29,7 @@ const Reg = () => {
   const handleSubmit = async (el) => {
     el.preventDefault();
     if (!body.email || !body.password)
-      alert(`Username dan Password tidak boleh kosong!`);
+      alert(`Username dan Password tidak booleh kosong!`);
     try {
       const loginRequest = await regis(body);
       localStorage.setItem("userInfo", JSON.stringify(loginRequest.data.data));

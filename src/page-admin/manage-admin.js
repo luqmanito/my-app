@@ -4,11 +4,11 @@ import Footer from "../components/footer/footer";
 import { useDocumentTitle } from "../helpers/page-title";
 import HeaderAdmin from "../components-admin/header/header";
 import styles from "../page-admin/style-admin/manage-admin.module.css";
-import hazelpay from "../assets/img/hazelpay.png";
-import firewing from "../assets/img/firewings.png";
-import card from "../assets/img/card-pic.png";
-import bank from "../assets/img/bank-pic.png";
-import cod from "../assets/img/cod-pic.png";
+import hazelpay from "../assets/images/hazelpay.png";
+import firewing from "../assets/images/firewings.png";
+import card from "../assets/images/card-pic.png";
+import bank from "../assets/images/bank-pic.png";
+import cod from "../assets/images/cod-pic.png";
 import ManageCardAdmin from "../components-admin/manage-card";
 
 const ManageOrder = () => {

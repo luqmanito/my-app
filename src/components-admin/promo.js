@@ -1,8 +1,8 @@
 import React from "react";
 
 import styles from "../components-admin/promo.module.css";
-import beef from "../assets/img/beef-spaghetti - Edited.png";
-import edit from "../assets/img/edit-icon.png"
+import beef from "../assets/images/beef-spaghetti - Edited.png";
+import edit from "../assets/images/edit-icon.png"
 import { Link } from "react-router-dom";
 
 const PromoCardAdmin = () => {
