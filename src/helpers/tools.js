@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const baseUrl = "http://localhost:8070/api/show";
-export const baseUrl = process.env.REACT_APP_HOST_KEY;
+export const baseUrl = process.env.REACT_APP_DEPLOY_KEY;
 // export const baseUrl = process.env.REACT_APP_VER_KEY
 
 const axiosRequest = (method, url, data, params) => {
@@ -18,7 +18,7 @@ export const getData = (url, params, data) => {
 };
 
 export const login = (data) => {
-  return axiosRequest("POST", "/auth/login", data);
+  return axiosRequest("POST", "api/show/auth/login", data);
 };
 
 export const regis = (data) => {
@@ -26,7 +26,7 @@ export const regis = (data) => {
 };
 
 export const signup = (body) => {
-  const URL = baseUrl + "/users/add";
+  const URL = baseUrl + "api/show/users/add";
   return axios.post(URL, body);
 };
 
@@ -55,6 +55,7 @@ export const addPromo = (body) => {
 };
 
 export const getProduct = (param) => {
+  console.log(param);
   const queryParam = {
     filter: param.filter ?? "",
     sort: param.sort ?? "id",
@@ -68,13 +69,21 @@ export const getProduct = (param) => {
 export const getProducts = (param, counter) => {
   const queryParam = {
     filter: param.filter ?? "",
-    sort: param.sort ?? "id",
+    sort: param.sort ?? "asc",
+    search: param.search ?? "",
+    page: param.page ?? "1",
   };
-  console.log(`inilho${counter}`);
+ 
   const URL =
     baseUrl +
-    `/products/all?filter=${queryParam.filter}&page=${counter}&sort=${queryParam.sort}&limit=12`;
+    `api/show/products/all?search=${queryParam.search}&filter=${queryParam.filter}&page=${counter}&sort=${queryParam.sort}&limit=12`;
 
+  return axios.get(URL);
+};
+
+export const getProductById = (id) => {
+  
+  const URL = baseUrl + `api/show/products/product_detail/?id=${id}`;
   return axios.get(URL);
 };
 
@@ -83,10 +92,32 @@ export const getProfile = () => {
   const token = login.token;
   const id = login.id;
 
-  const URL = baseUrl + `/users/profile/?id=${id}`;
+  const URL = baseUrl + `api/show/users/profile/?id=${id}`;
   return axios.get(URL, {
     headers: {
       "x-access-token": token,
+    },
+  });
+};
+
+export const addCartApi = (body) => {
+  const login = JSON.parse(localStorage.getItem("userInfo"));
+  const token = login.token;
+  const URL = baseUrl + 'api/show/transactions/addItem';
+  return axios.post(URL, body, {
+    headers: {
+      'x-access-token': token,
+    },
+  });
+};
+
+export const getListCartApi = () => {
+  const login = JSON.parse(localStorage.getItem("userInfo"));
+  const token = login.token;
+  const URL = baseUrl + `api/show/transactions/cartItems`;
+  return axios.get(URL, {
+    headers: {
+      'x-access-token': token,
     },
   });
 };
@@ -95,7 +126,7 @@ export const editProfile = (body) => {
   const login = JSON.parse(localStorage.getItem("userInfo"));
   const token = login.token;
   const id = login.id;
-  const URL = baseUrl + `/users/modify/?id=${id}`;
+  const URL = baseUrl + `api/show/users/modify/?id=${id}`;
   return axios.patch(URL, body, {
     headers: {
       "x-access-token": token,
@@ -120,10 +151,25 @@ export const editPromo = (body, idPromo) => {
   });
 };
 
+export const editProduct = (body, idProductStore) => {
+  const login = JSON.parse(localStorage.getItem("userInfo"));
+  const token = login.token;
+  const id = login.id;
+  console.log(token);
+  const URL = baseUrl + `api/show/products/modify/?id=${idProductStore}`;
+  return axios.patch(URL, body,  {
+    headers: {
+      "x-access-token": token,
+    },
+  });
+};
+
+
+
 export const logoutBe = () => {
   const login = JSON.parse(localStorage.getItem("userInfo"));
   const token = login.token;
-  const URL = baseUrl + `/auth/logout`
+  const URL = baseUrl + `api/show/auth/logout`
   return axios.delete(URL, {
     headers: {
       "x-access-token": token,

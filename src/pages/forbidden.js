@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import NavBar from "../components/header/NavBar";
 import Footer from "../components/footer/footer";
 import styles from "../style/forbidden.module.css";
-import forbidden from "../assets/img/forbidden.jpg"
-import temp from "../assets/img/er403.gif"
+import forbidden from "../assets/images/forbidden.jpg"
+import temp from "../assets/images/er403.gif"
 
 function Forbidden() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./promo.module.css";
-import beef from "../../assets/img/beef-spaghetti - Edited.png";
+import beef from "../../assets/images/beef-spaghetti - Edited.png";
 
 const PromoCard = () => {
   return (

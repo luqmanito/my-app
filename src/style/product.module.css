@@ -161,6 +161,14 @@
   text-align: center;
   color: #6a4029;
 }
+.main-menu{
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  row-gap: 14px;
+  /* column-gap: 15px; */
+  padding-top: 45px;
+}
 
 .fav-prod {
   cursor: pointer;
@@ -182,9 +190,10 @@
   font-size: 20px;
   line-height: 24px;
   color: hsl(0, 0%, 62%);
-  margin-top: 15%;
+  margin-top: 2%;
   text-align: center;
   width: 9vw;
+  /* background-color: #4f5665; */
   /* z-index: 1; */
   
 }

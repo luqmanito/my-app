@@ -5,13 +5,14 @@ import Footer from "../components/footer/footer";
 import withNavigate from "../helpers/withNavigate";
 import { login } from "../helpers/tools";
 import { useDocumentTitle } from "../helpers/page-title";
-import Popup from 'reactjs-popup';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import dish from "../assets/img/dish-table.jpg";
-import coffee from "../assets/img/coffee-logo.png";
-import google from "../assets/img/google-icon.png";
+import eye from "../assets/images/eye.png"
+import eyeDash from "../assets/images/eyeSlash.png"
+import dish from "../assets/images/dish-table.jpg";
+import coffee from "../assets/images/coffee-logo.png";
+import google from "../assets/images/google-icon.png";
 
 const Login = ({ navigate }) => {
   useDocumentTitle("Login");
@@ -19,6 +20,7 @@ const Login = ({ navigate }) => {
   const [userInfo, setUserInfo] = useState({});
   const [body, setBody] = useState({ email: "", password: "" });
   const [clickLogin, setClickLogin] = useState(false);
+  const [isPwdShown, setIsPwdShown] = useState(false);
 
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
@@ -39,8 +41,6 @@ const Login = ({ navigate }) => {
       const loginRequest = await login(body);
       localStorage.setItem("userInfo", JSON.stringify(loginRequest.data.data));
     } catch (error) {
-      // alert("Email atau Password tidak cocok!");
-     
     } finally {
       setClickLogin(!clickLogin);
     }
@@ -103,9 +103,13 @@ const Login = ({ navigate }) => {
                       onChange={changeHandler}
                       name="password"
                       className={styles["input-text"]}
-                      type="password"
+                      type={isPwdShown ? "text" : "password"}
                       placeholder="Enter your password"
                     />
+                    <img  className={styles["icon-eye"]}
+                      src={isPwdShown ? eye : eyeDash}
+                      alt=""
+                      onClick={() => setIsPwdShown(!isPwdShown)} />
                     <br />
 
                     <p

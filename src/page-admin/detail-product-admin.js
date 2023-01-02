@@ -1,17 +1,76 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Footer from "../components/footer/footer";
 import { useDocumentTitle } from "../helpers/page-title";
 import NavBar from "../components/header/NavBar";
+import { getProductById } from "../helpers/tools";
+import { Navigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "../page-admin/style-admin/detail-prod.module.css";
-import brew from "../assets/img/brew.png";
-import r from "../assets/img/r.png";
-import l from "../assets/img/l.png";
-import xl from "../assets/img/xl.png";
-import plus from "../assets/img/plus.png";
-import min from "../assets/img/min.png";
+import brew from "../assets/images/brew.png";
+import r from "../assets/images/r.png";
+import l from "../assets/images/l.png";
+import xl from "../assets/images/xl.png";
+import plus from "../assets/images/plus.png";
+import min from "../assets/images/min.png";
+import withNavigate from "../helpers/withNavigate";
 
-const DetailsProductsAdmin = () => {
+const DetailsProductsAdmin = ({navigate, dataId}) => {
+  const { id } = useParams();
+
+
+  const [detail, setDetail] = useState({});
+  const [price, setPrice] = useState({});
+  const [base, setBase] = useState({});
+  const [detailImage, setDetailImage] = useState({});
+  const [idProduct, setIdProduct] = useState({});
+
+  const { idProductStore } = useSelector((state) => state.idReducer);
+  const dispatch = useDispatch();
+
+  const getDataProduct = async () => {
+    try {
+      const result = await getProductById(id);
+      setDetail(result.data.result[0]);
+      const pre = "http://localhost:8070/";
+      const imgDetail = pre + result.data.result[0].image;
+      setDetailImage(imgDetail);
+      dispatch({ type: "ADD_ID", payload: id });
+      const basePrice = result.data.result[0].price;
+      setPrice(basePrice);
+      setBase(basePrice);
+      setIdProduct(id)
+    } catch (error) {
+      if (error.response.data.statusCode === 403) {
+        console.log(error);
+      }
+    }
+  };
+  console.log(detail);
+
+  let pre ='http://localhost:8070/'
+ 
+
+
+
+
+
+
+const direct = (dataId) => {
+  navigate(`/edit-product/${dataId}`)
+}
+
+
+
+
+
+  useEffect(() => {
+    getDataProduct();
+    // getCart();
+    // handleCheckout();
+  }, []);
+
+
   useDocumentTitle("Product Detail")
   return (
     <Fragment>
@@ -22,11 +81,11 @@ const DetailsProductsAdmin = () => {
         <section className="row">
           <div className={`col-5 ${styles["left-content"]}`}>
             <div className={`${styles["main-left"]}`}>
-            <img className={`img-fluid ${styles["brew"]}`} src={brew} alt="" />
-            <p className={`${styles["coldbrew"]}`}>COLD BREW</p>
-            <p className={`${styles["idr30"]}`}>IDR 30.000</p>
-            <button className={`${styles["addcart"]}`}>Add to Cart</button> <br /> <br />
-            <button className={`${styles["askstaff"]}`}>Edit Product</button> <br /> <br />
+            <img className={`img-fluid ${styles["brew"]}`} src={detail.image} alt="" />
+            <p className={`${styles["coldbrew"]}`}>{detail.name}</p>
+            <p className={`${styles["idr30"]}`}>{detail.price}</p>
+            <button className={`${styles["addcart"]}`}>Change Quantity</button> <br /> <br />
+            <button onClick={direct} className={`${styles["askstaff"]}`}>Edit Product</button> <br /> <br />
             <button className={`${styles["delmenu"]}`}>Delete Menu</button>
             </div>
           </div>
@@ -34,10 +93,7 @@ const DetailsProductsAdmin = () => {
             <aside className={`container ${styles["main-content"]}`}>
               <p className={`${styles["schedule"]}`}>Delivery only on <b>Monday to <br /> friday </b>  at <b> 1 - 7 pm </b> </p>
               <p className={`${styles["brewmethod"]}`}>
-                Cold brewing is a method of <br /> brewing that combines ground{" "}
-                <br /> coffee and cool water and uses <br /> time  instead of
-                heat to extract <br /> the flavor.  It is brewed in small <br /> batches
-                and  steeped for <br /> as long as 48 hours.
+                {detail.description}
               </p>
               <p className={`${styles["size"]}`}> Choose a size</p>
               <div className={`${styles["font-size"]}`}>
@@ -68,7 +124,7 @@ const DetailsProductsAdmin = () => {
         </section>
         <section className={`container ${styles["floating-bar"]}`}>
           <div className={`row ${styles["floating-sec"]}`}>
-            <div className={`col-8 ${styles["left-bottom"]}`}>
+            {/* <div className={`col-8 ${styles["left-bottom"]}`}>
               <div className="container">
                 <div className="row">
                   <div className="col">
@@ -82,7 +138,7 @@ const DetailsProductsAdmin = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className={`col-4 ${styles["right-bottom"]}`}>
               {/* <button className={`${styles["button-check"]}`}>Checkout</button> */}
             </div>
@@ -95,4 +151,4 @@ const DetailsProductsAdmin = () => {
   );
 };
 
-export default DetailsProductsAdmin;
+export default withNavigate(DetailsProductsAdmin);

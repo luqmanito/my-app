@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import styles from "../header/headerlogin.module.css";
-import coffee from "../../assets/img/coffee-logo.png";
-import search from "../../assets/img/search-icon.png";
-import msg from "../../assets/img/msg-icon.png";
-import beard from "../../assets/img/beard-man-icon.jpg";
+import coffee from "../../assets/images/coffee-logo.png";
+import search from "../../assets/images/search-icon.png";
+import msg from "../../assets/images/msg-icon.png";
+import beard from "../../assets/images/beard-man-icon.jpg";
 
 const HeaderLogin = () => {
   return (
@@ -24,7 +24,7 @@ const HeaderLogin = () => {
             <p className={`${styles["home"]}`}>Home</p>
           </Link>
 
-          <Link to="/products" className={`${styles["link"]}`}>
+          <Link to="/products/all" className={`${styles["link"]}`}>
             <p className={`${styles["product"]}`}>Product</p>
           </Link>
 
