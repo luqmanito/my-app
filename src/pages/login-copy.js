@@ -16,7 +16,7 @@ import paymentAction from "../redux/action/cart";
 import { useDispatch, useSelector } from "react-redux";
 const Login2 = ({ navigate }) => {
   useDocumentTitle("Login");
-
+  const isPending = useSelector((state) => state.globalReducer.isLoading);
   const [userInfo, setUserInfo] = useState({});
   const [clickLogin, setClickLogin] = useState(false);
   const initValue = { email: "", password: "" };
@@ -37,37 +37,52 @@ const Login2 = ({ navigate }) => {
       // setCartItems(result.data.result);
       // console.log(result.data);
       // result.data.result.length !== 0 ? dispatch(paymentAction.addtoCartActions(result.data.result)) : console.log('cart kosong');
-      
+
       // dispatch({ type: "ADD_CART", payload: result.data.result });
     } catch (error) {
       console.error(error);
     }
   };
+  // console.log(formValues);
+  const handleSubmit2 = async (event) => {
+    dispatch({ type: "LOADING_PAGE" });
 
-  const handleSubmit2 = async (el) => {
-    el.preventDefault();
+    event.preventDefault();
     setFormErrors(validate(formValues));
-    const loginRequest = await login(formValues);
-    try {
-      localStorage.setItem("userInfo", JSON.stringify(loginRequest.data.data));
-      setIsSubmit(true);
-      toast.success("Login Succesfully!", {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000,
-      });
-      getDataCart()
-    } catch (error) {
-      console.log(error);
-      setIsCorrect(true);
-      setTimeout(() => {
-        setIsCorrect(false);
-      }, 2000);
-    } finally {
-      setClickLogin(!clickLogin);
+
+    if (formValues.email === "" || formValues.password === "") {
+      dispatch({ type: "LOADING_PAGE_FALSE" });
+      alert(`semua kolom harus terisi!`);
+    } else {
+      try {
+        const loginRequest = await login(formValues);
+        dispatch({ type: "LOADING_PAGE_FALSE" });
+        localStorage.setItem(
+          "userInfo",
+          JSON.stringify(loginRequest.data.data)
+        );
+        setIsSubmit(true);
+        toast.success("Login Succesfully!", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
+        });
+        getDataCart();
+      } catch (error) {
+        dispatch({ type: "LOADING_PAGE_FALSE" });
+        console.log(error);
+        toast.error("Email or Password is wrong!", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
+        });
+        setIsCorrect(true);
+        setTimeout(() => {
+          setIsCorrect(false);
+        }, 2000);
+      } finally {
+        setClickLogin(!clickLogin);
+      }
     }
   };
-
- 
 
   // async function sleep() {
   //   // const sleepMilliseconds = time * 1000
@@ -224,9 +239,17 @@ const Login2 = ({ navigate }) => {
                   </label>
                 </div>
                 <input
-                  className={styles["input-submit"]}
+                  // className={styles["input-submit"]}
+                  // type="submit"
+                  // value="Login"
+                  className={
+                    isPending
+                      ? styles["input-loading"]
+                      : styles["input-submit"]
+                  }
                   type="submit"
-                  value="Login"
+                  value={isPending ? "Loading.." : "Login"}
+                  disabled={isPending ? true : false}
                 />
               </form>
               <ToastContainer />

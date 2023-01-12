@@ -19,6 +19,7 @@ const Register = ({ navigate }) => {
   useDocumentTitle("Register");
   const dispatch = useDispatch();
   const [isPwdShown, setIsPwdShown] = useState(false);
+  
   const handleSubmit = async (event) => {
     dispatch({ type: "LOADING_PAGE" });
     event.preventDefault();
