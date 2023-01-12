@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styles from "../style/login.module.css";
-import { Link } from "react-router-dom";
+import { Link, resolvePath } from "react-router-dom";
 import Footer from "../components/footer/footer";
 import withNavigate from "../helpers/withNavigate";
-import { login } from "../helpers/tools";
+import { getListCartApi, login } from "../helpers/tools";
 import { useDocumentTitle } from "../helpers/page-title";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,7 +12,8 @@ import eyeDash from "../assets/images/eyeSlash.png";
 import dish from "../assets/images/dish-table.jpg";
 import coffee from "../assets/images/coffee-logo.png";
 import google from "../assets/images/google-icon.png";
-
+import paymentAction from "../redux/action/cart";
+import { useDispatch, useSelector } from "react-redux";
 const Login2 = ({ navigate }) => {
   useDocumentTitle("Login");
 
@@ -24,24 +25,39 @@ const Login2 = ({ navigate }) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [isPwdShown, setIsPwdShown] = useState(false);
-
+  const dispatch = useDispatch();
   const handleChange = (el) => {
     const { name, value } = el.target;
     setFormValues({ ...formValues, [name]: value });
   };
 
+  const getDataCart = async () => {
+    try {
+      const result = await getListCartApi();
+      // setCartItems(result.data.result);
+      // console.log(result.data);
+      // result.data.result.length !== 0 ? dispatch(paymentAction.addtoCartActions(result.data.result)) : console.log('cart kosong');
+      
+      // dispatch({ type: "ADD_CART", payload: result.data.result });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleSubmit2 = async (el) => {
     el.preventDefault();
     setFormErrors(validate(formValues));
+    const loginRequest = await login(formValues);
     try {
-      const loginRequest = await login(formValues);
       localStorage.setItem("userInfo", JSON.stringify(loginRequest.data.data));
       setIsSubmit(true);
       toast.success("Login Succesfully!", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2000,
       });
+      getDataCart()
     } catch (error) {
+      console.log(error);
       setIsCorrect(true);
       setTimeout(() => {
         setIsCorrect(false);
@@ -50,6 +66,53 @@ const Login2 = ({ navigate }) => {
       setClickLogin(!clickLogin);
     }
   };
+
+ 
+
+  // async function sleep() {
+  //   // const sleepMilliseconds = time * 1000
+
+  //   // return new Promise(resolve => {
+  //   //   setTimeout(() => {
+  //   //     resolve(`Slept for: ${sleepMilliseconds}ms`)
+  //   //   }, sleepMilliseconds)
+  //   // })
+  //   const loginRequest = await login(formValues);
+  //   return new Promise((resolve) => {
+  //     resolve(
+  //       localStorage.setItem("userInfo", JSON.stringify(loginRequest.data.data)),
+  //       console.log(resolve)
+  //     );
+  //   }, loginRequest);
+  // }
+  // async function sleep2() {
+  //   // const sleepMilliseconds = time * 1000
+
+  //   // return new Promise(resolve => {
+  //   //   setTimeout(() => {
+  //   //     resolve(`Slept for: ${sleepMilliseconds}ms`)
+  //   //   }, sleepMilliseconds)
+  //   // })
+  //   const result = await getListCartApi();
+  //   return new Promise((resolve) => {
+  //     resolve(dispatch(paymentAction.addtoCartActions(result.data.result)))
+  //   }, result);
+  // }
+
+  // async function main() {
+  //   const [resultLogin, resultCart] = await Promise.all([sleep(), sleep2()]);
+  //   console.log(resultLogin);
+  //   console.log(resultCart);
+  // }
+
+  // let exe = () => {
+  //   async function todos(){
+  //     await(fetch({url:'',method:''})).
+  //     then((res)=>{}).
+  //     then((res)={}).
+  //     catch((err)=>{})
+  //    }
+  // };
 
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
@@ -110,7 +173,7 @@ const Login2 = ({ navigate }) => {
               )}
 
               <form onSubmit={handleSubmit2} className={styles["label-input"]}>
-                <label className={styles["label-email"]} for="email">
+                <label className={styles["label-email"]} htmlFor="email">
                   Email Adress:
                 </label>
 
@@ -127,7 +190,7 @@ const Login2 = ({ navigate }) => {
 
                 <p className={styles["errormail"]}>{formErrors.email}</p>
                 <div>
-                  <label className={styles["label-pass"]} for="pass">
+                  <label className={styles["label-pass"]} htmlFor="pass">
                     Password:
                   </label>
                 </div>
@@ -149,23 +212,23 @@ const Login2 = ({ navigate }) => {
                   />
                 </div>
                 <p className={styles["errorpw"]}>{formErrors.password}</p>
-              
-              <div>
-                <label
-                  className={styles["forgotpw"]}
-                  onClick={() => {
-                    navigate("/forgot");
-                  }}
-                >
-                  Forgot password?
-                </label>
-              </div>
-              <input
-                className={styles["input-submit"]}
-                type="submit"
-                value="Login"
-              />
-</form>
+
+                <div>
+                  <label
+                    className={styles["forgotpw"]}
+                    onClick={() => {
+                      navigate("/forgot");
+                    }}
+                  >
+                    Forgot password?
+                  </label>
+                </div>
+                <input
+                  className={styles["input-submit"]}
+                  type="submit"
+                  value="Login"
+                />
+              </form>
               <ToastContainer />
               <button className={styles["oauth"]}>
                 <img
@@ -194,11 +257,14 @@ const Login2 = ({ navigate }) => {
           </p>
         </aside>
         <aside>
-          <button 
-          onClick={() => {
-            navigate("/register");
-          }}
-          className={styles.createnow}>Create Now</button>
+          <button
+            onClick={() => {
+              navigate("/register");
+            }}
+            className={styles.createnow}
+          >
+            Create Now
+          </button>
         </aside>
       </section>
 

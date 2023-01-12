@@ -15,7 +15,7 @@ import IsLoading from "../components/loading/isLoading";
 
 const Register = ({ navigate }) => {
   const isPending = useSelector((state) => state.globalReducer.isLoading);
-  console.log(isPending);
+  // console.log(isPending);
   useDocumentTitle("Register");
   const dispatch = useDispatch();
   const [isPwdShown, setIsPwdShown] = useState(false);
@@ -70,7 +70,7 @@ const Register = ({ navigate }) => {
             <section className={styles["register-form"]}>
               <p className={styles["signup"]}>Sign Up</p>
               <form onSubmit={handleSubmit} className={styles["label-input"]}>
-                <label className={styles["email-label"]} for="email">
+                <label className={styles["email-label"]} htmlFor="email">
                   Email Adress:
                 </label>
                 <br />
@@ -83,7 +83,7 @@ const Register = ({ navigate }) => {
 
                 <br />
 
-                <label className={styles["email-label"]} for="pass">
+                <label className={styles["email-label"]} htmlFor="pass">
                   Password:
                 </label>
                 <br />
@@ -100,7 +100,7 @@ const Register = ({ navigate }) => {
                   onClick={() => setIsPwdShown(!isPwdShown)}
                 />
                 <br />
-                <label className={styles["email-label"]} for="num">
+                <label className={styles["email-label"]} htmlFor="num">
                   Phone Number:
                 </label>
                 <br />

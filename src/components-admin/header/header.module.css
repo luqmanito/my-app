@@ -56,10 +56,10 @@
   background-color: #bcbaba;
 }
 .main-header {
-  border: 0.5px solid #9f9f9f;
+  /* border: 0.5px solid #9f9f9f; */
   /* width: 1440px; */
   margin: auto;
-  background-color: aqua;
+  /* background-color: aqua; */
 } 
 
 .right-header {

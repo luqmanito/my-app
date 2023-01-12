@@ -8,7 +8,20 @@
     background-color: #ffffff;
     margin: auto;
   }
-  
+  .page{
+    margin-left: 80%;
+    margin-top: 20%;
+  }
+  .pagelink{
+    color: #6a4029;
+    background-color: #ffffff;
+    font-weight: bold;
+  }
+  .pagelink2{
+    color: white;
+    background-color: #666a72;
+    font-weight: bold;
+  }
   .coupons {
     font-family: "Poppins";
     font-style: normal;
@@ -88,10 +101,12 @@
     border-color: #FFBA33 !important;
     color: #6A4029 !important;
     font-weight: bold; 
+    /* padding-bottom: 15%; */
   }
 
   .add-product{
-    margin-top: -7%;
+    margin-left: 18%;
+    margin-top: -10%;
     background-color: #6A4029!important;
     border-color: #6A4029!important;
     color: #ffffff !important;
@@ -122,14 +137,14 @@
   }
 
   .box-side{
-    height: 1030px
+    height: 100%;
+    padding-bottom: 15.1vw;
+
   }
   
   .main-side {
     margin-left: 0%;
-   
-    /* background-color: #6A4029; */
-   height: 1030px
+   /* height: 1030px */
   }
   
   .dishes {

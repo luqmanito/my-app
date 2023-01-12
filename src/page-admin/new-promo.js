@@ -10,10 +10,21 @@ import size1 from "../assets/images/250.png";
 import size2 from "../assets/images/300.png";
 import size3 from "../assets/images/500.png";
 import { addPromo } from "../helpers/tools";
+import Upload from "../components-admin/upload";
 
 const NewPromo = () => {
 
 const [body, setBody] = useState({});
+const [image, setImage] = useState('')
+const [imagePreview, setImagePreview] = useState(upload)
+const [file, setFile] = useState(null)
+
+const onImageUpload = (e) => {
+  const files = e.target.files[0]
+  setImage(files)
+  setImagePreview(URL.createObjectURL(files))
+  setBody({ ...body, image: e.target.files[0] });
+}
 
 const handlePrice = (e) => {
   setBody({ ...body, 
@@ -31,9 +42,23 @@ const handleDesc = (e) => {
    });
 };
 
+const data = new FormData();
+  if (body.name !== undefined) {
+    data.append("name", body.name);
+  }
+  if (body.description !== undefined) {
+    data.append("description", body.description);
+  }
+  if (body.price !== undefined) {
+    data.append("price", body.price);
+  }
+  if (body.image !== undefined) {
+    data.append("imageUrl", body.image);
+  }
+
 const handleSubmit = async (event) => {
   try {
-    const result = await addPromo(body);
+    const result = await addPromo(data);
     setBody({})
     alert("Update Data success");
     window.location.reload()
@@ -55,7 +80,8 @@ const handleSubmit = async (event) => {
             Favorite & Promo &gt; <b>Add new promo</b>{" "}
           </p>
           <section className={`col-6 ${styles["left-content"]}`}>
-            <img src={upload} alt="" className={`${styles["upload"]}`} />
+          <Upload onChange={(e) => onImageUpload(e)} img={imagePreview} name="image" />
+            {/* <img src={imagePreview} alt="" className={`${styles["upload"]}`} /> */}
             <div className="text-center d-grid gap-2 col-9 mx-auto">
               <button
                 type="button"

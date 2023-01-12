@@ -11,8 +11,13 @@ import bank from "../assets/images/bank-pic.png";
 import cod from "../assets/images/cod-pic.png";
 import PaymentCard from "../components/cards/paymentCard";
 import { addToCart } from "../redux/reducer/cart2";
+import paymentAction from "../redux/action/cart";
 
 const Payment = ({ navigate }) => {
+  const cartContents = useSelector((state) => state.transactionReducer);
+  const itemCarts = cartContents.cart;
+  const itemCartso = cartContents.cart[0]
+  const { product } = useSelector((state) => state.homeReducer);
   useDocumentTitle("Payment");
   const rupiah = (number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -23,7 +28,7 @@ const Payment = ({ navigate }) => {
   const shipping = 10000;
 
   const [profile, setProfile] = useState({});
-  const [cartItems, setCartItems] = useState({});
+  const [cartItems, setCartItems] = useState();
   const dispatch = useDispatch();
   const getDataProfile = async () => {
     try {
@@ -35,36 +40,43 @@ const Payment = ({ navigate }) => {
       }
     }
   };
+  let def = itemCarts.length === 1 ? itemCarts.map((item) => {
+    return item.subtotal ? item.subtotal :item.total_order
+  }) : 0
+  // console.log(itemCarts);
 
-  const { cartContents } = useSelector((state) => state.cartReducer);
-
-  let sumNum = 0;
-  if (cartContents === []) {
+  let sumNum = itemCarts.length === 1  ? Number(def) : 0;
+  // console.log(itemCarts);
+  if (itemCarts === undefined) {
     console.log("kosong");
-  } else if (cartContents.length > 1) {
-    cartContents.forEach((value) => {
-      sumNum += Number(value.total_order);
+  } else if (itemCarts.length > 1 && itemCarts.length !== 1) {
+    itemCarts.forEach((value) => {
+      console.log(value.subtotal);
+      sumNum += Number(value.subtotal ? value.subtotal :value.total_order);
     });
-  } else {
-    console.log('data hanya 1');
   }
-console.log(cartContents);
+
   console.log(sumNum);
+
+
   const tax = sumNum * 0.1;
   const finalPrice = rupiah(sumNum + tax + shipping);
   const getDataCart = async () => {
     try {
       const result = await getListCartApi();
-      dispatch({ type: "ADD_CART", payload: result.data.result });
-      
+      setCartItems(result.data.result);
+      // dispatch(paymentAction.addtoCartActions(result.data.result))
+      // dispatch({ type: "ADD_CART", payload: result.data.result });
     } catch (error) {
       console.error(error);
     }
   };
   const handleConfirm = () => {
+    dispatch(paymentAction.createTransActions(itemCarts));
     navigate("/history");
+    dispatch(paymentAction.cartReset())
   };
-
+  // console.log(cartItems);
   useEffect(() => {
     getDataCart();
     getDataProfile();
@@ -85,21 +97,30 @@ console.log(cartContents);
                 <p className={` ${styles["forcs"]}`}>for you</p>
 
                 {
-                  cartContents === null ? (
+                  itemCarts === undefined ? (
                     <PaymentCard />
-                  ) : 
-                  (
+                  ) : (
                     // <PaymentCard />
-                    cartContents && cartContents.map((item) => {
+                    itemCarts &&
+                    itemCarts.map((item, idx) => {
+                      // console.log(item.id_product);
                       return (
+                        //
                         <PaymentCard
+                          key={item.id_product}
                           products_name={item.products_name}
-                          total_order={item.total_order}
-                          quantity={item.quantity}
+                          total_order={item.subtotal === undefined
+                            ? item.total_order
+                            : item.subtotal}
+                          subtotal={item.subtotal}
+                          quantity={
+                            item.quantityCopy === undefined
+                              ? item.quantity
+                              : item.quantityCopy
+                          }
                           image={item.image}
                           size={item.size}
                           id={item.id_product}
-                          key={item.id_product}
                         />
                       );
                     })
@@ -118,10 +139,10 @@ console.log(cartContents);
                     SHIPPING
                   </div>
                   <div className={`col-6 col-md-4 ${styles["idr"]}`}>
-                    IDR {sumNum}
+                    {rupiah(sumNum)}
                     <br />
-                    IDR {tax} <br />
-                    IDR {shipping}
+                    {rupiah(tax)} <br />
+                    {rupiah(shipping)}
                   </div>
                 </div>
 

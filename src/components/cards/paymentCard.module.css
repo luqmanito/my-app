@@ -14,11 +14,22 @@
     height: 2vw;
     margin-left: 1vw;
   }
+  .del-font{
+    width: 2vw;
+    height: 2vw;
+    margin-left: 1vw;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
   .main-sec {
     /* background-color:#9a2020; */
     margin: auto;
     justify-content: center;
     margin-left: 7%;
+  }
+  .buttons{
+    /* background-color: #6a4029; */
+    /* width: 15vw; */
   }
   .summary {
     

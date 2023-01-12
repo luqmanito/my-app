@@ -4,11 +4,12 @@ import plus from "../../assets/images/plus.png";
 import min from "../../assets/images/min.png";
 import del from "../../assets/images/deletex.png";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../redux/reducer/cart2";
+import { addToCarts } from "../../redux/reducer/cart2";
+import paymentAction from "../../redux/action/cart";
 
 
 const PaymentCard = (props) => {
-  const { cartContents } = useSelector((state) => state.cartReducer);
+  const  cartContents  = useSelector((state) => state.transactionReducer);
   const dispatch = useDispatch();
   const [counter, setCounter] = useState(props.quantity);
   const [grandtotal, setGrandtotal] = useState(props.total_order);
@@ -22,14 +23,15 @@ const PaymentCard = (props) => {
     size: props.size,
     key: props.id,
   };
-  console.log(cartContent);
+  const itemCart = cartContents.cart
   const basePrice = props.total_order / props.quantity;
-
+// console.log(props);
   const onHandleMinus = () => {
     if (counter >= 1) {
       const reduce = Number(counter) - 1;
       setCounter(reduce);
       setGrandtotal(basePrice * reduce);
+      dispatch(paymentAction.updateCartItem(props.id, reduce  ))
       // setPrice(base * reduce);
       // setBody({
       //   ...body,
@@ -43,10 +45,12 @@ const PaymentCard = (props) => {
     setCounter(add);
     setGrandtotal(basePrice * add);
     setcartContent(productReview);
+    console.log(props.id);
+    dispatch(paymentAction.updateCartItem(props.id, add  ))
     // dispatch({ type: "ADD_CART", payload: cartContent });
-    dispatch(addToCart({
-      payload: cartContent
-      }));
+    // dispatch(addToCarts({
+    //   payload: cartContent
+    //   }));
     // setPrice(base * add);
     // setBody({
     //   ...body,
@@ -55,9 +59,13 @@ const PaymentCard = (props) => {
     // });
   };
 
+  const onHandleDel = () => {
+    dispatch(paymentAction.deleteItem(props.id))
+  }
+
   const tax = "10%";
   const shipping = 10000;
-  const finalPrice = cartContents.totalPrice + tax + shipping;
+  const finalPrice = 1000 + tax + shipping;
   const [subtotal, setSubtotal] = useState({});
 
   const handleTotalPrice = () => {
@@ -68,6 +76,13 @@ const PaymentCard = (props) => {
   useEffect(() => {
     handleTotalPrice();
   }, []);
+
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
 
   return (
     <Fragment>
@@ -84,8 +99,8 @@ const PaymentCard = (props) => {
             {props.products_name} <br /> {`x${counter} ${props.size} `}
           </p>
         </div>
-        <div className="col-sm">
-          <p className={`${styles["hazel-font"]}`}>IDR {grandtotal}</p>
+        <div className={`col-sm ${styles["buttons"]}`}>
+          <p className={`${styles["hazel-font"]}`}>{rupiah(props.total_order)}</p>
           <img
             onClick={onHandlePlus}
             className={`${styles["plus-font"]}`}
@@ -96,6 +111,12 @@ const PaymentCard = (props) => {
             onClick={onHandleMinus}
             className={`${styles["min-font"]}`}
             src={min}
+            alt="min"
+          />
+          <img
+            onClick={onHandleDel}
+            className={`${styles["del-font"]}`}
+            src={del}
             alt="min"
           />
         </div>

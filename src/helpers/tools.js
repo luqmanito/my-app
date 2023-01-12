@@ -33,7 +33,7 @@ export const signup = (body) => {
 export const addProduct = (body) => {
   const login = JSON.parse(localStorage.getItem("userInfo"));
   const token = login.token;
-  const URL = baseUrl + "/products/add";
+  const URL = baseUrl + "api/show/products/add";
   console.log(token);
   return axios.post(URL, body, {
     headers: {
@@ -45,7 +45,7 @@ export const addProduct = (body) => {
 export const addPromo = (body) => {
   const login = JSON.parse(localStorage.getItem("userInfo"));
   const token = login.token;
-  const URL = baseUrl + "/promos/add";
+  const URL = baseUrl + "api/show/promos/add";
   console.log(token);
   return axios.post(URL, body, {
     headers: {
@@ -66,6 +66,19 @@ export const getProduct = (param) => {
   return axios.get(URL);
 };
 
+export const addTransactionApi = (body) => {
+  const login = JSON.parse(localStorage.getItem("userInfo"));
+  const token = login.token;
+  const URL = baseUrl + 'api/show/transactions/create';
+  return axios.post(URL, body, {
+    headers: {
+      'x-access-token': token,
+    },
+  });
+};
+
+
+
 export const getProducts = (param, counter) => {
   const queryParam = {
     filter: param.filter ?? "",
@@ -76,7 +89,7 @@ export const getProducts = (param, counter) => {
  
   const URL =
     baseUrl +
-    `api/show/products/all?search=${queryParam.search}&filter=${queryParam.filter}&page=${counter}&sort=${queryParam.sort}&limit=12`;
+    `api/show/products/all?search=${queryParam.search}&filter=${queryParam.filter}&page=${counter}&sort=${queryParam.sort}&limit=100`;
 
   return axios.get(URL);
 };

@@ -399,7 +399,16 @@ width: fit-content;}
   margin: -10px -20px;
   padding: 10px 20px;
 }
-
+.pagelink{
+  color: #6a4029;
+  background-color: #ffffff;
+  font-weight: bold;
+}
+.pagelink2{
+  color: white;
+  background-color: #666a72;
+  font-weight: bold;
+}
 .dd-menu li.divider {
   padding: 0;
   border-bottom: 1px solid #cccccc;

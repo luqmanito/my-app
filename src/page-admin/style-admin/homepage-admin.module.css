@@ -242,7 +242,7 @@ a {
   
   .jumbo {
     /* background-image: url("/assets/img/homepage-pic-jumbotron.jpg"); */
-    background-image:url("https://scontent.fcgk22-1.fna.fbcdn.net/v/t39.30808-6/313316905_10221263078317282_7334860416146275815_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=19026a&_nc_ohc=RnJN6J0Hf04AX-tVcWf&_nc_ht=scontent.fcgk22-1.fna&oh=00_AfCFuRzoLsc8bZJPTWQNo2oLJHOrjaOYbmoxmoj6-w8Uvg&oe=636E20E8");
+    background-image:url("https://res.cloudinary.com/dwxujoxc7/image/upload/v1672139504/project2/313316905_10221263078317282_7334860416146275815_n.jpg_x6epnu.jpg");
     max-width: 1440px;
     margin: auto;
     height: 650px;

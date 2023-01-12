@@ -5,6 +5,7 @@ import cartReducer from "./cartReducer"
 import payReducer from "./paymentReducer"
 import idReducer from "./idReducer"
 import profileReducer from "./profileReducer"
+import transactionReducer from "./transactions"
 import { cartsReducer } from "./cart2"
 
 const reducer = combineReducers({
@@ -14,7 +15,8 @@ const reducer = combineReducers({
     payReducer,
     idReducer,
     profileReducer,
-    cartsReducer
+    cartsReducer,
+    transactionReducer,
 })
 
 export default reducer

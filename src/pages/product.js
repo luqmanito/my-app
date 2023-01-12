@@ -21,6 +21,9 @@ const useQuery = () => {
 };
 
 const Products = (props) => {
+  const { product } = useSelector((state) => state.homeReducer);
+  const { cartContents } = useSelector((state) => state.transactionReducer);
+  const dispatch = useDispatch();
   const getQuery = useQuery();
   const isPending = useSelector((state) => state.globalReducer.isLoading);
   console.log(isPending);
@@ -35,7 +38,18 @@ const Products = (props) => {
   });
 
   const [searchProduct, setSearchProduct] = useState("");
+  const [pageIndex, setPageIndex] = useState(1);
+  const nextData = () => {
+    const tempCount = pageIndex + 1;
+    setPageIndex(tempCount);
+    props.setSearchParams({ ...param, page: tempCount });
+  };
 
+  const prevData = () => {
+    const tempCount = pageIndex - 1;
+    setPageIndex(tempCount);
+    props.setSearchParams({ ...param, page: tempCount });
+  };
   const getAllProduct = debounce(async () => {
     try {
       const body = {
@@ -44,9 +58,9 @@ const Products = (props) => {
         sort: "asc",
       };
       const result = await getProducts(body, counter);
+      console.log(result.data.result);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
       dispatch({ type: "LOADING_PAGE_FALSE" });
-      // console.log(isLoading);
     } catch (error) {
       console.log(error);
     }
@@ -156,7 +170,7 @@ const Products = (props) => {
     setCounter(tempCount);
     try {
       const result = await getProducts(param, tempCount);
-      console.log("angka", counter);
+      // props.setSearchParams(body);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
     } catch (error) {
       console.log(error);
@@ -167,16 +181,19 @@ const Products = (props) => {
     setCounter(tempCount);
     try {
       const result = await getProducts(param, tempCount);
-      console.log("angka", counter);
+      // props.setSearchParams(body);
       dispatch(setProduct(result.data.result));
     } catch (error) {
       console.log(error);
     }
   };
 
-  const { product } = useSelector((state) => state.homeReducer);
-  const dispatch = useDispatch();
-
+  const pageSize = 12;
+  let page = pageIndex;
+  const totalPages = Math.ceil(product.length / pageSize);
+  console.log(page);
+  const pageData = product.slice(page * pageSize - pageSize, page * pageSize);
+  console.log(pageData);
   const callSearch = () => {
     product.name.toLowerCase().includes(searchProduct.toLowerCase());
   };
@@ -186,7 +203,7 @@ const Products = (props) => {
     getAllProduct();
     // getDataProd()
   }, []);
-  console.log(product);
+  console.log(product, cartContents);
 
   const updateChange = (e) => setSearchProduct(e.target.value);
   const debounceOnChange = debounce(updateChange, 1000);
@@ -195,7 +212,7 @@ const Products = (props) => {
   return (
     <Fragment>
       <NavBar onChange={debounceOnChange} />
-      <body className={`container-fluid ${styles["main-body"]}`}>
+      <main className={`container-fluid ${styles["main-body"]}`}>
         <section
           className={`container-fluid text-dark ${styles["sec-product"]}`}
         >
@@ -302,31 +319,54 @@ const Products = (props) => {
                       </div>
                     ) : (
                       <div className={` ${styles["main-menu"]}`}>
-                        {product
-                            .filter((product) => {
-                              if (searchProduct === "") {
-                                return product;
-                              } else if (
-                                product.name
-                                  .toLowerCase()
-                                  .includes(searchProduct.toLowerCase())
-                              ) {
-                                return product;
-                              }
-                            })
-                            .map((product) => {
-                              return (
-                                <ProductCard
-                                  name={product.name}
-                                  price={"IDR " + product.price}
-                                  image={product.image}
-                                  dataId={product.id}
-                                />
-                              );
-                            })
-
-                          // }
-                        }
+                        {searchProduct === ""
+                          ? pageData
+                              .filter((product) => {
+                                if (pageData === "") {
+                                  return product;
+                                } else if (
+                                  product.name
+                                    .toLowerCase()
+                                    .includes(searchProduct.toLowerCase())
+                                ) {
+                                  return pageData;
+                                }
+                              })
+                              .map((product) => {
+                                return (
+                                  <ProductCard
+                                    name={product.name}
+                                    price={"IDR " + product.price}
+                                    image={product.image}
+                                    dataId={product.id}
+                                    key={product.id}
+                                  />
+                                );
+                              })
+                          : 
+                            product
+                              .filter((detail) => {
+                                if (product === "") {
+                                  return detail;
+                                } else if (
+                                  detail.name
+                                    .toLowerCase()
+                                    .includes(searchProduct.toLowerCase())
+                                ) {
+                                  return product;
+                                }
+                              })
+                              .map((product) => {
+                                return (
+                                  <ProductCard
+                                    name={product.name}
+                                    price={"IDR " + product.price}
+                                    image={product.image}
+                                    dataId={product.id}
+                                    key={product.id}
+                                  />
+                                );
+                              })}
                       </div>
                     )}
                   </aside>
@@ -337,23 +377,33 @@ const Products = (props) => {
                   >
                     <ul className={`pagination ${styles["pagination"]}`}>
                       <li className={`page-item ${styles["pageitem"]}`}>
-                        <a
-                          className={`page-link ${styles["pagelink"]}`}
-                          onClick={prev}
+                        <button
+                          className={
+                            pageIndex === 1
+                              ? `page-link ${styles["pagelink2"]}`
+                              : `page-link ${styles["pagelink"]}`
+                          }
+                          onClick={prevData}
+                          disabled={pageIndex === 1 ? true : false}
                           href="#"
                         >
                           Previous
-                        </a>
+                        </button>
                       </li>
 
                       <li className={`page-item ${styles["pageitem"]}`}>
-                        <a
-                          className={`page-link ${styles["pagelink"]}`}
-                          onClick={next}
+                        <button
+                          className={
+                            pageIndex === totalPages
+                              ? `page-link ${styles["pagelink2"]}`
+                              : `page-link ${styles["pagelink"]}`
+                          }
+                          onClick={nextData}
+                          disabled={pageIndex === totalPages ? true : false}
                           href="#"
                         >
                           Next
-                        </a>
+                        </button>
                       </li>
                     </ul>
                   </nav>
@@ -363,7 +413,7 @@ const Products = (props) => {
           </div>
         </section>
         <Footer />
-      </body>
+      </main>
     </Fragment>
   );
 };

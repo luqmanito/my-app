@@ -28,35 +28,8 @@ const NewProduct = () => {
     const files = e.target.files[0]
     setImage(files)
     setImagePreview(URL.createObjectURL(files))
+    setBody({ ...body, image: e.target.files[0] });
   }
-
-
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   const body = {
-  //     name: event.target.name.value,
-  //     price: event.target.price.value,
-  //     description: event.target.desc.value,
-  //     image: event.target.image.value
-  //   };
-    
-  //   // const data = new FormData()
-  //   // data.append = ('name', name)
-  //   // data.append = ('price', price)
-  //   // data.append = ('description', desc)
-  //   // data.append = ('image', image)
-
-  //   try {
-  //     console.log('image', image);
-  //     const result = await addProduct(body);
-  //     console.log(result);
-  //     alert("Register success");
-  //     // navigate("/login");
-  //   } catch (error) {
-  //     console.log(error);
-  //     // alert(error)
-  //   }
-  // };
 
   const handlePrice = (e) => {
     setBody({ ...body, 
@@ -74,9 +47,24 @@ const NewProduct = () => {
      });
   };
 
+  const data = new FormData();
+  if (body.name !== undefined) {
+    data.append("name", body.name);
+  }
+  if (body.description !== undefined) {
+    data.append("description", body.description);
+  }
+  if (body.price !== undefined) {
+    data.append("price", body.price);
+  }
+  if (body.image !== undefined) {
+    data.append("imageUrl", body.image);
+  }
+  console.log(data);
+
   const handleSubmit = async (event) => {
     try {
-      const result = await addProduct(body);
+      const result = await addProduct(data);
       setBody({})
       console.log(result);
       alert("Update Data success");

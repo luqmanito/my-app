@@ -82,7 +82,7 @@ const Login = ({ navigate }) => {
                     onSubmit={handleSubmit}
                     className={styles["label-input"]}
                   >
-                    <label className={styles["label-email"]} for="email">
+                    <label className={styles["label-email"]} htmlFor="email">
                       Email Adress:
                     </label>
                     <br />
@@ -95,7 +95,7 @@ const Login = ({ navigate }) => {
                     />
                     <br />
 
-                    <label className={styles["label-email"]} for="pass">
+                    <label className={styles["label-email"]} htmlFor="pass">
                       Password:
                     </label>
                     <br />

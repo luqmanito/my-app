@@ -15,6 +15,8 @@ import l from "../assets/images/l.png";
 import xl from "../assets/images/xl.png";
 import plus from "../assets/images/plus.png";
 import min from "../assets/images/min.png";
+import { addToCarts } from "../redux/reducer/cart2";
+import paymentAction from "../redux/action/cart";
 
 const DetailsProducts = ({ navigate }) => {
   useDocumentTitle("Product Detail");
@@ -31,21 +33,22 @@ const DetailsProducts = ({ navigate }) => {
   const [select, setSelect] = useState(false);
   const [select2, setSelect2] = useState(false);
   const [select3, setSelect3] = useState(false);
-
+  const [prodId, setProdId] = useState(null);
   const [selects, setSelects] = useState(false);
   const [selects2, setSelects2] = useState(false);
   const [selects3, setSelects3] = useState(false);
-  console.log(detail);
+  // console.log(detail);
   const getDataProduct = async () => {
     try {
       const result = await getProductById(id);
       setDetail(result.data.result[0]);
+      setProdId(Number(result.data.result[0].id));
       setBody({
         ...body,
         products_name: result.data.result[0].name,
         image: result.data.result[0].image,
         id_product: Number(result.data.result[0].id),
-        total_order: result.data.result[0].price
+        total_order: result.data.result[0].price,
       });
       const imgDetail = result.data.result[0].image;
       setDetailImage(imgDetail);
@@ -97,19 +100,20 @@ const DetailsProducts = ({ navigate }) => {
     setBody({ ...body, size: finalSizeXl });
   };
 
-  const productReview = {
+  const productReview = [{
     image: detailImage,
     product_name: detail.name,
     quantity: counter,
     size_product_name: size,
     totalPrice: price,
-  };
+    id_product: prodId,
+  }];
 
   const [body, setBody] = useState({
     products_name: null,
-    size: 'Regular',
+    size: "Regular",
     quantity: 1,
-    delivery_method: 'Door Delivery',
+    delivery_method: "Door Delivery",
     total_order: null,
     image: null,
     id_product: null,
@@ -117,6 +121,11 @@ const DetailsProducts = ({ navigate }) => {
   console.log(body);
   const addToCart = async () => {
     setcartContent(productReview);
+    // dispatch({ type: "ADD_CART", payload: productReview });
+    // dispatch(addToCarts(productReview));
+    console.log(body);
+    dispatch(paymentAction.addtoCartActions(body))
+    // dispatch(paymentAction.updateCartItem(prodId, counter + 1 ))
     try {
       const addItemRequest = await addCartApi(body);
       toast.success("Item successfully added to cart", {
@@ -138,7 +147,9 @@ const DetailsProducts = ({ navigate }) => {
   const dispatch = useDispatch();
 
   const handleCheckout = async () => {
-    dispatch({ type: "ADD_CART", payload: cartContent });
+    // console.log('tes');
+    // dispatch({ type: "ADD_CART", payload: cartContent });
+    // dispatch(addToCarts({cartContent}));
     try {
       const addItemRequest = await addCartApi(body);
       toast.success("Item successfully added to cart", {
@@ -164,7 +175,7 @@ const DetailsProducts = ({ navigate }) => {
   return (
     <Fragment>
       <NavBar />
-      <body className={`${styles["body-detail"]}`}>
+      <main className={`${styles["body-detail"]}`}>
         <main className={`container ${styles["main-detail"]}`}>
           <p className={`container ${styles["promo"]}`}>
             Favorite & Promo &gt; <b>Cold Brew</b>{" "}
@@ -220,7 +231,6 @@ const DetailsProducts = ({ navigate }) => {
                           ? `${styles["sizePic-none"]}`
                           : `${styles["sizePic"]}`
                       }
-                    
                       src={r}
                       alt="r-size"
                     />
@@ -272,7 +282,7 @@ const DetailsProducts = ({ navigate }) => {
                         setSelect(!select);
                         setSelect2(false);
                         setSelect3(false);
-                        setBody({...body, delivery_method: "Dine in"})
+                        setBody({ ...body, delivery_method: "Dine in" });
                       }}
                       className={
                         select ? `${styles["dinein"]}` : `${styles["door"]}`
@@ -287,7 +297,7 @@ const DetailsProducts = ({ navigate }) => {
                         setSelect(false);
                         setSelect2(!select2);
                         setSelect3(false);
-                        setBody({...body, delivery_method: "Door Delivery"})
+                        setBody({ ...body, delivery_method: "Door Delivery" });
                       }}
                       className={
                         select2 ? `${styles["dinein"]}` : `${styles["door"]}`
@@ -302,7 +312,7 @@ const DetailsProducts = ({ navigate }) => {
                         setSelect(false);
                         setSelect2(false);
                         setSelect3(!select3);
-                        setBody({...body, delivery_method: "Pick up"})
+                        setBody({ ...body, delivery_method: "Pick up" });
                       }}
                       className={
                         select3 ? `${styles["dinein"]}` : `${styles["door"]}`
@@ -368,7 +378,7 @@ const DetailsProducts = ({ navigate }) => {
             </div>
           </section>
         </main>
-      </body>
+      </main>
       <Footer />
     </Fragment>
   );

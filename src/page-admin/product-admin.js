@@ -18,11 +18,12 @@ const useQuery = () => {
   return useMemo(() => new URLSearchParams(search), [search]);
 };
 
-const ProductsAdmin = ( props ) => {
-
+const ProductsAdmin = (props) => {
+  const { product } = useSelector((state) => state.homeReducer);
+  const dispatch = useDispatch();
   const getQuery = useQuery();
   const [counter, setCounter] = useState(1);
-
+  const [pageIndex, setPageIndex] = useState(1);
   const [param, setParam] = useState({
     search: getQuery.get("search") ?? "",
     sort: getQuery.get("sort") ?? "",
@@ -40,6 +41,7 @@ const ProductsAdmin = ( props ) => {
         sort: "asc",
       };
       const result = await getProducts(body, counter);
+      console.log(result.data.result);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
       dispatch({ type: "LOADING_PAGE_FALSE" });
     } catch (error) {
@@ -137,7 +139,7 @@ const ProductsAdmin = ( props ) => {
   };
   const oldest = async () => {
     try {
-      const body = { ...param, filter: "", sort: "oldest"};
+      const body = { ...param, filter: "", sort: "oldest" };
       setParam(body);
       props.setSearchParams(body);
       const result = await getProducts(body, counter);
@@ -152,7 +154,6 @@ const ProductsAdmin = ( props ) => {
     setCounter(tempCount);
 
     try {
-
       const result = await getProducts(param, tempCount);
       console.log("angka", counter);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
@@ -172,140 +173,185 @@ const ProductsAdmin = ( props ) => {
     }
   };
 
-  const { product } = useSelector((state) => state.homeReducer);
-  const dispatch = useDispatch();
+  const nextData = () => {
+    const tempCount = pageIndex + 1;
+    setPageIndex(tempCount);
+  };
+
+  const prevData = () => {
+    const tempCount = pageIndex - 1;
+    setPageIndex(tempCount);
+  };
+
+  const pageSize = 12;
+  let page = pageIndex;
+  const totalPages = Math.ceil(product.length / pageSize);
+  console.log(page);
+  const pageData = product.slice(page * pageSize - pageSize, page * pageSize);
+  console.log(pageData);
 
   useEffect(() => {
     dispatch({ type: "LOADING_PAGE" });
     getAllProduct();
   }, []);
 
-
-
   useDocumentTitle("Products Admin");
 
   return (
     <Fragment>
       <body className={` ${styles["body-product"]}`}>
-      <main className={`container-fluid ${styles["main-product"]}`}>
-        <HeaderAdmin />
-        <section
-          className={`container-fluid text-dark ${styles["sub-product"]}`}
-        >
-          <div className="row align-items-center">
-            <section className={`col-4 border w-25 ${styles["box-side"]}`}>
-              <h1 className={`text-center ${styles["promoforyou"]}`}>
-                Promo for you
-              </h1>
+        <main className={`container-fluid ${styles["main-product"]}`}>
+          <HeaderAdmin />
+          <section
+            className={`container-fluid text-dark ${styles["sub-product"]}`}
+          >
+            <div className="row align-items-center">
+              <section className={`col-4 border w-25 ${styles["box-side"]}`}>
+                <h1 className={`text-center ${styles["promoforyou"]}`}>
+                  Promo for you
+                </h1>
 
-              <br />
-              <p className={`text-center ${styles["coupons"]}`}>
-                Coupons will be updated every weeks. <br />
-                Check them out!
-              </p>
-              <PromoCardAdmin />
-              <div className="text-center d-grid gap-2 col-9 mx-auto">
-                <button
-                  type="button"
-                  className={`btn btn-primary btn-lg ${styles["button-product"]}`}
+                <br />
+                <p className={`text-center ${styles["coupons"]}`}>
+                  Coupons will be updated every weeks. <br />
+                  Check them out!
+                </p>
+                <PromoCardAdmin />
+                <div className="text-center d-grid gap-2 col-9 mx-auto">
+                  <button
+                    type="button"
+                    className={`btn btn-primary btn-lg ${styles["button-product"]}`}
+                  >
+                    Apply Coupon
+                  </button>
+                </div>
+                <p
+                  className={`${styles["term"]}  ${styles["font-weight: bold"]}`}
                 >
-                  Apply Coupon
-                </button>
-              </div>
-              <p
-                className={`${styles["term"]}  ${styles["font-weight: bold"]}`}
+                  Terms and Condition <br />
+                </p>
+                <p className={styles["ruleterm"]}>
+                  1. You can only apply 1 coupon per day <br />
+                  2. It only for dine in <br />
+                  3. Buy 1 get 1 only for new user <br />
+                  4. Should make member card to apply coupon
+                </p>
+                <div className="text-center d-grid gap-2 col-9 mx-auto">
+                  <Link to={"/new-promo"}>
+                    <button
+                      type="button"
+                      className={`btn btn-primary btn-lg ${styles["add-new"]}`}
+                    >
+                      Add new promo
+                    </button>
+                  </Link>
+                </div>
+              </section>
+
+              <section
+                className={`col-8 border w-75 row align-items-start ${styles["main-side"]}`}
               >
-                Terms and Condition <br />
-              </p>
-              <p className={styles["ruleterm"]}>
-                1. You can only apply 1 coupon per day <br />
-                2. It only for dine in <br />
-                3. Buy 1 get 1 only for new user <br />
-                4. Should make member card to apply coupon
-              </p>
-              <div className="text-center d-grid gap-2 col-9 mx-auto">
-              <Link to={"/new-promo"}>
-                <button
-                  type="button"
-                  className={`btn btn-primary btn-lg ${styles["add-new"]}`}
-                >
-                  Add new promo
-                </button>
-                </Link>
-              </div>
-            </section>
-
-            <section
-              className={`col-8 border w-75 row align-items-start ${styles["main-side"]}`}
-            >
-              <div className="container text-center">
-                <aside
-                  className={`row align-items-start ${styles["sub-category"]}`}
-                >
+                <div className="container text-center">
                   <aside
-                    className={`col text-decoration-underline align-middle ${styles["fav-prod"]}`}
+                    className={`row align-items-start ${styles["sub-category"]}`}
                   >
-                    <p onClick={handleFavorite}>Favorite Product</p>
-                  </aside>
-                  <aside
-                    onClick={() => {
-                      handleCoffee();
-                    }}
-                    className={`col  ${styles["category"]}`}
-                  >
-                    Coffee
-                  </aside>
-                  <aside
-                    onClick={handleNonCofee}
-                    className={`col  ${styles["category"]}`}
-                  >
-                    Non Coffee
-                  </aside>
-                  <aside
-                    onClick={handleFood}
-                    className={`col ${styles["category"]}`}
-                  >
-                    Foods
-                  </aside>
-                  <aside className={`col ${styles["category"]}`}>Add-on</aside>
-                </aside>
-              </div>
-              <aside className={`"container text-center ${styles["sub-list"]}`}>
-                <div
-                  className={`"container text-center ${styles["list-products"]}`}
-                >
-                  <aside
-                    className={`row align-items-start ${styles["prod-wrap"]}`}
-                  >
-                    {product.map((product) => {
-                      return (
-                        <ProductCardAdmin
-                          name={product.name}
-                          price={"IDR " + product.price}
-                          image={product.image}
-                          dataId={product.id}
-                        />
-                      );
-                    })}
+                    <aside
+                      className={`col text-decoration-underline align-middle ${styles["fav-prod"]}`}
+                    >
+                      <p onClick={handleFavorite}>Favorite Product</p>
+                    </aside>
+                    <aside
+                      onClick={() => {
+                        handleCoffee();
+                      }}
+                      className={`col  ${styles["category"]}`}
+                    >
+                      Coffee
+                    </aside>
+                    <aside
+                      onClick={handleNonCofee}
+                      className={`col  ${styles["category"]}`}
+                    >
+                      Non Coffee
+                    </aside>
+                    <aside
+                      onClick={handleFood}
+                      className={`col ${styles["category"]}`}
+                    >
+                      Foods
+                    </aside>
+                    <aside className={`col ${styles["category"]}`}>
+                      Add-on
+                    </aside>
                   </aside>
                 </div>
-                
-              </aside>
-              <div className="text-center d-grid gap-2 col-9 mx-auto">
-              <Link to={"/new-product"}>
-                <button
-                  type="button"
-                  className={`btn btn-primary btn-lg ${styles["add-product"]}`}
+                <aside
+                  className={`"container text-center ${styles["sub-list"]}`}
                 >
-                  Add new product
-                </button>
-                </Link>
-              </div>
-            </section>
-          </div>
-        </section>
-        <Footer />
-      </main>
+                  <div
+                    className={`"container text-center ${styles["list-products"]}`}
+                  >
+                    <aside
+                      className={`row align-items-start ${styles["prod-wrap"]}`}
+                    >
+                      {pageData.map((product) => {
+                        return (
+                          <ProductCardAdmin
+                            name={product.name}
+                            price={"IDR " + product.price}
+                            image={product.image}
+                            dataId={product.id}
+                          />
+                        );
+                      })}
+                    </aside>
+                  </div>
+                </aside>
+                
+                <nav
+                  className={`${styles["page"]}`}
+                  aria-label="Page navigation example"
+                  
+                >
+                  <ul className={`pagination ${styles["pagination"]}`}>
+                    <li className={`page-item ${styles["pageitem"]}`}>
+                      <button
+                        className={pageIndex === 1 ? `page-link ${styles["pagelink2"]}` : `page-link ${styles["pagelink"]}`}
+                        onClick={prevData}
+                        disabled={pageIndex === 1 ? true : false}
+                        href="#"
+                      >
+                        Previous
+                      </button>
+                    </li>
+
+                    <li className={`page-item ${styles["pageitem"]}`}>
+                      <button
+                        className={pageIndex === totalPages ? `page-link ${styles["pagelink2"]}` : `page-link ${styles["pagelink"]}`}
+                        onClick={nextData}
+                        disabled={pageIndex === totalPages ? true : false}
+                        href="#"
+                      >
+                        Next
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+                {/* <div className="text-center d-grid gap-2 col-9 mx-auto"> */}
+                  <Link to={"/new-product"}>
+                    <button
+                      type="button"
+                      className={`btn btn-primary btn-lg ${styles["add-product"]}`}
+                    >
+                      Add new product
+                    </button>
+                  </Link>
+                {/* </div> */}
+              </section >
+            </div>
+          </section>
+          <Footer />
+        </main>
       </body>
     </Fragment>
   );
