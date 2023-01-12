@@ -12,6 +12,7 @@ const Modal = (props) => {
     try {
       await logoutBe();
       dispatch(paymentAction.cartReset())
+      dispatch(paymentAction.historyReset())
       localStorage.removeItem("userInfo");
       navigate("/login")
     } catch (error) {

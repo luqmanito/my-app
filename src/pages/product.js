@@ -26,18 +26,18 @@ const Products = (props) => {
   const dispatch = useDispatch();
   const getQuery = useQuery();
   const isPending = useSelector((state) => state.globalReducer.isLoading);
-  console.log(isPending);
+  // console.log(isPending);
   const [counter, setCounter] = useState(1);
   const [thisPage, setThisPage] = useState(1);
-
+  const [searchProduct, setSearchProduct] = useState("");
   const [param, setParam] = useState({
-    search: getQuery.get("search") ?? "",
+    search: getQuery.get("search") ?? searchProduct,
     sort: getQuery.get("sort") ?? "",
     filter: getQuery.get("filter") ?? "",
     page: getQuery.get("page") ?? 1,
   });
 
-  const [searchProduct, setSearchProduct] = useState("");
+  
   const [pageIndex, setPageIndex] = useState(1);
   const nextData = () => {
     const tempCount = pageIndex + 1;
@@ -58,7 +58,7 @@ const Products = (props) => {
         sort: "asc",
       };
       const result = await getProducts(body, counter);
-      console.log(result.data.result);
+      // console.log(result.data.result);
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
       dispatch({ type: "LOADING_PAGE_FALSE" });
     } catch (error) {
@@ -191,9 +191,9 @@ const Products = (props) => {
   const pageSize = 12;
   let page = pageIndex;
   const totalPages = Math.ceil(product.length / pageSize);
-  console.log(page);
+  // console.log(page);
   const pageData = product.slice(page * pageSize - pageSize, page * pageSize);
-  console.log(pageData);
+  // console.log(pageData);
   const callSearch = () => {
     product.name.toLowerCase().includes(searchProduct.toLowerCase());
   };
@@ -202,12 +202,15 @@ const Products = (props) => {
     dispatch({ type: "LOADING_PAGE" });
     getAllProduct();
     // getDataProd()
-  }, []);
-  console.log(product, cartContents);
+  }, [searchProduct]);
 
-  const updateChange = (e) => setSearchProduct(e.target.value);
+  const updateChange = (e) => {
+    props.setSearchParams({ ...param, search: e.target.value });
+    setSearchProduct(e.target.value);
+    
+  };
   const debounceOnChange = debounce(updateChange, 1000);
-
+  // console.log(searchProduct);
   useDocumentTitle("Products");
   return (
     <Fragment>
@@ -343,8 +346,7 @@ const Products = (props) => {
                                   />
                                 );
                               })
-                          : 
-                            product
+                          : product
                               .filter((detail) => {
                                 if (product === "") {
                                   return detail;

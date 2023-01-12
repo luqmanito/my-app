@@ -4,15 +4,31 @@
     width: 28vw;
     padding: 1rem;
     height: 150px;
+    margin-top: 2vw;
   }
-
-  /* .box{
-    
-  } */
+  .del1, .del2{
+    width: 40px;
+    margin-left: 1vw;
+    /* position: absolute; */
+      }
+  .delete{
+    position: absolute;
+    margin-top: 7vw;
+    margin-left: 18vw;
+    z-index: 1;
+    width: fit-content;
+  }
+  .delete-none{
+    display: none;
+  }
   .img-container {
     margin-right: 1rem;
   }
-  .card-history img {
+  /* .card-history img {
+    border-radius: 50%;
+    width: 5rem;
+  } */
+  .imgprod{
     border-radius: 50%;
     width: 5rem;
   }

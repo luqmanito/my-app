@@ -4,15 +4,16 @@ import NavBar from "../components/header/NavBar";
 import Footer from "../components/footer/footer";
 import styles from "../style/history.module.css";
 import HistoryCard from "../components/cards/history";
-import del from "../assets/images/delete.png";
-import delx from "../assets/images/deletex.png";
+
 import { useDispatch, useSelector } from "react-redux";
+import EmptyHistory from "../components/cards/empty-history";
 
 const History = () => {
   const cartContents = useSelector(
     (state) => state.transactionReducer.transSuccess
   );
-  // console.log(cartContents);
+
+  console.log(cartContents);
   useDocumentTitle("Order History");
   return (
     <Fragment>
@@ -26,22 +27,19 @@ const History = () => {
               <h1>Let's see what you have bought!</h1>
               <p className={styles["del"]}> Select item to delete</p>
             </section>
-            <section className={styles["delete"]}>
-              <img className={styles["del1"]} src={del} alt="" />
-              <img className={styles["del2"]} src={delx} alt="" />
-            </section>
+
             <section className={`container ${styles["list-history"]}`}>
-              {cartContents === undefined ? (
-                <HistoryCard />
+              {cartContents.length === 0 ? (
+                <EmptyHistory/>
               ) : (
-                cartContents &&
                 cartContents.map((item) => {
+                  console.log(item.subtotal);
                   return (
                     <HistoryCard
-                      key={item[0].id_product}
-                      name={item[0].product_name}
-                      image={item[0].image}
-                      price={item.subtotal}
+                      key={item.id_product}
+                      name={item.products_name}
+                      image={item.image}
+                      price={item.subtotal=== undefined ? item.total_order : item.subtotal}
                       status={"pending"}
                     />
                   );

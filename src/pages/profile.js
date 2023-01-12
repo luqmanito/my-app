@@ -12,6 +12,8 @@ import { getProfile, editProfile, logoutBe } from "../helpers/tools";
 import { useDispatch, useSelector } from "react-redux";
 import Upload from "../components/upload/upload";
 import Modal from "../components/modal/modal";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Profile = ({ navigate }) => {
   const { profiles } = useSelector((state) => state.profileReducer);
@@ -126,11 +128,21 @@ const Profile = ({ navigate }) => {
   }
   console.log(data);
   const handleSubmit = async (event) => {
+    const result = await editProfile(data);
     try {
-      const result = await editProfile(data);
       setBody({});
-      alert("Update Data success");
-      window.location.reload();
+      toast.success("Profile updated!", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      // alert("Update Data success");
+      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -297,6 +309,7 @@ const Profile = ({ navigate }) => {
                 <button onClick={handleSubmit} className={styles["savechange"]}>
                   Save Change
                 </button>
+                <ToastContainer />
                 <button className={styles["cancel"]}>Cancel</button>
                 <button className={styles["edit"]}>Edit Password</button>
 

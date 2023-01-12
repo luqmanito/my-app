@@ -11,7 +11,8 @@ const transactionReducer = (prevState = initialState, { type, payload }) => {
     updateItemQty,
     resetCart,
     deleteCartItem,
-    createTrans
+    createTrans,
+    resetHistory
   } = ACTION_STRING;
 
   switch (type) {
@@ -66,6 +67,12 @@ const transactionReducer = (prevState = initialState, { type, payload }) => {
       return {
         ...prevState,
         transSuccess: payload.body
+      };
+
+      case resetHistory:
+      return {
+        ...prevState,
+        transSuccess: [],
       };
 
 

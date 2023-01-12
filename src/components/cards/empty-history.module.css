@@ -1,0 +1,27 @@
+.card{
+    background-color: rgba(250, 234, 214, .7) ;
+    /* opacity: 50%; */
+    margin-top: 10vw;
+    height: 15vw;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+.name{
+    font-weight: bold;
+    /* opacity: 100%; */
+}
+.name2{
+    color: black;
+    margin-top: 2vw;
+    font-size: 30px;
+    font-weight: bold;
+    width: fit-content;
+}
