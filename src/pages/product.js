@@ -190,7 +190,7 @@ const Products = (props) => {
 
   const pageSize = 12;
   let page = pageIndex;
-  const totalPages = Math.ceil(product.length / pageSize);
+  const totalPages = Math.ceil(product.length === undefined ? 10 : product.length / pageSize);
   // console.log(page);
   const pageData = product.slice(page * pageSize - pageSize, page * pageSize);
   // console.log(pageData);
