@@ -28,6 +28,7 @@ const Products = (props) => {
   const isPending = useSelector((state) => state.globalReducer.isLoading);
   // console.log(isPending);
   const [counter, setCounter] = useState(1);
+  const [product2, setProduct2] = useState(1);
   const [thisPage, setThisPage] = useState(1);
   const [searchProduct, setSearchProduct] = useState("");
   const [param, setParam] = useState({
@@ -59,6 +60,7 @@ const Products = (props) => {
       };
       const result = await getProducts(body, counter);
       // console.log(result.data.result);
+      setProduct2(result.data.result)
       dispatch({ type: "UPDATE_DATA_PRODUCT", payload: result.data.result });
       dispatch({ type: "LOADING_PAGE_FALSE" });
     } catch (error) {
@@ -190,7 +192,7 @@ const Products = (props) => {
 
   const pageSize = 12;
   let page = pageIndex;
-  const totalPages = Math.ceil(product.length === undefined ? 10 : product.length / pageSize);
+  const totalPages = Math.ceil(product2.length === undefined ? 10 : product.length / pageSize);
   // console.log(page);
   const pageData = product.slice(page * pageSize - pageSize, page * pageSize);
   // console.log(pageData);
