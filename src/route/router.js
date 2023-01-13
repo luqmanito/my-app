@@ -26,6 +26,7 @@ import PrivateRoute2 from "./private-route2";
 import Forbidden from "../pages/forbidden";
 import Modal from "../components/modal/modal";
 import PrivateRoute3 from "./private-route3";
+import Activate from "../pages/activation";
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
   {
     path: "/forgot",
     element: <Forgotpw />,
+  },
+  {
+    path: "/activation/:id",
+    element: <Activate />,
   },
   {
     path: "/reg",

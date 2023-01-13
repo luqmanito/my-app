@@ -113,6 +113,8 @@ export const getProfile = () => {
   });
 };
 
+
+
 export const addCartApi = (body) => {
   const login = JSON.parse(localStorage.getItem("userInfo"));
   const token = login.token;
@@ -145,6 +147,12 @@ export const editProfile = (body) => {
       "x-access-token": token,
     },
   });
+};
+
+export const activateAccount = (id) => {
+
+  const URL = baseUrl + `/users/activate?id=${id}`;
+  return axios.patch(URL, {});
 };
 
 export const getPromo = () => {
