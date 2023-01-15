@@ -37,13 +37,12 @@ const Login2 = ({ navigate }) => {
       // setCartItems(result.data.result);
       // console.log(result.data);
       // result.data.result.length !== 0 ? dispatch(paymentAction.addtoCartActions(result.data.result)) : console.log('cart kosong');
-
       // dispatch({ type: "ADD_CART", payload: result.data.result });
     } catch (error) {
       console.error(error);
     }
   };
-  // console.log(formValues);
+
   const handleSubmit2 = async (event) => {
     dispatch({ type: "LOADING_PAGE" });
 
@@ -52,24 +51,36 @@ const Login2 = ({ navigate }) => {
 
     if (formValues.email === "" || formValues.password === "") {
       dispatch({ type: "LOADING_PAGE_FALSE" });
-      alert(`semua kolom harus terisi!`);
+      // console.log("a");
+      // alert(`semua kolom harus terisi!`);
     } else {
       try {
         const loginRequest = await login(formValues);
         dispatch({ type: "LOADING_PAGE_FALSE" });
-        localStorage.setItem(
-          "userInfo",
-          JSON.stringify(loginRequest.data.data)
-        );
-        setIsSubmit(true);
-        toast.success("Login Succesfully!", {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 2000,
-        });
-        getDataCart();
+        if (loginRequest.data.data.status === "pending") {
+          toast.warning(
+            "Account is not active, please check your email to activate the account!",
+            {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 5000,
+            }
+          );
+        }
+        if (loginRequest.data.data.status === "active") {
+          localStorage.setItem(
+            "userInfo",
+            JSON.stringify(loginRequest.data.data)
+          );
+          setIsSubmit(true);
+          toast.success("Login Succesfully!", {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 2000,
+          });
+          getDataCart();
+        }
       } catch (error) {
         dispatch({ type: "LOADING_PAGE_FALSE" });
-        console.log(error);
+        // console.log(error);
         toast.error("Email or Password is wrong!", {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 2000,
@@ -83,51 +94,6 @@ const Login2 = ({ navigate }) => {
       }
     }
   };
-
-  // async function sleep() {
-  //   // const sleepMilliseconds = time * 1000
-
-  //   // return new Promise(resolve => {
-  //   //   setTimeout(() => {
-  //   //     resolve(`Slept for: ${sleepMilliseconds}ms`)
-  //   //   }, sleepMilliseconds)
-  //   // })
-  //   const loginRequest = await login(formValues);
-  //   return new Promise((resolve) => {
-  //     resolve(
-  //       localStorage.setItem("userInfo", JSON.stringify(loginRequest.data.data)),
-  //       console.log(resolve)
-  //     );
-  //   }, loginRequest);
-  // }
-  // async function sleep2() {
-  //   // const sleepMilliseconds = time * 1000
-
-  //   // return new Promise(resolve => {
-  //   //   setTimeout(() => {
-  //   //     resolve(`Slept for: ${sleepMilliseconds}ms`)
-  //   //   }, sleepMilliseconds)
-  //   // })
-  //   const result = await getListCartApi();
-  //   return new Promise((resolve) => {
-  //     resolve(dispatch(paymentAction.addtoCartActions(result.data.result)))
-  //   }, result);
-  // }
-
-  // async function main() {
-  //   const [resultLogin, resultCart] = await Promise.all([sleep(), sleep2()]);
-  //   console.log(resultLogin);
-  //   console.log(resultCart);
-  // }
-
-  // let exe = () => {
-  //   async function todos(){
-  //     await(fetch({url:'',method:''})).
-  //     then((res)=>{}).
-  //     then((res)={}).
-  //     catch((err)=>{})
-  //    }
-  // };
 
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
@@ -145,7 +111,7 @@ const Login2 = ({ navigate }) => {
     if (!values.email) {
       errors.email = "Email is required !";
     } else if (!regex.test(values.email)) {
-      errors.email = "This is not a valid email format! !";
+      errors.email = "This is not a valid email format!";
     }
     if (!values.password) {
       errors.password = "Password is required !";
@@ -173,9 +139,7 @@ const Login2 = ({ navigate }) => {
             <section className={styles["register-form"]}>
               <p className={styles["signin"]}>Login</p>
               {Object.keys(formErrors).length === 0 && isSubmit ? (
-                <div className={styles["ui-success"]}>
-                  Signed in succesfully!
-                </div>
+                <div className={styles["ui-success"]}>Welcome!</div>
               ) : (
                 ""
               )}
@@ -243,9 +207,7 @@ const Login2 = ({ navigate }) => {
                   // type="submit"
                   // value="Login"
                   className={
-                    isPending
-                      ? styles["input-loading"]
-                      : styles["input-submit"]
+                    isPending ? styles["input-loading"] : styles["input-submit"]
                   }
                   type="submit"
                   value={isPending ? "Loading.." : "Login"}

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const baseUrl = "http://localhost:8070/api/show";
+// const baseUrl = "http://localhost:8070/";
 export const baseUrl = process.env.REACT_APP_DEPLOY_KEY;
 // export const baseUrl = process.env.REACT_APP_VER_KEY
 
@@ -151,7 +151,7 @@ export const editProfile = (body) => {
 
 export const activateAccount = (id) => {
 
-  const URL = baseUrl + `/users/activate?id=${id}`;
+  const URL = baseUrl + `api/show/users/activate?id=${id}`;
   return axios.patch(URL, {});
 };
 

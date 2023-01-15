@@ -324,7 +324,7 @@ const Profile = ({ navigate }) => {
       <Footer />
       <Modal
         open={open}
-        // setOpen={open}
+        setOpen={setOpen}
         title="Log out"
         body="Do you really want to log out?"
       />

@@ -26,6 +26,23 @@
   .register-form {
     flex: 2;
   }
+
+  .errorpw,
+.errormail {
+  margin-top: -3%;
+  color: red;
+  font-weight: bold;
+}
+.ui-success {
+  text-align: center;
+  font-weight: bold;
+  color: green;
+}
+.ui-fail {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}
   
   .coffee-icon {
     margin-left: 5%;
