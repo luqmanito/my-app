@@ -10,8 +10,8 @@ var CryptoJS = require("crypto-js");
 export const Activate = ({ navigate }) => {
   const [isActivated, setIsActivated] = useState(false);
   const { id } = useParams();
-  let _secretKey = process.env.REACT_APP_SECRET_KEY;
-
+  // let _secretKey = process.env.REACT_APP_SECRET_KEY;
+  let _secretKey = 'bolgeo';
   let decryptSlash = id.replace("ito", "/");
   // console.log(decryptSlash);
   console.log(_secretKey);
@@ -23,7 +23,7 @@ export const Activate = ({ navigate }) => {
   const activeAcc = async () => {
     try {
       const result = await activateAccount(originalText);
-      setIsActivated(true)
+      setIsActivated(true);
       console.log(result);
     } catch (error) {
       if (error.response.data.statusCode === 403) {
@@ -40,7 +40,11 @@ export const Activate = ({ navigate }) => {
     <Fragment>
       <section className={`${styles["mainbody"]}`}>
         <div className={`${styles["body-error"]}`}>
-          <h1>{isActivated === true ? 'Your Account has been activated' : 'Activating your account, please wait..'}</h1>
+          <h1>
+            {isActivated === true
+              ? "Your Account has been activated"
+              : "Activating your account, please wait.."}
+          </h1>
         </div>
       </section>
       <Footer />
