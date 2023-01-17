@@ -217,7 +217,7 @@ const Products = (props) => {
   return (
     <Fragment>
       <NavBar onChange={debounceOnChange} />
-      <main className={`container-fluid ${styles["main-body"]}`}>
+      {/* <main className={`container-fluid ${styles["main-body"]}`}> */}
         <section
           className={`container-fluid text-dark ${styles["sec-product"]}`}
         >
@@ -417,7 +417,7 @@ const Products = (props) => {
           </div>
         </section>
         <Footer />
-      </main>
+      {/* </main> */}
     </Fragment>
   );
 };

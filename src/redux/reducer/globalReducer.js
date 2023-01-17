@@ -1,7 +1,7 @@
 const initState = {
     name: 'Luqman',
     currentPage: 1,
-    isLoading: false
+    isLoading: []
     
     
 }

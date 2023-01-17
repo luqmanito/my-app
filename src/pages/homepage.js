@@ -37,9 +37,9 @@ const Homepage = () => {
   useDocumentTitle("Homepage");
   return (
     <Fragment>
-      <main className={`container-fluid ${styles["body-home"]}`}>
+      {/* <main className={`container-fluid ${styles["body-home"]}`}> */}
         <NavBar />
-        <main>
+        {/* <main> */}
           <div className={`bg-image card shadow-1-strong ${styles["jumbo"]}`}>
             <div className="card-body text-white">
               <h5 className={`card-title ${styles["startday"]}`}>
@@ -517,8 +517,8 @@ const Homepage = () => {
               <button className={styles["createnow"]}>See Promo</button>
             </aside>
           </section>
-        </main>
-      </main>
+        {/* </main> */}
+      {/* </main> */}
     </Fragment>
   );
 };

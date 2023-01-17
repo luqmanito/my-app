@@ -17,7 +17,7 @@ const History = () => {
   useDocumentTitle("Order History");
   return (
     <Fragment>
-      <aside className={` ${styles["main-body"]}`}>
+      {/* <aside className={` ${styles["main-body"]}`}> */}
         <main className={`container ${styles["main-history"]}`}>
           <NavBar />
           <div className={styles["container"]}>
@@ -49,7 +49,7 @@ const History = () => {
           </div>
           <Footer />
         </main>
-      </aside>
+      {/* </aside> */}
     </Fragment>
   );
 };

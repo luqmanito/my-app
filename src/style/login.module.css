@@ -1,40 +1,60 @@
 .body-bg {
   background-color: #bcbaba;
-  max-width: 1440px;
+  /* max-width: 1440px; */
 }
 .side-img {
-  width: 50vw;
+  width: 45vw;
+  margin-left: -1.2vw;
 }
 
-.body-login {
+/* .body-login {
   max-width: 1440px;
   margin: auto;
+} */
+
+.login {
+  margin-left: 340px;
+  width: 100px;
+  position: absolute;
+  border: none;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  background-color: #ffba33;
+  color: #6a4029;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 25px;
+  box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
 }
 
 .login-sec {
   display: flex;
   max-width: 1440px;
-  /* background-color: rgb(57, 143, 47); */
+  background-color: rgb(255, 255, 255);
   position: relative;
 }
 
 .side-content {
   flex: 1;
-  margin-left: -2vw;
+  /* margin-left: -2vw; */
   /* background-color: #4f5665; */
 }
 .register-form {
-  /* flex: 2; */
-  /* background-color: #0b132a; */
   text-align: center;
-  /* justify-items: center; */
 }
 .right-side {
   /* background-color: #6a4029; */
   flex: 2;
 }
 
-.coffee-icon {
+/* .coffee-icon {
   margin: 20px 20px;
   font-family: "Rubik";
   font-style: normal;
@@ -42,14 +62,24 @@
   font-size: 15px;
   line-height: 24px;
   color: #0b132a;
-  /* margin-top: -50%; */
+} */
+
+.coffee-icon {
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  color: #0b132a;
 }
 
 .signup {
   margin-left: 30vw;
   width: 100px;
   height: auto;
- position: absolute;
+  /* position: absolute; */
   border: none;
   border-radius: 16px;
   -webkit-border-radius: 16px;
@@ -95,13 +125,15 @@
 }
 
 .input-text {
-  width: 24vw;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+
+
+  width: 71%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .label-email {
@@ -111,7 +143,7 @@
   font-size: 13px;
   line-height: 24px;
   color: #4f5665;
-  margin-left: -15vw;
+  margin-left: -16.8vw;
   /* background-color: #4f5665; */
 }
 .label-pass {
@@ -121,12 +153,12 @@
   font-size: 13px;
   line-height: 24px;
   color: #4f5665;
-  margin-left: -17vw;
-  margin-top: 1vw;
+  margin-left: -17.6vw;
+  margin-top: 1.4vw;
 }
 
 .input-submit {
-  width: 24vw;
+  width: 71%;
   height: 45px;
   margin-left: 0%;
   /* margin-top: 8%; */
@@ -151,7 +183,7 @@
 }
 
 .input-loading {
-  width: 24vw;
+  width: 71%;
   height: 45px;
   margin-left: 0%;
   /* margin-top: 8%; */
@@ -176,7 +208,7 @@
 }
 
 .oauth {
-  width: 24vw;
+  width: 71%;
   height: 45px;
   margin: auto;
   margin-top: 25px;
@@ -228,8 +260,8 @@
 .member-card {
   box-sizing: border-box;
   position: absolute;
-  width: 75%;
-  margin-left: 10vw;
+  width: 65%;
+  margin-left: 17vw;
   z-index: 1;
   background: #ffffff;
   border-radius: 10px;
@@ -259,7 +291,7 @@
 .createnow {
   width: 200px;
   height: 60px;
-  margin-left: 20vw;
+  margin-left: 28vw;
   margin-top: 30px;
   border-radius: 8px;
   border: none;
@@ -392,46 +424,50 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .side-img {
+  /* .side-img {
     display: none;
-  }
+  } */
   .label-email {
-    position: absolute;
-    margin-top: 2%;
+    margin-left: -34vw;
   }
-
+  .label-pass {
+    margin-left: -36vw;
+  }
+  .login{
+    margin-left: 20vw;
+  }
   .about-coffe {
     margin-top: 90%;
   }
   .register-form {
     /* margin-top: 60%; */
     /* background-color: #4f5665; */
-    margin-left: -45%;
+    /* margin-left: -45%; */
   }
   .input-text {
-    width: 35vw;
+    width: 45vw;
     margin-top: 3%;
   }
   .input-submit {
-    width: 35vw;
+    width: 45vw;
     /* margin-top: -10%; */
   }
   .oauth {
-    width: 35vw;
+    width: 45vw;
     /* margin-top: -10%; */
   }
   .signin {
     margin-top: -5%;
-    margin-left: 18%;
+    /* margin-left: 18%; */
   }
   .member-card {
     width: 80vw;
     height: 13vh;
-    margin-left: -7%;
-    margin-top: -28%;
+    /* margin-left: -7%; */
+    /* margin-top: -28%; */
   }
   .login-sec {
-    height: 70vh;
+    height: 85vh;
   }
   .createnow {
     margin-left: -25%;
@@ -441,7 +477,7 @@ img {
   .coffee-icon {
     /* margin-top: 10%; */
     /* background-color: #0b132a; */
-    margin-left: -45%;
+    /* margin-left: -45%; */
   }
   .side-content {
     /* background-color: #0b132a; */
@@ -450,7 +486,8 @@ img {
   .forgotpw {
     margin-top: 5%;
   }
-  .icon-eye {
-    margin-left: -3%;
+  .icon-eye{
+    margin-top: 3.5vw;
+    margin-left: -4vw;
   }
 }

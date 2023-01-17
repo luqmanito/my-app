@@ -9,7 +9,7 @@ import beard from "../../assets/images/beard-man-icon.jpg";
 const HeaderLogin = () => {
   return (
     <Fragment>
-      <main className={styles["body-home"]}>
+      {/* <main className={styles["body-home"]}> */}
       <header className={styles["header-home"]}>
         <aside className={`${styles["left-header"]}`}>
           <img
@@ -50,7 +50,7 @@ const HeaderLogin = () => {
           </Link>
         </aside>
       </header>
-      </main>
+      {/* </main> */}
     </Fragment>
   );
 };

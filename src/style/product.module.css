@@ -139,12 +139,6 @@
   height: 800px;
 }
 
-@media screen and (max-width: 768px) {
-  .prod-wrap {
-    margin: auto;
-  }
-}
-
 .list-products {
   margin-top: 10%;
   /* background-color: #6A4029; */
@@ -161,7 +155,7 @@
   text-align: center;
   color: #6a4029;
 }
-.main-menu{
+.main-menu {
   padding-top: 20px;
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -195,7 +189,6 @@
   width: 9vw;
   /* background-color: #4f5665; */
   /* z-index: 1; */
-  
 }
 
 .sub-category {
@@ -318,7 +311,7 @@ img {
   position: relative;
   width: fit-content;
   margin-left: 80%;
-  margin-top: -4%
+  margin-top: -4%;
 }
 
 .dd-button {
@@ -346,14 +339,15 @@ img {
   border-right: 5px solid transparent;
   border-top: 5px solid black;
 }
-.sortby{
-position: absolute;
- margin-top: 7%;
- margin-left: 40%;
- font-size: larger;
- font-weight: bold;
+.sortby {
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 40%;
+  font-size: larger;
+  font-weight: bold;
 
-width: fit-content;}
+  width: fit-content;
+}
 .dd-button:hover {
   background-color: #eeeeee;
 }
@@ -399,12 +393,12 @@ width: fit-content;}
   margin: -10px -20px;
   padding: 10px 20px;
 }
-.pagelink{
+.pagelink {
   color: #6a4029;
   background-color: #ffffff;
   font-weight: bold;
 }
-.pagelink2{
+.pagelink2 {
   color: white;
   background-color: #666a72;
   font-weight: bold;
@@ -413,8 +407,7 @@ width: fit-content;}
   padding: 0;
   border-bottom: 1px solid #cccccc;
 }
-.page{
-  /* background-color: #4f5665; */
+.page {
   margin-left: 80%;
 }
 
@@ -423,20 +416,34 @@ width: fit-content;}
     width: fit-content;
     margin-top: 20%;
   }
+
+  .prod-wrap {
+    margin: auto;
+    display: flex;
+  }
+
   .dropdown {
     margin-top: -2%;
     margin-left: 75%;
   }
-  .dd-button{
+  .dd-button {
     width: fit-content;
+    margin-left: -30%;
+    margin-top: 10%;
   }
   .dd-button:after {
     margin-left: 5%;
+    margin-top: 5%;
   }
-  .dd-menu  {
-    width: 10vw
+  .dd-menu {
+    width: fit-content;
+    margin-left: -26%;
   }
-  .page{
-    margin-left: 60%;
+  .page {
+    margin-left: 70%;
+    margin-top: 2vw;
+  }
+  .sortby{
+    margin-left: 35%;
   }
 }

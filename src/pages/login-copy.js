@@ -128,11 +128,23 @@ const Login2 = ({ navigate }) => {
           <img className={`container ${styles["side-img"]}`} src={dish} />
         </aside>
         <aside className={styles["right-side"]}>
-          <div className={styles["coffee-icon"]}>
+          {/* <div className={styles["coffee-icon"]}>
             <img src={coffee} width="20px" height="20px" alt="coffee-icon" />
             Coffee Shop
             <Link to={"/register"}>
               <button className={styles["signup"]}>Sign Up</button>
+            </Link>
+          </div> */}
+          <div className={styles["coffee-icon"]}>
+            <img src={coffee} width="20px" height="20px" alt="coffee-icon" />
+            Coffee Shop
+            <Link to={"/register"}>
+              <button
+                className={styles["login"]}
+                // onClick={dispatch({ type: "LOADING_PAGE_FALSE" })}
+              >
+                Sign up
+              </button>
             </Link>
           </div>
           <div>

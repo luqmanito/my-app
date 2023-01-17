@@ -13,7 +13,8 @@ export const Activate = ({ navigate }) => {
   let _secretKey = process.env.REACT_APP_SECRET_KEY;
 
   let decryptSlash = id.replace("ito", "/");
-  console.log(decryptSlash);
+  // console.log(decryptSlash);
+  console.log(_secretKey);
 
   let bytes = CryptoJS.AES.decrypt(decryptSlash, `${_secretKey}`);
   let originalText = bytes.toString(CryptoJS.enc.Utf8);

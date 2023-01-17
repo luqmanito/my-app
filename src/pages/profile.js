@@ -289,7 +289,7 @@ const Profile = ({ navigate }) => {
                   </div>
                 </div>
 
-                <div>
+                <div className={styles["form-2-wrap"]}>
                   <p className={styles["form-2"]}>Last name :</p>
                   <input
                     className={styles["input-profile"]}

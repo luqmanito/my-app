@@ -50,7 +50,7 @@ a {
   }
   
   .center-header {
-    flex: 1;
+    flex: 2;
     background-color: rgb(255, 255, 255);
     display: flex;
     font-family: "Rubik";
@@ -61,11 +61,13 @@ a {
     color: #4f5665;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
   
   .right-header {
     display: flex;
     flex: 1;
+    width: fit-content;
     align-items: center;
     justify-content: center;
   }
@@ -879,4 +881,14 @@ a {
     color: #4f5665;
   }
   
-  
+  @media screen and (max-width: 768px) {
+    .center-header{
+      /* width: 90vw */
+    }
+    .button-sign-up{
+      margin-left: 20%;
+    }
+    .right-header{
+      width: fit-content;
+    }
+  }

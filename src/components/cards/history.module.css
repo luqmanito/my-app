@@ -1,7 +1,7 @@
 .card-history {
     border-radius: 1rem;
     background: white;
-    width: 28vw;
+    width: 19vw;
     padding: 1rem;
     height: 150px;
     margin-top: 2vw;
@@ -59,7 +59,7 @@
   .tixbox{
     /* right: 0; */
     /* cursor: pointer; */
-    padding-left: 24vw;
+    padding-left: 16vw;
     /* padding-top: 5vw; */
     /* background-color: antiquewhite; */
   }

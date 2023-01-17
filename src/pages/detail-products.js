@@ -175,7 +175,7 @@ const DetailsProducts = ({ navigate }) => {
   return (
     <Fragment>
       <NavBar />
-      <main className={`${styles["body-detail"]}`}>
+      {/* <main className={`${styles["body-detail"]}`}> */}
         <main className={`container ${styles["main-detail"]}`}>
           <p className={`container ${styles["promo"]}`}>
             Favorite & Promo &gt; <b>Cold Brew</b>{" "}
@@ -378,7 +378,7 @@ const DetailsProducts = ({ navigate }) => {
             </div>
           </section>
         </main>
-      </main>
+      {/* </main> */}
       <Footer />
     </Fragment>
   );

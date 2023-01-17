@@ -85,7 +85,7 @@ const Payment = ({ navigate }) => {
   return (
     <Fragment>
       <NavBar />
-      <main className={` ${styles["body-pay"]}`}>
+      {/* <main className={` ${styles["body-pay"]}`}> */}
         <main className={`container ${styles["main-pay"]}`}>
           <p className={` ${styles["checkout"]}`}>
             Checkout your <br /> item now!
@@ -261,7 +261,7 @@ const Payment = ({ navigate }) => {
             </div>
           </section>
         </main>
-      </main>
+      {/* </main> */}
       <Footer />
     </Fragment>
   );

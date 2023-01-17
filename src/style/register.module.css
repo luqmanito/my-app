@@ -15,16 +15,24 @@
   }
   .main-reg {
     display: flex;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     max-width: 1440px;
+    position: relative;
   }
-  
+  .side-img{
+    width: 45vw;
+    margin-left: -1.2vw;
+  }
   .side-content {
     flex: 1;
   }
-  .right-side,
-  .register-form {
+  .right-side{
     flex: 2;
+    width: 15vw;
+    
+  }
+  .register-form{
+    text-align: center;
   }
 
   .errorpw,
@@ -78,22 +86,19 @@
   }
   
   .signup {
-    margin-left: 21.5vw;
-    /* text-align: center; */
-    width: 233px;
-    height: 41px;
-    border: none;
+    /* margin-left: 21.5vw; */
     font-family: "Rubik";
     font-style: small;
     font-weight: 700;
     font-size: 25px;
     line-height: 41px;
+    color: #6a4029;
   
     color: #6a4029;
   }
   
   .label-input {
-    margin-left: 150px;
+    /* margin-left: 150px; */
   }
   
 
@@ -126,6 +131,25 @@
     font-size: 13px;
     line-height: 24px;
     color: #4f5665;
+    margin-left: -16.8vw;
+}
+.pass-label {
+  font-family: "Rubik";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 24px;
+    color: #4f5665;
+    margin-left: -17.6vw;
+}
+.phone-label {
+  font-family: "Rubik";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 24px;
+    color: #4f5665;
+    margin-left: -16vw;
 }
 
   
@@ -153,10 +177,10 @@
   } */
 
   .submit-input {
-    width: 25.5vw;
+    width: 71%;
     height: 45px;
-    margin-left:-115%;
-    margin-top: 58%;
+    /* margin-left:-115%; */
+    /* margin-top: 58%; */
     border: none;
     border-radius: 12px;
     -webkit-border-radius: 12px;
@@ -175,10 +199,10 @@
     -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
   }
   .submit-loading {
-    width: 25.5vw;
+    width: 71%;
     height: 45px;
-    margin-left:-115%;
-    margin-top: 58%;
+    /* margin-left:-115%; */
+    /* margin-top: 58%; */
     border: none;
     border-radius: 12px;
     -webkit-border-radius: 12px;
@@ -197,7 +221,7 @@
     -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
   }
   .oauth {
-    width: 25.5vw;
+    width: 71%;
     margin-left:-100%;
     height: 45px;
     margin: auto;
@@ -226,9 +250,9 @@
 }
 
 .submit {
-    margin-left: 45px;
-    margin-top: 10px;
-    max-width: 40px;
+    /* margin-left: 45px; */
+    /* margin-top: 10px; */
+    /* max-width: 40px; */
   }
   
   .google-btn {
@@ -241,8 +265,8 @@
     box-sizing: border-box;
     display: flex;
     position: absolute;
-    width: 75%;
-    margin-left: 10vw;
+    width: 65%;
+    margin-left: 17vw;
     z-index: 1;
     background: #ffffff;
     border-radius: 10px;
@@ -273,7 +297,7 @@
     border: none;
     width: 200px;
     height: 60px;
-    margin-left: 250px;
+    margin-left: 28vw;
     margin-top: 30px;
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -361,7 +385,7 @@
   }
   .dish-table {
     width: 50vw;
-    margin-left: -1vw;
+    /* margin-left: -1vw; */
   }
   .coffee-shop {
     font-weight: bolder;
@@ -393,33 +417,49 @@
       max-width: 768px;
     }
     .coffee-icon {
-      margin-left: -50%;
+      /* margin-left: -50%; */
+    }
+    .login{
+      margin-left: 20vw;
     }
     .register-form{
-      margin-left: -40%;
+      /* margin-left: -40%; */
     }
     .email-input {
       width: 45vw;
     }
     .label-input{
-      margin-left: 15%;
+      /* margin-left: 15%; */
     }
     .signup  {
-      margin-left: 35%;
-      
 
     }
+    .icon-eye{
+      margin-top: 2.5vw;
+      margin-left: -4vw;
+    }
+    .email-label{
+      margin-left: -34vw;
+    }
+    .phone-label{
+      margin-left: -32vw;
+    }
+    .pass-label{
+      margin-left: -36vw;
+    }
+
     .member-card {
-      margin-top: -45%;
-      margin-left: 8%;
+      /* margin-top: -45%; */
+      /* margin-left: 8%; */
       max-width: 80vw;
       max-height: 14vh;
     }
     .createnow {
       margin-left: -25%;
+      width: fit-content;
     }
     .main-reg{
-      height: 80vh;
+      height: 100vh;
     }
     .submit-input, .oauth {
       width: 45vw;

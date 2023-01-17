@@ -26,8 +26,8 @@ const Header = ({ onChange }) => {
 
   return (
     <Fragment>
-      <main className={styles["main-main"]}>
-        <main className={styles["main-header"]}>
+      {/* <main className={styles["main-main"]}> */}
+        {/* <main className={styles["main-header"]}> */}
           <header className={styles["header-prod"]}>
             <aside className={styles["left-header"]}>
               <img src={coffee} width="30px" height="30px" alt="coffee-icon" />
@@ -70,8 +70,8 @@ const Header = ({ onChange }) => {
               </Link>
             </aside>
           </header>
-        </main>
-      </main>
+        {/* </main> */}
+      {/* </main> */}
     </Fragment>
   );
 };

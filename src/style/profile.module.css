@@ -5,6 +5,8 @@ body.active-modal {
 .body-head {
   background-color: #bcbaba;
   background-image: url("https://res.cloudinary.com/dwxujoxc7/image/upload/v1672234888/project2/coffeebeanscropped_b9u134.jpg");
+  max-width: 1440px;
+  margin: auto;
 }
 
 .body-profile {
@@ -163,7 +165,7 @@ body.active-modal {
   margin-top: 70px;
   margin-left: 50px;
   padding-bottom: 1.8vw;
-  height: fit-content;
+  /* height: fit-content; */
   background-color: rgb(255, 255, 255);
   width: 40%;
   -webkit-border-radius: 8px;
@@ -226,7 +228,7 @@ label[for="numphone"],
 }
 
 .emailprofile {
-  margin-top: -20%;
+  margin-top: -15%;
   /* background-color: #4f5665; */
   font-family: "Rubik";
   font-style: normal;
@@ -331,6 +333,10 @@ h2 {
   font-weight: 500;
   font-size: 15px;
   color: #9f9f9f;
+  /* margin-top: -3vw; */
+}
+.form-2-wrap{
+  margin-top: -2vw;
 }
 .form-3 {
   /* background-color: #8091b6; */
@@ -464,7 +470,7 @@ p:before {
   border-radius: 8px;
   border-style: solid;
   margin-top: 70px;
-  margin-left: -25px;
+  margin-left: -89px;
   /* width: 550px; */
   /* height: 380px; */
   background-color: rgb(255, 255, 255);

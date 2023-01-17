@@ -1,9 +1,9 @@
 .header-prod {
-    display: flex;
-    background-color: rgb(255, 255, 255);
-    height: 100px;
-    max-width: 1440px;
-    margin: auto;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  height: 100px;
+  max-width: 1440px;
+  margin: auto;
   }
   
   .left-header {
@@ -40,7 +40,7 @@
   }
 
   .center-header {
-    flex: 1;
+    flex: 2;
     background-color: rgb(255, 255, 255);
     display: flex;
     font-family: "Rubik";
@@ -52,6 +52,7 @@
     align-items: center;
     justify-content: center;
     margin-top: -2%;
+    text-align: center;
   }
 
   .main-main{

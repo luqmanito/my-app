@@ -117,13 +117,8 @@ const Register = ({ navigate }) => {
   return (
     <Fragment>
       <main className={`container ${styles["main-reg"]}`}>
-        <aside className={styles["side-content"]}>
-          <img
-            className={` ${styles["dish-table"]}`}
-            src={dish}
-            alt="dish-table"
-            width="682"
-          />
+      <aside className={styles["side-content"]}>
+          <img className={`container ${styles["side-img"]}`} src={dish} />
         </aside>
 
         <aside className={styles["right-side"]}>
@@ -172,8 +167,7 @@ const Register = ({ navigate }) => {
                 <p className={styles["errormail"]}>{formErrors.email}</p>
                 <br />
 
-                <label className={styles["email-label"]} htmlFor="pass">
-                  Password:
+                <label className={styles["pass-label"]} htmlFor="pass">Password:
                 </label>
                 <br />
                 <input
@@ -192,7 +186,7 @@ const Register = ({ navigate }) => {
                 />
                 <p className={styles["errorpw"]}>{formErrors.password}</p>
                 <br />
-                <label className={styles["email-label"]} htmlFor="num">
+                <label className={styles["phone-label"]} htmlFor="num">
                   Phone Number:
                 </label>
                 <br />
@@ -206,7 +200,7 @@ const Register = ({ navigate }) => {
                 />
                 <p className={styles["errorpw"]}>{formErrors.phone}</p>
                 <br />
-                <div className={styles["submit"]}>
+                {/* <div className={styles["submit"]}> */}
                   <input
                     className={
                       isPending
@@ -217,7 +211,7 @@ const Register = ({ navigate }) => {
                     value={isPending ? "Loading.." : "Signup"}
                     disabled={isPending ? true : false}
                   />
-                </div>
+                {/* </div> */}
                 <button className={styles["oauth"]}>
                   <img
                     className={styles["g-pic"]}
@@ -226,6 +220,7 @@ const Register = ({ navigate }) => {
                   />
                   Sign up with Google
                 </button>
+               
                 <ToastContainer />
               </form>
             </section>
