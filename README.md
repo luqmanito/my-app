@@ -1,5 +1,5 @@
 
-![Logo](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674097316/project2/hayas_fmnqdc.png)
+![Logo](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674098385/project2/center.-removebg-preview_dxnbc2.png)
 
 
 # Haya Coffee Shop
