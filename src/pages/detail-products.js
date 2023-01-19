@@ -60,7 +60,12 @@ const DetailsProducts = ({ navigate }) => {
       console.log(error);
     }
   };
-
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
   const onHandlePlus = () => {
     const add = counter + 1;
     setCounter(add);
@@ -189,7 +194,7 @@ const DetailsProducts = ({ navigate }) => {
                   alt=""
                 />
                 <p className={`${styles["coldbrew"]}`}>{detail.name}</p>
-                <p className={`${styles["idr30"]}`}>{`IDR ${price}`}</p>
+                <p className={`${styles["idr30"]}`}>{rupiah(price)}</p>
                 <button
                   onClick={() => {
                     addToCart();

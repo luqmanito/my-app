@@ -341,7 +341,7 @@ const Products = (props) => {
                                 return (
                                   <ProductCard
                                     name={product.name}
-                                    price={"IDR " + product.price}
+                                    price={product.price}
                                     image={product.image}
                                     dataId={product.id}
                                     key={product.id}
