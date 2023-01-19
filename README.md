@@ -1,70 +1,103 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674097316/project2/hayas_fmnqdc.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+# Haya Coffee Shop
 
-### `npm start`
+Haya Coffee shop is A CRUD site for buying and selling coffee and food. There is a user feature as a buyer and an admin as a seller. Simply users can register and then log in with the account that succesfully created. After logging in user can choose food and drinks, put items in the basket and do checkout. Apart from the buying and selling feature, there are other features, such as the user profile feature and the product order history feature. For admin side features, he can add new items, edit prices, and add promos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+PUBLIC USER
+- Register
+- Login
+- Search Products
+- Products Detail
+- Edit Profile
+- Payment or Checkout
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ADMIN
+- Create Product
+- Edit Product
+- Create Promo
+- Dashboard Admin
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone this repository by running the following command :
 
-### `npm run eject`
+```bash
+git clone https://github.com/luqmanito/my-app.git
+```
+Install dependency packages by run the following code inside project folder :
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
+get into the main app directory folder :
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+cd my-app
+```
+Run the app in development mode after server/backend is running. with a command like the following :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
+Open http://localhost:3000 in your browser after project running.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The page will reload when you make changes.
+    
+## Environment Variables
 
-## Learn More
+To run this project, you will need to add the following environment variables to your .env file
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`REACT_APP_DEPLOY_KEY = https://backend-haya-coffee.vercel.app/` 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`REACT_APP_SECRET_KEY = bolgeo`
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+View deployment of this repo here :
 
-### Making a Progressive Web App
+```bash
+https://haya-coffee-frontend.vercel.app/
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Client:** React, Redux, Bootstrap, Javascript
 
-### Deployment
+**Server:** PostgreSQL, Node, Express
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![App Screenshot](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674097752/project2/co3_wwfyvo.jpg)
+
+![App Screenshot](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674097752/project2/co1_t6d0vl.jpg)
+
+![App Screenshot](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674097752/project2/col2_vyivyp.jpg)
+
+![App Screenshot](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674097752/project2/col4_yb72ij.jpg)
+
+
+
+
+## Related
+
+Here are some related projects
+
+[Backend Repositories](https://github.com/luqmanito/Project-1-Restful-API-Mockup-Haya-Coffee)
+
+
+## Feedback
+
+If you have any feedback, please reach out me at luqmangrahito@gmail.com
+
