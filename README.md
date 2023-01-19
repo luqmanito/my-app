@@ -83,7 +83,7 @@ https://haya-coffee-frontend.vercel.app/
 
 ![App Screenshot](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674097752/project2/co1_t6d0vl.jpg)
 
-![App Screenshot](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674097752/project2/col2_vyivyp.jpg)
+![App Screenshot](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674099009/project2/col2_yaa9o1.jpg)
 
 ![App Screenshot](https://res.cloudinary.com/dwxujoxc7/image/upload/v1674097752/project2/col4_yb72ij.jpg)
 
