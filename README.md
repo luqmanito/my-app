@@ -70,6 +70,20 @@ https://haya-coffee-frontend.vercel.app/
 ```
 
 
+## Usage/Examples
+
+```javascript
+For public user account you can create your own free account and then login.
+Don't forget to activate it by checking your email first.
+
+For Admin account, you can use this account to login :
+Email Adress: admin@mail.com
+password : admin@123
+
+After login you can go to endpoint /admin to go admin dashboard page
+```
+
+
 ## Tech Stack
 
 **Client:** React, Redux, Bootstrap, Javascript
@@ -100,4 +114,9 @@ Here are some related projects
 ## Feedback
 
 If you have any feedback, please reach out me at luqmangrahito@gmail.com
+
+
+## Authors
+
+- [@luqmanito](https://www.github.com/luqmanito)
 
