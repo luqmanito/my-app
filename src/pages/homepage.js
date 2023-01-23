@@ -35,6 +35,12 @@ import { Link } from "react-router-dom";
 
 const Homepage = () => {
   useDocumentTitle("Homepage");
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
   return (
     <Fragment>
       {/* <main className={`container-fluid ${styles["body-home"]}`}> */}
@@ -143,7 +149,7 @@ const Homepage = () => {
                     alt=""
                     className={styles["checkmarks"]}
                   />
-                  Free member card with a minimum purchase of IDR 200.000.
+                  {`Free member card with a minimum purchase of ${rupiah(200000)}`}
                 </p>
               </section>
             </div>
@@ -205,7 +211,7 @@ const Homepage = () => {
                       Sliced Banana on Top
                     </p>
                   </div>
-                  <p className={styles["price25"]}>IDR 25.000</p>
+                  <p className={styles["price25"]}>{rupiah(25000)}</p>
                   <button type="button" className="btn btn-outline-warning">
                     Order Now
                   </button>
@@ -262,7 +268,7 @@ const Homepage = () => {
                       Sliced strawberry on Top
                     </p>
                   </div>
-                  <p className={styles["price30"]}>IDR 30.000</p>
+                  <p className={styles["price30"]}>{rupiah(30000)}</p>
                   <button type="button" className="btn btn-outline-warning">
                     Order Now
                   </button>
@@ -327,7 +333,7 @@ const Homepage = () => {
                       Buy 1 Get 1 only for Dine in
                     </p>
                   </div>
-                  <p className={styles["price40"]}>IDR 40.000</p>
+                  <p className={styles["price40"]}>{rupiah(40000)}</p>
                   <button type="button" className="btn btn-outline-warning">
                     Order Now
                   </button>

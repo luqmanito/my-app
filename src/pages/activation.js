@@ -11,10 +11,7 @@ export const Activate = ({ navigate }) => {
   const [isActivated, setIsActivated] = useState(false);
   const { id } = useParams();
   let _secretKey = process.env.REACT_APP_SECRET_KEY;
-  // let _secretKey = 'bolgeo';
   let decryptSlash = id.replace("ito", "/");
-  // console.log(decryptSlash);
-  console.log(_secretKey);
 
   let bytes = CryptoJS.AES.decrypt(decryptSlash, `${_secretKey}`);
   let originalText = bytes.toString(CryptoJS.enc.Utf8);
