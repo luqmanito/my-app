@@ -862,6 +862,7 @@ h5 {
   box-shadow: -1px 3px 25px -12px rgba(140, 148, 107, 0.75);
   -webkit-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+  border: none;
 }
 
 

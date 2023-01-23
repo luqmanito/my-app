@@ -409,59 +409,18 @@
     font-weight: bold;
   }
   
-  @media screen and (max-width: 768px) {
-    .dish-table {
-      display: none;
-    }
-    .body-reg {
-      max-width: 768px;
-    }
-    .coffee-icon {
-      /* margin-left: -50%; */
-    }
-    .login{
-      margin-left: 20vw;
-    }
-    .register-form{
-      /* margin-left: -40%; */
-    }
-    .email-input {
-      width: 45vw;
-    }
-    .label-input{
-      /* margin-left: 15%; */
-    }
-    .signup  {
+  @media only screen and (max-width: 1280px) {
+    .email-label {
+      margin-left: -25.3rem;
 
     }
-    .icon-eye{
-      margin-top: 2.5vw;
-      margin-left: -4vw;
+    .pass-label {
+      margin-left: -26.5rem;
     }
-    .email-label{
-      margin-left: -34vw;
+    .phone-label {
+      margin-left: -24.5rem;
     }
-    .phone-label{
-      margin-left: -32vw;
+    .createnow{
+      margin-left: 8rem;
     }
-    .pass-label{
-      margin-left: -36vw;
-    }
-
-    .member-card {
-      /* margin-top: -45%; */
-      /* margin-left: 8%; */
-      max-width: 80vw;
-      max-height: 14vh;
-    }
-    .createnow {
-      margin-left: -25%;
-      width: fit-content;
-    }
-    .main-reg{
-      height: 100vh;
-    }
-    .submit-input, .oauth {
-      width: 45vw;
   }
-}

@@ -425,71 +425,18 @@ img {
   color: red;
 }
 
-@media screen and (max-width: 768px) {
-  /* .side-img {
-    display: none;
-  } */
+@media only screen and (max-width: 1280px) {
   .label-email {
-    margin-left: -34vw;
+    margin-left: -25.3rem;
+    /* background-color: #4f5665; */
   }
   .label-pass {
-    margin-left: -36vw;
+    margin-left: -26.5rem;
   }
-  .login{
-    margin-left: 20vw;
+  .forgotpw{
+    margin-left: -23.5rem;
   }
-  .about-coffe {
-    margin-top: 90%;
-  }
-  .register-form {
-    /* margin-top: 60%; */
-    /* background-color: #4f5665; */
-    /* margin-left: -45%; */
-  }
-  .input-text {
-    width: 45vw;
-    margin-top: 3%;
-  }
-  .input-submit {
-    width: 45vw;
-    /* margin-top: -10%; */
-  }
-  .oauth {
-    width: 45vw;
-    /* margin-top: -10%; */
-  }
-  .signin {
-    margin-top: -5%;
-    /* margin-left: 18%; */
-  }
-  .member-card {
-    width: 80vw;
-    height: 13vh;
-    /* margin-left: -7%; */
-    /* margin-top: -28%; */
-  }
-  .login-sec {
-    height: 85vh;
-  }
-  .createnow {
-    margin-left: -25%;
-    width: fit-content;
-    /* margin-top: -2%; */
-  }
-  .coffee-icon {
-    /* margin-top: 10%; */
-    /* background-color: #0b132a; */
-    /* margin-left: -45%; */
-  }
-  .side-content {
-    /* background-color: #0b132a; */
-    height: 10vh;
-  }
-  .forgotpw {
-    margin-top: 5%;
-  }
-  .icon-eye{
-    margin-top: 3.5vw;
-    margin-left: -4vw;
+  .createnow{
+    margin-left: 8rem;
   }
 }
