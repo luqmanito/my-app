@@ -461,3 +461,59 @@ img {
     margin-left: 8rem;
   }
 }
+
+@media only screen and (max-width: 375px) {
+  .side-img {
+    display: none;
+  }
+  .login {
+    margin-left: 8rem;
+  }
+  .side-content {
+    display: none;
+  }
+  .label-email {
+    margin-left: 0
+  }
+  .label-pass {
+    margin-left: 0
+  }
+  .forgotpw {
+    margin-left: 0
+  }
+  .createnow {
+    margin-left: -7rem;
+    height: fit-content;
+    width: fit-content;
+  }
+  .member-desc{
+    width: fit-content;
+  }
+  .getmember{
+
+    font-size: 1.3rem;
+    margin-left: 1rem;
+
+  }
+  .member-desc{
+    width: 100%;
+  }
+  .member-card{
+    width: 90%;
+    height: fit-content;
+    margin-left: 1.2rem;
+    margin-top: 2rem;
+  }
+  .coffee-icon{
+    margin-left: 0rem;
+  }
+  .icon-eye{
+    margin-top: 1.5rem;
+    margin-left: -2rem;
+  }
+  .letsjoin{
+    width: fit-content;
+    font-size: small;
+    margin-left: 1rem;
+  }
+}
