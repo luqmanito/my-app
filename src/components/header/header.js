@@ -63,7 +63,7 @@ const Header = ({ onChange }) => {
               <img src={msg} alt="msg" className={styles["msg-icon"]} />
               <Link to="/profile" className={`${styles["beard"]}`}>
                 <img
-                  src={image}
+                  src={image ? image :beard}
                   alt="beard"
                   className={styles["icon-profile-img"]}
                 />
