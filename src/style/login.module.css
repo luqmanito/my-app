@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;800&display=swap');
 
+
+
+
 .body-bg {
   background-color: #bcbaba;
   /* max-width: 1440px; */
@@ -423,6 +426,24 @@ img {
   text-align: center;
   font-weight: bold;
   color: red;
+}
+
+@media only screen and (max-width: 1512px) {
+  .label-email {
+    margin-left: -27.7rem;
+  }
+  .login{
+    margin-left: 32rem;
+  }
+  .label-pass {
+    margin-left: -28.7rem
+  }
+  .forgotpw{
+    margin-left: -25.5rem;
+  }
+  .createnow{
+    margin-left: 18rem;
+  }
 }
 
 @media only screen and (max-width: 1280px) {

@@ -1,41 +1,38 @@
+.body-reg {
+  background: #bcbaba;
 
-  
-  .body-reg {
-    background: #BCBABA;
+  position: relative;
+  margin: auto;
+}
+.icon-eye {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  margin-left: -2.5%;
+  margin-top: 2%;
+}
+.main-reg {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  max-width: 1440px;
+  position: relative;
+}
+.side-img {
+  width: 45vw;
+  margin-left: -1.2vw;
+}
+.side-content {
+  flex: 1;
+}
+.right-side {
+  flex: 2;
+  width: 15vw;
+}
+.register-form {
+  text-align: center;
+}
 
-    position: relative;
-    margin: auto;
-  }
-  .icon-eye {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    margin-left: -2.5%;
-    margin-top: 2%;
-  }
-  .main-reg {
-    display: flex;
-    background-color: rgb(255, 255, 255);
-    max-width: 1440px;
-    position: relative;
-  }
-  .side-img{
-    width: 45vw;
-    margin-left: -1.2vw;
-  }
-  .side-content {
-    flex: 1;
-  }
-  .right-side{
-    flex: 2;
-    width: 15vw;
-    
-  }
-  .register-form{
-    text-align: center;
-  }
-
-  .errorpw,
+.errorpw,
 .errormail {
   margin-top: -3%;
   color: red;
@@ -51,68 +48,67 @@
   font-weight: bold;
   color: red;
 }
-  
-  .coffee-icon {
-    margin-left: 5%;
-    margin-top: 5%;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 24px;
-    color: #0b132a;
-  }
-  
-  .login {
-    margin-left: 340px;
-    width: 100px;
-    position: absolute;
-    border: none;
-    border-radius: 16px;
-    -webkit-border-radius: 16px;
-    -moz-border-radius: 16px;
-    -ms-border-radius: 16px;
-    -o-border-radius: 16px;
-    background-color: #ffba33;
-    color: #6a4029;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 25px;
-    box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-  }
-  
-  .signup {
-    /* margin-left: 21.5vw; */
-    font-family: "Rubik";
-    font-style: small;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 41px;
-    color: #6a4029;
-  
-    color: #6a4029;
-  }
-  
-  .label-input {
-    /* margin-left: 150px; */
-  }
-  
 
-  .email-input {
-    width: 71%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* label[for="email"],
+.coffee-icon {
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  color: #0b132a;
+}
+
+.login {
+  margin-left: 340px;
+  width: 100px;
+  position: absolute;
+  border: none;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  background-color: #ffba33;
+  color: #6a4029;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 25px;
+  box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+}
+
+.signup {
+  /* margin-left: 21.5vw; */
+  font-family: "Rubik";
+  font-style: small;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 41px;
+  color: #6a4029;
+
+  color: #6a4029;
+}
+
+.label-input {
+  /* margin-left: 150px; */
+}
+
+.email-input {
+  width: 71%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* label[for="email"],
   [for="pass"],
   [for="num"],
   select {
@@ -126,34 +122,33 @@
 
 .email-label {
   font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 24px;
-    color: #4f5665;
-    margin-left: -16.8vw;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 24px;
+  color: #4f5665;
+  margin-left: -16.8vw;
 }
 .pass-label {
   font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 24px;
-    color: #4f5665;
-    margin-left: -17.6vw;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 24px;
+  color: #4f5665;
+  margin-left: -17.6vw;
 }
 .phone-label {
   font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 24px;
-    color: #4f5665;
-    margin-left: -16vw;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 24px;
+  color: #4f5665;
+  margin-left: -16vw;
 }
 
-  
-  /* input[type="submit"],
+/* input[type="submit"],
   select {
     width: 466px;
     height: 45px;
@@ -176,251 +171,297 @@
     -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
   } */
 
-  .submit-input {
-    width: 71%;
-    height: 45px;
-    /* margin-left:-115%; */
-    /* margin-top: 58%; */
-    border: none;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
-    background-color: #ffba33;
-    color: #6a4029;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 25px;
-    box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-  }
-  .submit-loading {
-    width: 71%;
-    height: 45px;
-    /* margin-left:-115%; */
-    /* margin-top: 58%; */
-    border: none;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
-    background-color: #898989;
-    color: #000000;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 25px;
-    box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-  }
-  .oauth {
-    width: 71%;
-    margin-left:-100%;
-    height: 45px;
-    margin: auto;
-    border: none;
-    margin-top: 25px;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
-    background-color: #ffffff;
-    color: #000000;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 25px;
-    box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
-  }
-  
+.submit-input {
+  width: 71%;
+  height: 45px;
+  /* margin-left:-115%; */
+  /* margin-top: 58%; */
+  border: none;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  background-color: #ffba33;
+  color: #6a4029;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 25px;
+  box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+}
+.submit-loading {
+  width: 71%;
+  height: 45px;
+  /* margin-left:-115%; */
+  /* margin-top: 58%; */
+  border: none;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  background-color: #898989;
+  color: #000000;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 25px;
+  box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+}
+.oauth {
+  width: 71%;
+  margin-left: -100%;
+  height: 45px;
+  margin: auto;
+  border: none;
+  margin-top: 25px;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 25px;
+  box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+}
+
 .g-pic {
-  width:20px;
-  height:auto
+  width: 20px;
+  height: auto;
 }
 
 .submit {
-    /* margin-left: 45px; */
-    /* margin-top: 10px; */
-    /* max-width: 40px; */
-  }
-  
-  .google-btn {
-    margin-left: 160px;
-  }
-  
-  
-  
-  .member-card {
-    box-sizing: border-box;
-    display: flex;
-    position: absolute;
-    width: 65%;
-    margin-left: 17vw;
-    z-index: 1;
-    background: #ffffff;
-    border-radius: 10px;
-    margin-top: -70px;
-    box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-  }
-  
-  .member-desc {
-    padding: 1%;
-    margin-top: 1%;
-  }
-  
-  .getmember {
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 200;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    margin-left: 30px;
-  }
-  
-  .createnow {
-    border: none;
-    width: 200px;
-    height: 60px;
-    margin-left: 28vw;
-    margin-top: 30px;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    background-color: #ffba33;
-    color: #6a4029;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 25px;
-    box-shadow: -1px 3px 25px -12px rgba(140, 148, 107, 0.75);
-    -webkit-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-  }
-  
-  .letsjoin {
-    width: 410px;
-    height: 16px;
-    left: 220px;
-    margin-top: 4%;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 30px;
-    margin-left: 30px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .footer-reg {
-    background-color: #f8f8f8;
-    display: flex;
-    margin-top: 0px;
-  }
-  
-  #desc {
-      margin-top: 40px;
-      margin-left: 45px;
-  }
-  
-  .about-coffe {
-    /* display: flex; */
-    flex-direction: column;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 30px;
-    color: #4f5665;
-    padding-left: 100px;
-    padding-top: 50px;
-  }
-  
-  .socmed {
-    margin-left: -5px;
-  }
-  
-  .product-info {
-    display: flex;
-    flex-direction: column;
-    margin-left: 575px;
-    margin-top: 80px;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    color: #4f5665;
-  }
-  .engagement {
-    display: flex;
-    margin-left: 80px;
-    margin-top: 80px;
-    flex-direction: column;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    /* line-height: 30px; */
-  
-    color: #4f5665;
-  }
-  .dish-table {
-    width: 50vw;
-    /* margin-left: -1vw; */
-  }
-  .coffee-shop {
-    font-weight: bolder;
-    font-size: 17px;
-  }
-  
-  .coffee-desc {
-    font-size: 13px;
-  }
-  
-  .socmed-url {
-    color: #afb5c0;
-    font-size: small;
-  }
-  
-  .product {
-    font-weight: bold;
-  }
-  
-  .engage {
-    font-weight: bold;
-  }
-  
-  @media only screen and (max-width: 1280px) {
-    .email-label {
-      margin-left: -25.3rem;
+  /* margin-left: 45px; */
+  /* margin-top: 10px; */
+  /* max-width: 40px; */
+}
 
-    }
-    .pass-label {
-      margin-left: -26.5rem;
-    }
-    .phone-label {
-      margin-left: -24.5rem;
-    }
-    .createnow{
-      margin-left: 8rem;
-    }
+.google-btn {
+  margin-left: 160px;
+}
+
+.member-card {
+  box-sizing: border-box;
+  display: flex;
+  position: absolute;
+  width: 65%;
+  margin-left: 17vw;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 10px;
+  margin-top: -70px;
+  box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+}
+
+.member-desc {
+  padding: 1%;
+  margin-top: 1%;
+}
+
+.getmember {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 200;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.createnow {
+  border: none;
+  width: 200px;
+  height: 60px;
+  margin-left: 28vw;
+  margin-top: 30px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  background-color: #ffba33;
+  color: #6a4029;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 25px;
+  box-shadow: -1px 3px 25px -12px rgba(140, 148, 107, 0.75);
+  -webkit-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+}
+
+.letsjoin {
+  width: 410px;
+  height: 16px;
+  left: 220px;
+  margin-top: 4%;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-reg {
+  background-color: #f8f8f8;
+  display: flex;
+  margin-top: 0px;
+}
+
+#desc {
+  margin-top: 40px;
+  margin-left: 45px;
+}
+
+.about-coffe {
+  /* display: flex; */
+  flex-direction: column;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 30px;
+  color: #4f5665;
+  padding-left: 100px;
+  padding-top: 50px;
+}
+
+.socmed {
+  margin-left: -5px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 575px;
+  margin-top: 80px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #4f5665;
+}
+.engagement {
+  display: flex;
+  margin-left: 80px;
+  margin-top: 80px;
+  flex-direction: column;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  /* line-height: 30px; */
+
+  color: #4f5665;
+}
+.dish-table {
+  width: 50vw;
+  /* margin-left: -1vw; */
+}
+.coffee-shop {
+  font-weight: bolder;
+  font-size: 17px;
+}
+
+.coffee-desc {
+  font-size: 13px;
+}
+
+.socmed-url {
+  color: #afb5c0;
+  font-size: small;
+}
+
+.product {
+  font-weight: bold;
+}
+
+.engage {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1512px) {
+  .email-label {
+    margin-left: -27.7rem;
   }
+  .login {
+    margin-left: 32rem;
+  }
+  .pass-label {
+    margin-left: -28.7rem;
+  }
+  .phone-label {
+    margin-left: -26.7rem;
+  }
+  .createnow {
+    margin-left: 18rem;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .email-label {
+    margin-left: -25.3rem;
+  }
+  .pass-label {
+    margin-left: -26.5rem;
+  }
+  .phone-label {
+    margin-left: -24.5rem;
+  }
+  .createnow {
+    margin-left: 8rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .side-img {
+    display: none;
+  }
+  .login {
+    margin-left: 0;
+  }
+  .side-content {
+    display: none;
+  }
+  .email-label {
+    margin-left: 0
+  }
+  .pass-label {
+    margin-left: 0
+  }
+  .phone-label {
+    margin-left: 0
+  }
+  .createnow {
+    margin-left: 0;
+  }
+  .member-desc{
+    width: fit-content;
+    background-color: #4f5665;
+  }
+  .member-card{
+    margin: 0;
+  }
+}
