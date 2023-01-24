@@ -9,7 +9,6 @@ import beard from "../../assets/images/beard-man-icon.jpg";
 const HeaderLogin = () => {
   return (
     <Fragment>
-      {/* <main className={styles["body-home"]}> */}
       <header className={styles["header-home"]}>
         <aside className={`${styles["left-header"]}`}>
           <img
@@ -27,17 +26,12 @@ const HeaderLogin = () => {
           <Link to="/products/all" className={`${styles["link"]}`}>
             <p className={`${styles["product"]}`}>Product</p>
           </Link>
-
-          {/* <Link to="/payment" className={`${styles["link"]}`}> */}
           <p className={`${styles["cart"]}`}>Your Cart</p>
-          {/* </Link> */}
-          {/* <Link to="/history" className={`${styles["link"]}`}> */}
           <p className={`${styles["history"]}`}>History</p>
-          {/* </Link> */}
         </aside>
         <aside className={`${styles["right-header"]}`}>
           <Link to="/login" className={`${styles["login"]}`}>
-            <p>Login</p>
+            <p className={`${styles["p-login"]}`}>Login</p>
           </Link>
 
           <Link to="/register">
@@ -50,7 +44,6 @@ const HeaderLogin = () => {
           </Link>
         </aside>
       </header>
-      {/* </main> */}
     </Fragment>
   );
 };

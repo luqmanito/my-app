@@ -109,13 +109,13 @@ img {
 
 @media only screen and (max-width: 375px) {
   .about-coffe{
-    margin-top: 10rem;
+    margin-top: 5rem;
   }
   .product-info{
-    margin-top: 10rem;
+    margin-top: 5rem;
   }
   .engagement{
-    margin-top: 10rem;
+    margin-top: 5rem;
   }
   .desc{
     margin-left: 0;

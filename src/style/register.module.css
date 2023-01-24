@@ -438,6 +438,9 @@
 }
 
 @media only screen and (max-width: 375px) {
+  .oauth{
+    margin-bottom: 7rem;
+  }
   .side-img {
     display: none;
   }
@@ -478,7 +481,7 @@
     width: 90%;
     height: fit-content;
     margin-left: 1.2rem;
-    margin-top: 2rem;
+    margin-top: -15vw;
   }
   .coffee-icon{
     margin-left: 0rem;
