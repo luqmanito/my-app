@@ -217,12 +217,11 @@ const Products = (props) => {
   return (
     <Fragment>
       <NavBar onChange={debounceOnChange} />
-      {/* <main className={`container-fluid ${styles["main-body"]}`}> */}
         <section
           className={`container-fluid text-dark ${styles["sec-product"]}`}
         >
           <div className={`row align-items-center ${styles["sub-product"]}`}>
-            <section className={`col-4 border w-25 ${styles["box-side"]}`}>
+            <section className={`col-sm-4 border w-25 ${styles["box-side"]}`}>
               <h1 className={`text-center ${styles["promoforyou"]}`}>
                 Promo for you
               </h1>
@@ -232,7 +231,7 @@ const Products = (props) => {
                 Check them out!
               </p>
               <PromoCard />
-              <div className="text-center d-grid gap-2 col-9 mx-auto">
+              <div className="text-center d-grid gap-2 col-sm-9 mx-auto">
                 <button
                   type="button"
                   className={`btn btn-primary btn-lg ${styles["button-product"]}`}
@@ -254,7 +253,7 @@ const Products = (props) => {
             </section>
 
             <section
-              className={`col-8 border w-75 row align-items-start ${styles["main-side"]}`}
+              className={`col-sm-8 border w-75 row align-items-start ${styles["main-side"]}`}
             >
               <div className={`container ${styles["filter-side"]}`}>
                 <aside
@@ -417,7 +416,6 @@ const Products = (props) => {
           </div>
         </section>
         <Footer />
-      {/* </main> */}
     </Fragment>
   );
 };

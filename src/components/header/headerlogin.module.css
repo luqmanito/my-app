@@ -64,16 +64,22 @@ a {
 
 }
 .login {
-  /* margin-top: -1rem; */
   margin-bottom: 1rem;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-  /* identical to box height */
-
   color: #0b132a;
+}
+.login:hover {
+  margin-bottom: 1rem;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #6a4029;
 }
 .right-header {
   display: flex;
@@ -121,6 +127,16 @@ a {
   flex: 1;
   font-family: "Rubik";
   font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #4f5665;
+}
+
+.home:hover {
+  flex: 1;
+  font-family: "Rubik";
+  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
@@ -131,27 +147,37 @@ a {
   flex: 1;
   font-family: "Rubik";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   color: #4f5665;
+}
+.product:hover {
+  flex: 1;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #6a4029;
 }
 
 .cart {
   flex: 1;
   font-family: "Rubik";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   color: #4f5665;
 }
 
+
 .history {
   flex: 1;
   font-family: "Rubik";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   color: #4f5665;
@@ -281,7 +307,6 @@ img {
 
 .button-sign-up {
   margin-left: 50%;
-  /* margin-top: 10%; */
   background-color: #ffba33;
   border-color: #ffba33;
   color: #6a4029;
@@ -291,9 +316,20 @@ img {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-  /* identical to box height */
-
   color: #6a4029;
+}
+
+.button-sign-up:hover {
+  margin-left: 50%;
+  background-color: #6a4029;
+  border-color: #6a4029;
+  color: #ffffff;
+  width: 10vh;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
 }
 
 .people-icon {

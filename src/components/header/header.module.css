@@ -129,6 +129,15 @@
   flex: 1;
   font-family: "Rubik";
   font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #4f5665;
+}
+.home:hover {
+  flex: 1;
+  font-family: "Rubik";
+  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
@@ -139,31 +148,62 @@
   flex: 1;
   font-family: "Rubik";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   color: #4f5665;
+}
+
+.product:hover {
+  flex: 1;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #6a4029;
 }
 
 .cart {
   flex: 1;
   font-family: "Rubik";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   color: #4f5665;
 }
 
-.history {
+.cart:hover {
   flex: 1;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
+  color: #6a4029;
+}
+
+.history {
+  flex: 1;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
   color: #4f5665;
 }
+
+.history:hover {
+  flex: 1;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #6a4029;
+}
+
 @media screen and (max-width: 768px) {
   .main-header {
     max-width: 768px;

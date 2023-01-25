@@ -12,10 +12,6 @@
   margin-left: -1.2vw;
 }
 
-/* .body-login {
-  max-width: 1440px;
-  margin: auto;
-} */
 
 .login {
   margin-left: 340px;
@@ -23,20 +19,30 @@
   position: absolute;
   border: none;
   border-radius: 16px;
-  -webkit-border-radius: 16px;
-  -moz-border-radius: 16px;
-  -ms-border-radius: 16px;
-  -o-border-radius: 16px;
   background-color: #ffba33;
   color: #6a4029;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 14px;
   line-height: 25px;
   box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
+}
+
+.login:hover {
+  margin-left: 400px;
+  width: 100px;
+  position: absolute;
+  border: none;
+  border-radius: 16px;
+  background-color: #6a4029;
+  color: #ffffff;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 25px;
+  box-shadow: -1px 3px 25px -12px rgba(0, 0, 0, 0.75);
 }
 
 .login-sec {
@@ -166,18 +172,33 @@
   width: 71%;
   height: 45px;
   margin-left: 0%;
-  /* margin-top: 8%; */
   border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -o-border-radius: 12px;
   background-color: #ffba33;
   color: #6a4029;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 15px;
+  line-height: 25px;
+  box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
+  justify-content: center;
+  justify-items: center;
+  border: none;
+}
+
+.input-submit:hover {
+  width: 71%;
+  height: 45px;
+  margin-left: 0%;
+  border-radius: 12px;
+  background-color: #6a4029;
+  color: #ffffff;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
   line-height: 25px;
   box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -1px 3px 25px -18px rgba(0, 0, 0, 0.75);
@@ -227,7 +248,7 @@
   font-family: "Rubik";
   font-style: normal;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 15px;
   line-height: 25px;
   box-shadow: 3px 1px 19px -4px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 3px 1px 19px -4px rgba(0, 0, 0, 0.75);
@@ -459,6 +480,9 @@ img {
   }
   .createnow{
     margin-left: 8rem;
+  }
+  .login{
+    margin-left: 25rem;
   }
 }
 
