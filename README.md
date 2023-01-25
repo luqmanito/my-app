@@ -4,7 +4,7 @@
 
 # Haya Coffee Shop
 
-Welcome to our online food and drink ordering platform! We offer a convenient and easy way to order your favorite meals and beverages from the comfort of your own home. Browse through our diverse menu of delicious dishes and refreshing drinks, crafted by our experienced chefs and bartenders. From classic comfort food to exotic international cuisine, we have something to satisfy every palate. Ordering is simple and fast, just select your items and checkout. You can choose to have your order delivered to your doorstep or you can pick it up yourself at the restaurant. Don't feel like cooking or going out? Let us bring the restaurant to you! Order now and enjoy your meal in no time.
+This web application provides a simple and user-friendly interface for customers to browse menus and place orders for food and beverages from the restaurants or food establishments. The application allows for easy navigation and a seamless ordering process, making it convenient for customers to order their desired meals from any location.
 
 
 ## Features
@@ -21,7 +21,7 @@ ADMIN
 - Create Product
 - Edit Product
 - Create Promo
-- Dashboard Admin
+- Admin Dashboard
 
 
 

@@ -66,10 +66,14 @@ const Header = ({ onChange }) => {
               </li>
 
               <li className="nav-item">
-                <a className={`nav-link ${styles["cart"]}`}>Your Cart</a>
+                <Link to="/payment" className={`${styles["link"]}`}>
+                  <a className={`nav-link ${styles["cart"]}`}>Your Cart</a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className={`nav-link ${styles["history"]}`}>History</a>
+                <Link to="/history" className={`${styles["link"]}`}>
+                  <a className={`nav-link ${styles["history"]}`}>History</a>
+                </Link>
               </li>
             </ul>
             <aside className={`${styles["right-header"]}`}>

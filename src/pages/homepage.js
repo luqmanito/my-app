@@ -36,9 +36,7 @@ const Homepage = () => {
   };
   return (
     <Fragment>
-      {/* <main className={`container-fluid ${styles["body-home"]}`}> */}
       <NavBar />
-      {/* <main> */}
       <div className={`bg-image card shadow-1-strong ${styles["jumbo"]}`}>
         <div className="card-body text-white">
           <h5 className={`card-title ${styles["startday"]}`}>
@@ -70,17 +68,17 @@ const Homepage = () => {
 
       <aside className={`container border rounded-3 ${styles["middle-sec"]}`}>
         <div className="row text-center">
-          <section className={`col-4 ${styles["staff"]}`}>
+          <section className={`col-sm-4 ${styles["staff"]}`}>
             <img className={styles["people-icon"]} src={people} alt="" />
             <span className={styles["numbers"]}>90+</span>
             <p className={styles["data"]}>Staff</p>
           </section>
-          <section className={`col-4 ${styles["stores"]}`}>
+          <section className={`col-sm-4 ${styles["stores"]}`}>
             <img className={styles["people-icon"]} src={loc} alt="" />
             <span className={styles["number30"]}>30+</span>
             <p className={styles["datastore"]}>Stores</p>
           </section>
-          <section className={`col-4 ${styles["customers"]}`}>
+          <section className={`col-sm-4 ${styles["customers"]}`}>
             <img className={styles["people-icon"]} src={heart} alt="" />
             <span className={styles["number800"]}>800+</span>
             <p className={styles["datacs"]}>Customers</p>
@@ -88,51 +86,49 @@ const Homepage = () => {
         </div>
       </aside>
 
-      <aside className={`container ${styles["good-coffee"]}`}>
-        <div className="row text-center">
-          <section
-            className={`col-6 justify-content-center ${styles["teamwork"]}`}
-          >
-            <img
-              src={techpic}
-              alt=""
-              className={`img-fluid ${styles["techpic"]}`}
-            />
-          </section>
+      <div className="row text-center">
+        <section
+          className={`col-sm-6 justify-content-center ${styles["teamwork"]}`}
+        >
+          <img
+            src={techpic}
+            alt=""
+            className={`img-fluid ${styles["techpic"]}`}
+          />
+        </section>
 
-          <section className={`col-6 ${styles["quality"]}`}>
-            <p className={styles["healthy"]}>
-              We Provide Good Coffee <br />
-              and Healthy Meals
-            </p>
-            <p className={styles["todo"]}>
-              You can explore the menu that we provide with fun and <br />
-              have their own taste and make your day better.
-            </p>
+        <section className={`col-sm-6 ${styles["quality"]}`}>
+          <p className={styles["healthy"]}>
+            We Provide Good Coffee <br />
+            and Healthy Meals
+          </p>
+          <p className={styles["todo"]}>
+            You can explore the menu that we provide with fun and <br />
+            have their own taste and make your day better.
+          </p>
 
-            <p className={styles["checklist"]}>
-              <img src={checkmark} alt="" className={styles["checkmarks"]} />
-              High quality beans
-            </p>
-            <p className={styles["checklist"]}>
-              <img src={checkmark} alt="" className={styles["checkmarks"]} />
-              Healthy meals, you can request the ingredients
-            </p>
-            <p className={styles["checklist"]}>
-              <img src={checkmark} alt="" className={styles["checkmarks"]} />
-              Chat with our staff to get better experience for ordering
-            </p>
-            <p className={styles["checklist"]}>
-              <img src={checkmark} alt="" className={styles["checkmarks"]} />
-              {`Free member card with a minimum purchase of ${rupiah(200000)}`}
-            </p>
-          </section>
-        </div>
-      </aside>
+          <p className={styles["checklist"]}>
+            <img src={checkmark} alt="" className={styles["checkmarks"]} />
+            High quality beans
+          </p>
+          <p className={styles["checklist"]}>
+            <img src={checkmark} alt="" className={styles["checkmarks"]} />
+            Healthy meals, you can request the ingredients
+          </p>
+          <p className={styles["checklist"]}>
+            <img src={checkmark} alt="" className={styles["checkmarks"]} />
+            Chat with our staff to get better experience for ordering
+          </p>
+          <p className={styles["checklist"]}>
+            <img src={checkmark} alt="" className={styles["checkmarks"]} />
+            {`Free member card with a minimum purchase of ${rupiah(200000)}`}
+          </p>
+        </section>
+      </div>
 
       <aside className={`container-fluid ${styles["people-fav"]}`}>
         <div className="row text-center">
-          <section className={`col-12 ${styles["yours"]}`}>
+          <section className={`col-sm-12 ${styles["yours"]}`}>
             <p className={styles["here"]}>Here is People's Favorite</p>
             <p className={styles["choose"]}>
               Let's choose and have a bit taste of poeple's favorite. It might
@@ -144,7 +140,7 @@ const Homepage = () => {
 
       <aside className={`container-fluid ${styles["middle-third"]}`}>
         <div className={`row text-center ${styles["choice"]}`}>
-          <section className={`col-4 ${styles["prod-info"]}`}>
+          <section className={`col-sm-4 ${styles["prod-info"]}`}>
             <img src={creamy} alt="" className={`img-fluid ${styles["hzl"]}`} />
             <div className={`border ${styles["wrap"]}`}>
               <p className={styles["hazelnutsyrup"]}>Hazelnut Latte</p>
@@ -183,13 +179,16 @@ const Homepage = () => {
                 </p>
               </div>
               <p className={styles["price25"]}>{rupiah(25000)}</p>
-              <button type="button" className="btn btn-outline-warning">
+              <button
+                type="button"
+                className={`btn btn-outline-warning ${styles["btn-home"]}`}
+              >
                 Order Now
               </button>
             </div>
           </section>
 
-          <section className={`col-4 ${styles["prod-info"]}`}>
+          <section className={`col-sm-4 ${styles["prod-info"]}`}>
             <img src={pinky} alt="" className={`img-fluid ${styles["hzl"]}`} />
             <div className={`border ${styles["wrap"]}`}>
               <p className={styles["hazelnutsyrup"]}>Pinky Promise</p>
@@ -236,13 +235,16 @@ const Homepage = () => {
                 </p>
               </div>
               <p className={styles["price30"]}>{rupiah(30000)}</p>
-              <button type="button" className="btn btn-outline-warning">
+              <button
+                type="button"
+                className={`btn btn-outline-warning ${styles["btn-home"]}`}
+              >
                 Order Now
               </button>
             </div>
           </section>
 
-          <section className={`col-4 ${styles["prod-info"]}`}>
+          <section className={`col-sm-4 ${styles["prod-info"]}`}>
             <img src={creamy} alt="" className={`img-fluid ${styles["hzl"]}`} />
             <div className={`border ${styles["wrap"]}`}>
               <p className={styles["hazelnutsyrup"]}>Chicken Wings</p>
@@ -297,7 +299,10 @@ const Homepage = () => {
                 </p>
               </div>
               <p className={styles["price40"]}>{rupiah(40000)}</p>
-              <button type="button" className="btn btn-outline-warning">
+              <button
+                type="button"
+                className={`btn btn-outline-warning ${styles["btn-home"]}`}
+              >
                 Order Now
               </button>
             </div>
@@ -307,7 +312,7 @@ const Homepage = () => {
 
       <aside className={`container-fluid ${styles["visit-store"]}`}>
         <div className="row text-center">
-          <section className={`col-12" ${styles["visit-see"]}`}>
+          <section className={`col-sm-12" ${styles["visit-see"]}`}>
             <p className={styles["visit"]}>
               Visit Our Store in the <br />
               Spot on the Map Below
@@ -323,7 +328,7 @@ const Homepage = () => {
 
       <aside className={`container-fluid ${styles["worldmap"]}`}>
         <div className="row text-center">
-          <section className={`col-12 ${styles["world"]}`}>
+          <section className={`col-sm-12 ${styles["world"]}`}>
             <img className={styles["world-pic"]} src={world} alt="" />
             <p className={styles["partner"]}>Our Partner</p>
           </section>
@@ -350,14 +355,14 @@ const Homepage = () => {
 
       <aside className={`container-fluid ${styles["visit-store"]}`}>
         <div className="row text-center">
-          <section className={`col-12" ${styles["visit-see"]}`}>
+          <section className={`col-sm-12" ${styles["visit-see"]}`}>
             <p className={styles["visit"]}>
               Loved by Thousands of <br />
               Happy Customer
             </p>
             <p className={styles["see"]}>
               These are the stories of our customers who have visited us with
-              great <br />
+              great 
               pleasure.
             </p>
           </section>
@@ -370,25 +375,25 @@ const Homepage = () => {
             className={`border text-center rounded-2 left-border w-75 ${styles["rusia"]}`}
           >
             <div className="row cs2">
-              <div className="col-8">
+              <div className="col-sm-8">
                 <div className="row">
-                  <div className="col-3">
+                  <div className="col-sm-3">
                     <img className={styles["joe-pic"]} src={joebiden} alt="" />
                   </div>
-                  <div className="col-9">
+                  <div className="col-sm-9">
                     <p className={styles["putin"]}>Joe Biden</p>
                     <p className={styles["moskwa"]}>Washington, USA</p>
                   </div>
                 </div>
               </div>
-              <div className="col-4">
+              <div className="col-sm-4">
                 <span className={styles["rating2"]}>4.5</span>
                 <img src={star} alt="" className={styles["stars2"]} />
               </div>
             </div>
             <p className={styles["statement2"]}>
               “Our future cannot depend on the government alone. The ultimate
-              solutions lie in the attitudes <br />
+              solutions lie in the attitudes 
               and the actions of the American people.
             </p>
           </div>
@@ -399,24 +404,24 @@ const Homepage = () => {
             className={`border text-center rounded-2 left-border w-75 ${styles["rusia"]}`}
           >
             <div className="row cs2">
-              <div className="col-8">
+              <div className="col-sm-8">
                 <div className="row">
-                  <div className="col-3">
+                  <div className="col-sm-3">
                     <img className={styles["putin-pic"]} src={putin} alt="" />
                   </div>
-                  <div className="col-9">
+                  <div className="col-sm-9">
                     <p className={styles["putin"]}>Vladimir Putin</p>
                     <p className={styles["moskwa"]}>Moskwa, Rusia</p>
                   </div>
                 </div>
               </div>
-              <div className="col-4">
+              <div className="col-sm-4">
                 <span className={styles["rating2"]}>4.5</span>
                 <img src={star} alt="" className={styles["stars2"]} />
               </div>
             </div>
             <p className={styles["statement2"]}>
-              “Russia is a part of European culture. <br />
+              “Russia is a part of European culture. 
               Therefore, it is with difficulty that I imagine NATO as an enemy.
             </p>
           </div>
@@ -427,25 +432,25 @@ const Homepage = () => {
             className={`border text-center rounded-2 left-border w-75 ${styles["rusia"]}`}
           >
             <div className="row cs2">
-              <div className="col-8">
+              <div className="col-sm-8">
                 <div className="row">
-                  <div className="col-3">
+                  <div className="col-sm-3">
                     <img className={styles["kim-pic"]} src={kim} alt="" />
                   </div>
-                  <div className="col-9">
+                  <div className="col-sm-9">
                     <p className={styles["putin"]}>Kim Jong Un</p>
                     <p className={styles["pyongyang"]}>Pyongyang, Korea</p>
                   </div>
                 </div>
               </div>
-              <div className="col-4">
+              <div className="col-sm-4">
                 <span className={styles["rating3"]}>4.5</span>
                 <img src={star} alt="" className={styles["stars2"]} />
               </div>
             </div>
             <p className={styles["statement2"]}>
-              “When young people are powerful, our Party <br />
-              and People's Army are powerful, and there is <br />
+              “When young people are powerful, our Party 
+              and People's Army are powerful, and there is 
               nothing for us to be afraid of.
             </p>
           </div>
@@ -453,7 +458,7 @@ const Homepage = () => {
       </div>
 
       <div className={`row ${styles["navbar"]}`}>
-        <div className="col">
+        <div className={`col ${styles["dot-wrap"]}`}>
           <img src={dotdot} alt="" className={styles["dotdot"]} />
         </div>
         <div className={`col ${styles["leftright"]}`}>
